@@ -28,14 +28,14 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/50" />
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-center p-4">
           <h1 className="text-4xl md:text-6xl font-bold font-headline mb-4 tracking-tight">
-            Purely. Simply. Organically.
+            খাঁটিভাবে। সহজভাবে। জৈবভাবে।
           </h1>
           <p className="max-w-2xl text-lg md:text-xl mb-8 text-primary-foreground/90">
-            Discover the best organic food, sourced responsibly and delivered fresh to your doorstep.
+            সেরা জৈব খাবার আবিষ্কার করুন, দায়িত্বের সাথে সংগ্রহ করা এবং আপনার দোরগোড়ায় তাজা পৌঁছে দেওয়া হয়।
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
             <Link href="/products">
-              Shop Now <ArrowRight className="ml-2 h-5 w-5" />
+              এখনই কিনুন <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </div>
@@ -44,7 +44,7 @@ export default function Home() {
       {/* Featured Products */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-10 font-headline">Featured Products</h2>
+          <h2 className="text-3xl font-bold text-center mb-10 font-headline">বৈશિષ્ટ্যযুক্ত পণ্য</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredProducts.map((product) => {
               const image = placeholderImages.placeholderImages.find(p => p.id === product.imageId);
@@ -82,7 +82,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Button asChild variant="ghost" className="text-primary hover:text-primary">
               <Link href="/products">
-                View All Products <ArrowRight className="ml-2 h-4 w-4" />
+                সকল পণ্য দেখুন <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
@@ -92,7 +92,7 @@ export default function Home() {
       {/* AI Recommendations Section */}
       <section className="py-16 lg:py-24 bg-secondary/50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-10 font-headline">You Might Also Like</h2>
+          <h2 className="text-3xl font-bold text-center mb-10 font-headline">আপনার জন্য প্রস্তাবিত</h2>
           <ProductRecommendations />
         </div>
       </section>
@@ -100,22 +100,22 @@ export default function Home() {
       {/* Why Choose Us Section */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold font-headline mb-4">Why GreenBasket?</h2>
+            <h2 className="text-3xl font-bold font-headline mb-4">কেন গ্রিনবাস্কেট?</h2>
             <p className="max-w-3xl mx-auto text-muted-foreground mb-12">
-                We're committed to bringing you the highest quality organic products while supporting sustainable farming practices.
+                আমরা টেকসই চাষাবাদ সমর্থন করার পাশাপাশি আপনাকে সর্বোচ্চ মানের জৈব পণ্য সরবরাহ করতে প্রতিশ্রুতিবদ্ধ।
             </p>
             <div className="grid md:grid-cols-3 gap-8 text-left">
                 <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">100% Certified Organic</h3>
-                    <p className="text-muted-foreground">Every item in our catalog is certified organic, ensuring you get the healthiest and most natural food.</p>
+                    <h3 className="text-xl font-semibold mb-2">۱০০% प्रमाणित জৈব</h3>
+                    <p className="text-muted-foreground">আমাদের ক্যাটালগের প্রতিটি আইটেম প্রত্যয়িত জৈব, যা আপনাকে স্বাস্থ্যকর এবং সবচেয়ে প্রাকৃতিক খাবার নিশ্চিত করে।</p>
                 </div>
                 <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">Sustainably Sourced</h3>
-                    <p className="text-muted-foreground">We partner with local farmers and ethical suppliers who share our commitment to the planet.</p>
+                    <h3 className="text-xl font-semibold mb-2">টেকসইভাবে সংগৃহীত</h3>
+                    <p className="text-muted-foreground">আমরা স্থানীয় কৃষক এবং नैतिक সরবরাহকারীদের সাথে অংশীদারি করি যারা গ্রহের প্রতি আমাদের প্রতিশ্রুতি ভাগ করে নেয়।</p>
                 </div>
                 <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">Freshness Guaranteed</h3>
-                    <p className="text-muted-foreground">With our smart delivery system, your groceries arrive at their peak freshness, every time.</p>
+                    <h3 className="text-xl font-semibold mb-2">তাজাতা নিশ্চিত</h3>
+                    <p className="text-muted-foreground">আমাদের স্মার্ট ডেলিভারি সিস্টেমের মাধ্যমে, আপনার মুদিখানা প্রতিবারই তাদের সর্বোচ্চ ताजगीতে পৌঁছায়।</p>
                 </div>
             </div>
         </div>

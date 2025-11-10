@@ -13,32 +13,32 @@ export default function LoginPage() {
           <div className="flex justify-center items-center mb-4">
             <Leaf className="h-8 w-8 text-primary" />
           </div>
-          <CardTitle className="text-2xl font-headline">Welcome Back</CardTitle>
-          <CardDescription>Enter your email below to login to your account</CardDescription>
+          <CardTitle className="text-2xl font-headline">আবার স্বাগতম</CardTitle>
+          <CardDescription>আপনার অ্যাকাউন্টে লগইন করতে আপনার ইমেল লিখুন</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">ইমেল</Label>
               <Input id="email" type="email" placeholder="m@example.com" required />
             </div>
             <div className="grid gap-2">
               <div className="flex items-center">
-                <Label htmlFor="password">Password</Label>
+                <Label htmlFor="password">পাসওয়ার্ড</Label>
                 <Link href="#" className="ml-auto inline-block text-sm underline">
-                  Forgot your password?
+                  পাসওয়ার্ড ভুলে গেছেন?
                 </Link>
               </div>
               <Input id="password" type="password" required />
             </div>
             <Button type="submit" className="w-full">
-              Login
+              লগইন
             </Button>
           </div>
           <div className="mt-4 text-center text-sm">
-            Don&apos;t have an account?{' '}
+            অ্যাকাউন্ট নেই?{' '}
             <Link href="/register" className="underline">
-              Sign up
+              সাইন আপ করুন
             </Link>
           </div>
         </CardContent>

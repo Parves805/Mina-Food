@@ -13,31 +13,31 @@ export default function RegisterPage() {
           <div className="flex justify-center items-center mb-4">
             <Leaf className="h-8 w-8 text-primary" />
           </div>
-          <CardTitle className="text-2xl font-headline">Create an Account</CardTitle>
-          <CardDescription>Enter your information to create a new account</CardDescription>
+          <CardTitle className="text-2xl font-headline">একটি অ্যাকাউন্ট তৈরি করুন</CardTitle>
+          <CardDescription>একটি নতুন অ্যাকাউন্ট তৈরি করতে আপনার তথ্য লিখুন</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4">
             <div className="grid gap-2">
-              <Label htmlFor="full-name">Full Name</Label>
-              <Input id="full-name" placeholder="Jane Doe" required />
+              <Label htmlFor="full-name">পুরো নাম</Label>
+              <Input id="full-name" placeholder="জেন ডো" required />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">ইমেল</Label>
               <Input id="email" type="email" placeholder="m@example.com" required />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password">পাসওয়ার্ড</Label>
               <Input id="password" type="password" required />
             </div>
             <Button type="submit" className="w-full">
-              Create account
+              অ্যাকাউন্ট তৈরি করুন
             </Button>
           </div>
           <div className="mt-4 text-center text-sm">
-            Already have an account?{' '}
+            এর মধ্যেই একটি অ্যাকাউন্ট আছে?{' '}
             <Link href="/login" className="underline">
-              Log in
+              লগইন করুন
             </Link>
           </div>
         </CardContent>

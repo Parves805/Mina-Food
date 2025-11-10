@@ -18,12 +18,12 @@ import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
 const menuItems = [
-  { href: '/admin', label: 'Dashboard', icon: Home },
-  { href: '/admin/products', label: 'Products', icon: ShoppingBasket },
-  { href: '/admin/orders', label: 'Orders', icon: Package },
-  { href: '/admin/users', label: 'Users', icon: Users },
-  { href: '/admin/coupons', label: 'Coupons', icon: Tag },
-  { href: '/admin/analytics', label: 'Analytics', icon: BarChart2 },
+  { href: '/admin', label: 'ড্যাশবোর্ড', icon: Home },
+  { href: '/admin/products', label: 'পণ্য', icon: ShoppingBasket },
+  { href: '/admin/orders', label: 'অর্ডার', icon: Package },
+  { href: '/admin/users', label: 'ব্যবহারকারী', icon: Users },
+  { href: '/admin/coupons', label: 'কুপন', icon: Tag },
+  { href: '/admin/analytics', label: 'বিশ্লেষণ', icon: BarChart2 },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -39,7 +39,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     <Leaf className="h-7 w-7" />
                 </Link>
             </Button>
-            <span className="text-lg font-semibold font-headline">GreenBasket</span>
+            <span className="text-lg font-semibold font-headline">গ্রিনবাস্কেট</span>
           </div>
         </SidebarHeader>
         <SidebarContent>
@@ -70,7 +70,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b h-16 flex items-center px-6">
           <SidebarTrigger className="md:hidden"/>
           <h2 className="text-xl font-semibold ml-4 hidden md:block">
-            {menuItems.find(item => pathname.startsWith(item.href))?.label || 'Dashboard'}
+            {menuItems.find(item => pathname.startsWith(item.href))?.label || 'ড্যাশবোর্ড'}
           </h2>
         </header>
         <main className="p-4 md:p-6">{children}</main>

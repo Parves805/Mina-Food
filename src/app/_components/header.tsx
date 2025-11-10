@@ -10,9 +10,9 @@ import { useCart } from '@/context/cart-context';
 import { Badge } from '@/components/ui/badge';
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/products', label: 'Products' },
-  { href: '/admin', label: 'Admin' },
+  { href: '/', label: 'হোম' },
+  { href: '/products', label: 'পণ্য' },
+  { href: '/admin', label: 'অ্যাডমিন' },
 ];
 
 export function AppHeader() {
@@ -24,7 +24,7 @@ export function AppHeader() {
         <div className="mr-4 hidden md:flex">
           <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary">
             <Leaf className="h-6 w-6" />
-            <span className="font-headline">GreenBasket</span>
+            <span className="font-headline">গ্রিনবাস্কেট</span>
           </Link>
         </div>
         
@@ -39,7 +39,7 @@ export function AppHeader() {
               <nav className="grid gap-6 text-lg font-medium mt-8">
                 <Link href="/" className="flex items-center gap-2 font-bold text-lg text-primary">
                   <Leaf className="h-6 w-6" />
-                  <span className="font-headline">GreenBasket</span>
+                  <span className="font-headline">গ্রিনবাস্কেট</span>
                 </Link>
                 {navLinks.map((link) => (
                   <Link
@@ -72,7 +72,7 @@ export function AppHeader() {
             <form>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input type="search" placeholder="Search products..." className="pl-9 w-full md:w-64" />
+                <Input type="search" placeholder="পণ্য খুঁজুন..." className="pl-9 w-full md:w-64" />
               </div>
             </form>
           </div>
@@ -85,23 +85,23 @@ export function AppHeader() {
                     {cartCount}
                   </Badge>
                 )}
-                <span className="sr-only">Shopping Cart</span>
+                <span className="sr-only">শপিং কার্ট</span>
               </Link>
             </Button>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon">
                   <User className="h-5 w-5" />
-                  <span className="sr-only">User Account</span>
+                  <span className="sr-only">사용자 অ্যাকাউন্ট</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
-                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                <DropdownMenuLabel>আমার অ্যাকাউন্ট</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem asChild><Link href="/account">Profile</Link></DropdownMenuItem>
-                <DropdownMenuItem asChild><Link href="/account/orders">Orders</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link href="/account">প্রোফাইল</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link href="/account/orders">অর্ডার</Link></DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem asChild><Link href="/login">Log In</Link></DropdownMenuItem>
+                <DropdownMenuItem asChild><Link href="/login">লগইন</Link></DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>

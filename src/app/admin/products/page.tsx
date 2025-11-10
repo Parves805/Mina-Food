@@ -28,12 +28,12 @@ export default function AdminProductsPage() {
       <CardHeader>
         <div className="flex justify-between items-center">
           <div>
-            <CardTitle>Products</CardTitle>
-            <CardDescription>Manage your products and view their sales performance.</CardDescription>
+            <CardTitle>পণ্য</CardTitle>
+            <CardDescription>আপনার পণ্য পরিচালনা করুন এবং তাদের বিক্রয় কর্মক্ষমতা দেখুন।</CardDescription>
           </div>
           <Button>
             <PlusCircle className="mr-2 h-4 w-4" />
-            Add Product
+            পণ্য যোগ করুন
           </Button>
         </div>
       </CardHeader>
@@ -41,13 +41,13 @@ export default function AdminProductsPage() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="hidden w-[100px] sm:table-cell">Image</TableHead>
-              <TableHead>Name</TableHead>
-              <TableHead>Category</TableHead>
-              <TableHead className="hidden md:table-cell">Stock</TableHead>
-              <TableHead>Price</TableHead>
+              <TableHead className="hidden w-[100px] sm:table-cell">ছবি</TableHead>
+              <TableHead>নাম</TableHead>
+              <TableHead>বিভাগ</TableHead>
+              <TableHead className="hidden md:table-cell">স্টক</TableHead>
+              <TableHead>মূল্য</TableHead>
               <TableHead>
-                <span className="sr-only">Actions</span>
+                <span className="sr-only">פעולות</span>
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -84,10 +84,10 @@ export default function AdminProductsPage() {
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem>Edit</DropdownMenuItem>
+                        <DropdownMenuLabel>פעולות</DropdownMenuLabel>
+                        <DropdownMenuItem>সম্পাদনা</DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
+                        <DropdownMenuItem className="text-destructive">মুছে ফেলুন</DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </TableCell>

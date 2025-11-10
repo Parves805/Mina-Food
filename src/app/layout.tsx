@@ -6,8 +6,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { CartProvider } from '@/context/cart-context';
 
 export const metadata: Metadata = {
-  title: 'GreenBasket',
-  description: 'Fresh organic food, delivered to your door.',
+  title: 'গ্রিনবাস্কেট',
+  description: 'تازা জৈব খাবার, আপনার দরজায় পৌঁছে দেওয়া হয়।',
 };
 
 export default function RootLayout({
@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light">
+    <html lang="bn" className="light">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

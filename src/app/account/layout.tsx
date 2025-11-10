@@ -8,9 +8,9 @@ import { User, Package, MapPin, LogOut } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const navItems = [
-  { href: '/account', label: 'Profile', icon: User },
-  { href: '/account/orders', label: 'Orders', icon: Package },
-  { href: '/account/addresses', label: 'Addresses', icon: MapPin },
+  { href: '/account', label: 'প্রোফাইল', icon: User },
+  { href: '/account/orders', label: 'অর্ডার', icon: Package },
+  { href: '/account/addresses', label: 'ঠিকানা', icon: MapPin },
 ];
 
 export default function AccountLayout({ children }: { children: React.ReactNode }) {
@@ -18,7 +18,7 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold font-headline mb-8">My Account</h1>
+      <h1 className="text-3xl font-bold font-headline mb-8">আমার অ্যাকাউন্ট</h1>
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         <aside className="md:col-span-1">
           <Card className="p-4 sticky top-24">
@@ -41,7 +41,7 @@ export default function AccountLayout({ children }: { children: React.ReactNode 
               ))}
               <Button variant="ghost" className="justify-start text-destructive hover:text-destructive">
                 <LogOut className="mr-2 h-4 w-4" />
-                Log Out
+                লগ আউট
               </Button>
             </nav>
           </Card>

@@ -9,40 +9,40 @@ export function AppFooter() {
           <div>
             <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary mb-4">
               <Leaf className="h-7 w-7" />
-              <span className="font-headline">GreenBasket</span>
+              <span className="font-headline">গ্রিনবাস্কেট</span>
             </Link>
             <p className="text-muted-foreground text-sm">
-              Fresh organic food, delivered to your door.
+             تازਾ জৈব খাবার, আপনার দরজায় পৌঁছে দেওয়া হয়।
             </p>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">Shop</h3>
+            <h3 className="font-semibold mb-4">কেনাকাটা</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/products" className="text-muted-foreground hover:text-primary">All Products</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-primary">Vegetables</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-primary">Fruits</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-primary">Pantry</Link></li>
+              <li><Link href="/products" className="text-muted-foreground hover:text-primary">সকল পণ্য</Link></li>
+              <li><Link href="#" className="text-muted-foreground hover:text-primary">শাকসবজি</Link></li>
+              <li><Link href="#" className="text-muted-foreground hover:text-primary">ফল</Link></li>
+              <li><Link href="#" className="text-muted-foreground hover:text-primary">প্যান্ট্রি</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">About Us</h3>
+            <h3 className="font-semibold mb-4">আমাদের সম্পর্কে</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="#" className="text-muted-foreground hover:text-primary">Our Story</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-primary">Sustainability</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-primary">Careers</Link></li>
+              <li><Link href="#" className="text-muted-foreground hover:text-primary">আমাদের গল্প</Link></li>
+              <li><Link href="#" className="text-muted-foreground hover:text-primary">টেকসই</Link></li>
+              <li><Link href="#" className="text-muted-foreground hover:text-primary">ক্যারিয়ার</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">Customer Service</h3>
+            <h3 className="font-semibold mb-4">গ্রাহক সেবা</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/account" className="text-muted-foreground hover:text-primary">My Account</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-primary">Contact Us</Link></li>
+              <li><Link href="/account" className="text-muted-foreground hover:text-primary">আমার অ্যাকাউন্ট</Link></li>
+              <li><Link href="#" className="text-muted-foreground hover:text-primary">যোগাযোগ করুন</Link></li>
               <li><Link href="#" className="text-muted-foreground hover:text-primary">FAQs</Link></li>
             </ul>
           </div>
         </div>
         <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} GreenBasket. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} গ্রিনবাস্কেট। সর্বস্বত্ব সংরক্ষিত।</p>
         </div>
       </div>
     </footer>

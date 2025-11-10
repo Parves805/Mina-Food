@@ -25,18 +25,18 @@ export default function AdminOrdersPage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Orders</CardTitle>
-        <CardDescription>View and manage all customer orders.</CardDescription>
+        <CardTitle>অর্ডার</CardTitle>
+        <CardDescription>সমস্ত গ্রাহক অর্ডার দেখুন এবং পরিচালনা করুন।</CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Order ID</TableHead>
-              <TableHead>Customer</TableHead>
-              <TableHead>Date</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="text-right">Total</TableHead>
+              <TableHead>অর্ডার আইডি</TableHead>
+              <TableHead>গ্রাহক</TableHead>
+              <TableHead>তারিখ</TableHead>
+              <TableHead>স্ট্যাটাস</TableHead>
+              <TableHead className="text-right">মোট</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

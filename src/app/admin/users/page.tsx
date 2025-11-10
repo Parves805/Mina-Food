@@ -26,19 +26,19 @@ export default function AdminUsersPage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Users</CardTitle>
-        <CardDescription>Manage your customers and administrators.</CardDescription>
+        <CardTitle>ব্যবহারকারী</CardTitle>
+        <CardDescription>আপনার গ্রাহক এবং প্রশাসকদের পরিচালনা করুন।</CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Email</TableHead>
-              <TableHead>Role</TableHead>
-              <TableHead>Orders</TableHead>
+              <TableHead>নাম</TableHead>
+              <TableHead>ইমেল</TableHead>
+              <TableHead>ভূমিকা</TableHead>
+              <TableHead>অর্ডার</TableHead>
               <TableHead>
-                <span className="sr-only">Actions</span>
+                <span className="sr-only">פעולות</span>
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -79,11 +79,11 @@ export default function AdminUsersPage() {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuItem>View Profile</DropdownMenuItem>
-                      <DropdownMenuItem>View Orders</DropdownMenuItem>
+                      <DropdownMenuLabel>פעולות</DropdownMenuLabel>
+                      <DropdownMenuItem>প্রোফাইল দেখুন</DropdownMenuItem>
+                      <DropdownMenuItem>অর্ডার দেখুন</DropdownMenuItem>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem className="text-destructive">Suspend User</DropdownMenuItem>
+                      <DropdownMenuItem className="text-destructive">ব্যবহারকারীকে সাসপেন্ড করুন</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>

@@ -27,12 +27,12 @@ export default function AdminCouponsPage() {
       <CardHeader>
         <div className="flex justify-between items-center">
           <div>
-            <CardTitle>Coupons</CardTitle>
-            <CardDescription>Manage promotional codes for your store.</CardDescription>
+            <CardTitle>কুপন</CardTitle>
+            <CardDescription>আপনার দোকানের জন্য প্রচারমূলক কোড পরিচালনা করুন।</CardDescription>
           </div>
           <Button>
             <PlusCircle className="mr-2 h-4 w-4" />
-            Add Coupon
+            কুপন যোগ করুন
           </Button>
         </div>
       </CardHeader>
@@ -40,12 +40,12 @@ export default function AdminCouponsPage() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Code</TableHead>
-              <TableHead>Discount</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead>Expiry Date</TableHead>
+              <TableHead>কোড</TableHead>
+              <TableHead>ডিসকাউন্ট</TableHead>
+              <TableHead>স্ট্যাটাস</TableHead>
+              <TableHead>মেয়াদ শেষ হওয়ার তারিখ</TableHead>
               <TableHead>
-                <span className="sr-only">Actions</span>
+                <span className="sr-only">פעולות</span>
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -56,7 +56,7 @@ export default function AdminCouponsPage() {
                 <TableCell>{coupon.discount}%</TableCell>
                 <TableCell>
                   <Badge variant={coupon.isActive ? 'outline' : 'secondary'} className={coupon.isActive ? 'text-green-700 border-green-200' : ''}>
-                    {coupon.isActive ? 'Active' : 'Inactive'}
+                    {coupon.isActive ? 'সক্রিয়' : 'নিষ্ক্রিয়'}
                   </Badge>
                 </TableCell>
                 <TableCell>{format(coupon.expiryDate, 'MMM dd, yyyy')}</TableCell>
@@ -69,11 +69,11 @@ export default function AdminCouponsPage() {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                      <DropdownMenuItem>Edit</DropdownMenuItem>
-                       <DropdownMenuItem>{coupon.isActive ? 'Deactivate' : 'Activate'}</DropdownMenuItem>
+                      <DropdownMenuLabel>פעולות</DropdownMenuLabel>
+                      <DropdownMenuItem>সম্পাদনা</DropdownMenuItem>
+                       <DropdownMenuItem>{coupon.isActive ? 'নিষ্ক্রিয় করুন' : 'সক্রিয় করুন'}</DropdownMenuItem>
                       <DropdownMenuSeparator />
-                      <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
+                      <DropdownMenuItem className="text-destructive">মুছে ফেলুন</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </TableCell>

@@ -45,21 +45,21 @@ export default function ProductsPage() {
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold font-headline">Our Products</h1>
-        <p className="text-lg text-muted-foreground mt-2">Explore our collection of fresh and organic products.</p>
+        <h1 className="text-4xl font-bold font-headline">আমাদের পণ্য</h1>
+        <p className="text-lg text-muted-foreground mt-2">আমাদের তাজা এবং জৈব পণ্যের সংগ্রহ অন্বেষণ করুন।</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Filters */}
         <aside className="lg:col-span-1 bg-card p-6 rounded-lg shadow-sm self-start sticky top-24">
-          <h2 className="text-2xl font-semibold mb-6">Filters</h2>
+          <h2 className="text-2xl font-semibold mb-6">ফিল্টার</h2>
           
           <div className="space-y-6">
             <div>
-              <Label htmlFor="search" className="text-base font-medium">Search</Label>
+              <Label htmlFor="search" className="text-base font-medium">অনুসন্ধান</Label>
               <Input 
                 id="search" 
-                placeholder="e.g. Apples" 
+                placeholder="যেমন আপেল" 
                 value={searchTerm} 
                 onChange={e => setSearchTerm(e.target.value)}
                 className="mt-2"
@@ -67,13 +67,13 @@ export default function ProductsPage() {
             </div>
             
             <div>
-              <Label className="text-base font-medium">Category</Label>
+              <Label className="text-base font-medium">বিভাগ</Label>
               <Select value={category} onValueChange={setCategory}>
                 <SelectTrigger className="mt-2">
-                  <SelectValue placeholder="Select a category" />
+                  <SelectValue placeholder="একটি বিভাগ নির্বাচন করুন" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Categories</SelectItem>
+                  <SelectItem value="all">সমস্ত বিভাগ</SelectItem>
                   {categories.map(cat => (
                     <SelectItem key={cat.id} value={cat.id}>{cat.name}</SelectItem>
                   ))}
@@ -82,7 +82,7 @@ export default function ProductsPage() {
             </div>
             
             <div>
-              <Label className="text-base font-medium">Price Range</Label>
+              <Label className="text-base font-medium">মূল্য পরিসীমা</Label>
               <p className="text-sm text-muted-foreground mt-2 mb-4">${priceRange[0]} - ${priceRange[1]}</p>
               <Slider
                 min={0}
@@ -94,7 +94,7 @@ export default function ProductsPage() {
             </div>
 
             <div>
-              <Label className="text-base font-medium">Certifications</Label>
+              <Label className="text-base font-medium">সারтификация</Label>
               <div className="space-y-2 mt-2">
                 {allCertifications.map(cert => (
                   <div key={cert} className="flex items-center space-x-2">
@@ -109,7 +109,7 @@ export default function ProductsPage() {
               </div>
             </div>
 
-            <Button onClick={clearFilters} variant="outline" className="w-full">Clear All Filters</Button>
+            <Button onClick={clearFilters} variant="outline" className="w-full">সমস্ত ফিল্টার সাফ করুন</Button>
           </div>
         </aside>
 
@@ -123,7 +123,7 @@ export default function ProductsPage() {
             </div>
           ) : (
             <div className="text-center py-20">
-              <p className="text-lg text-muted-foreground">No products match your filters.</p>
+              <p className="text-lg text-muted-foreground">আপনার ফিল্টারের সাথে কোনো পণ্য मेल খায় না।</p>
             </div>
           )}
         </main>

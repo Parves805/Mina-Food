@@ -16,12 +16,12 @@ export default function CartPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold font-headline mb-8">Your Shopping Cart</h1>
+      <h1 className="text-3xl font-bold font-headline mb-8">আপনার শপিং কার্ট</h1>
       {cartItems.length === 0 ? (
         <div className="text-center py-20 bg-card rounded-lg shadow-sm">
-          <p className="text-lg text-muted-foreground mb-4">Your cart is empty.</p>
+          <p className="text-lg text-muted-foreground mb-4">আপনার কার্ট খালি।</p>
           <Button asChild>
-            <Link href="/products">Start Shopping</Link>
+            <Link href="/products">কেনাকাটা শুরু করুন</Link>
           </Button>
         </div>
       ) : (
@@ -66,32 +66,32 @@ export default function CartPage() {
           <div className="lg:col-span-1">
             <Card className="sticky top-24 shadow-lg">
               <CardHeader>
-                <CardTitle>Order Summary</CardTitle>
+                <CardTitle>অর্ডার সারাংশ</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex justify-between">
-                  <span>Subtotal</span>
+                  <span>মোট</span>
                   <span>${cartTotal.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Shipping</span>
-                  <span>Free</span>
+                  <span>শিপিং</span>
+                  <span>বিনামূল্যে</span>
                 </div>
                 <Separator />
                 <div className="flex justify-between font-bold text-lg">
-                  <span>Total</span>
+                  <span>সর্বমোট</span>
                   <span>${cartTotal.toFixed(2)}</span>
                 </div>
                 <div className="pt-4 space-y-2">
-                  <Label>Coupon Code</Label>
+                  <Label>কুপন কোড</Label>
                   <div className="flex space-x-2">
                     <Input placeholder="FRESH10" />
-                    <Button variant="outline">Apply</Button>
+                    <Button variant="outline">প্রয়োগ করুন</Button>
                   </div>
                 </div>
                 <Button asChild className="w-full mt-4" size="lg">
                   <Link href="/checkout">
-                    Proceed to Checkout <ArrowRight className="ml-2 h-4 w-4" />
+                    চেকআউটে এগিয়ে যান <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
               </CardContent>
