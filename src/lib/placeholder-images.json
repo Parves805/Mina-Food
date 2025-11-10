@@ -1,3 +1,94 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "A vibrant assortment of fresh organic vegetables on a rustic wooden table.",
+      "imageUrl": "https://images.unsplash.com/photo-1568158958563-c13c713d69f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmcmVzaCUyMHZlZ2V0YWJsZXN8ZW58MHx8fHwxNzYyNzQ1NzY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fresh vegetables"
+    },
+    {
+      "id": "prod-1",
+      "description": "A close-up of a bunch of fresh, organic carrots with green tops.",
+      "imageUrl": "https://images.unsplash.com/photo-1586626205306-07e752385d35?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxvcmdhbmljJTIwY2Fycm90c3xlbnwwfHx8fDE3NjI3NjI5ODJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "organic carrots"
+    },
+    {
+      "id": "prod-2",
+      "description": "A crisp, red organic apple with a single leaf.",
+      "imageUrl": "https://images.unsplash.com/photo-1587590227264-0ac64ce63ce8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxyZWQlMjBhcHBsZXxlbnwwfHx8fDE3NjI3NjQ1MTN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "red apple"
+    },
+    {
+      "id": "prod-3",
+      "description": "A loaf of rustic, whole-grain sourdough bread.",
+      "imageUrl": "https://images.unsplash.com/photo-1620921586333-b7566c34550a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8c291cmRvdWdoJTIwYnJlYWR8ZW58MHx8fHwxNzYyNjUzMjcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sourdough bread"
+    },
+    {
+      "id": "prod-4",
+      "description": "A carton of fresh, free-range organic eggs.",
+      "imageUrl": "https://images.unsplash.com/photo-1677696501470-49a311ccb21b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxvcmdhbmljJTIwZWdnc3xlbnwwfHx8fDE3NjI3NjY4MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "organic eggs"
+    },
+    {
+      "id": "prod-5",
+      "description": "A head of vibrant green organic broccoli.",
+      "imageUrl": "https://images.unsplash.com/photo-1757332334626-8dadb145540d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMGJyb2Njb2xpfGVufDB8fHx8MTc2MjY3NDk2NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fresh broccoli"
+    },
+    {
+      "id": "prod-6",
+      "description": "A glass bottle of fresh, organic milk.",
+      "imageUrl": "https://images.unsplash.com/photo-1738598666938-a9d07a9b2d67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxvcmdhbmljJTIwbWlsa3xlbnwwfHx8fDE3NjI3NjY4MTZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "organic milk"
+    },
+    {
+      "id": "prod-7",
+      "description": "A bunch of ripe, organic bananas.",
+      "imageUrl": "https://images.unsplash.com/photo-1623810836868-057b23aef3aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxyaXBlJTIwYmFuYW5hc3xlbnwwfHx8fDE3NjI3MjgxOTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ripe bananas"
+    },
+    {
+      "id": "prod-8",
+      "description": "A block of artisanal organic cheddar cheese.",
+      "imageUrl": "https://images.unsplash.com/photo-1757857755327-5b38c51a0302?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjaGVkZGFyJTIwY2hlZXNlfGVufDB8fHx8MTc2MjY2MjYyNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cheddar cheese"
+    },
+    {
+      "id": "prod-9",
+      "description": "A handful of organic almonds.",
+      "imageUrl": "https://images.unsplash.com/photo-1648146299661-e88c9c263478?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxyYXclMjBhbG1vbmRzfGVufDB8fHx8MTc2Mjc2NjgxNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "raw almonds"
+    },
+    {
+      "id": "prod-10",
+      "description": "A jar of golden organic honey with a dipper.",
+      "imageUrl": "https://images.unsplash.com/photo-1572731561221-96d988d74dc9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8b3JnYW5pYyUyMGhvbmV5fGVufDB8fHx8MTc2MjcxOTY4MHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "organic honey"
+    },
+    {
+      "id": "prod-11",
+      "description": "Fresh organic spinach leaves in a bowl.",
+      "imageUrl": "https://images.unsplash.com/photo-1634731201932-9bd92839bea2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmcmVzaCUyMHNwaW5hY2h8ZW58MHx8fHwxNzYyNzQ0NDc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fresh spinach"
+    },
+    {
+      "id": "prod-12",
+      "description": "Juicy organic tomatoes on the vine.",
+      "imageUrl": "https://images.unsplash.com/photo-1616169775462-cb802f51d825?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHx2aW5lJTIwdG9tYXRvZXN8ZW58MHx8fHwxNzYyNzQ0NDc5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "vine tomatoes"
+    },
+    {
+      "id": "avatar-1",
+      "description": "A friendly-looking person.",
+      "imageUrl": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjI3MTQ3MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    },
+    {
+      "id": "avatar-2",
+      "description": "Another friendly-looking person.",
+      "imageUrl": "https://images.unsplash.com/photo-1535643302794-19c3804b874b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVyc29uJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzYyNzE0NzIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person portrait"
+    }
+  ]
 }
