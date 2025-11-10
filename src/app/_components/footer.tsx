@@ -1,7 +1,16 @@
+'use client';
+
 import Link from 'next/link';
 import { Leaf } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export function AppFooter() {
+  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="bg-secondary/50 border-t">
       <div className="container mx-auto px-4 py-8">
@@ -12,7 +21,7 @@ export function AppFooter() {
               <span className="font-headline">গ্রিনবাস্কেট</span>
             </Link>
             <p className="text-muted-foreground text-sm">
-             تازਾ জৈব খাবার, আপনার দরজায় পৌঁছে দেওয়া হয়।
+             তাজা জৈব খাবার, আপনার দরজায় পৌঁছে দেওয়া হয়।
             </p>
           </div>
           <div>
@@ -42,7 +51,7 @@ export function AppFooter() {
           </div>
         </div>
         <div className="mt-8 border-t pt-6 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} গ্রিনবাস্কেট। সর্বস্বত্ব সংরক্ষিত।</p>
+          <p>&copy; {currentYear} গ্রিনবাস্কেট। সর্বস্বত্ব সংরক্ষিত।</p>
         </div>
       </div>
     </footer>
