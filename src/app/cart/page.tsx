@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Trash2, Plus, Minus, ArrowRight } from 'lucide-react';
 import placeholderImages from '@/lib/placeholder-images.json';
+import { Label } from '@/components/ui/label';
 
 export default function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, cartTotal } = useCart();
