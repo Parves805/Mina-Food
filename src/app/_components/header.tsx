@@ -20,19 +20,12 @@ export function AppHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <div className="mr-auto flex items-center gap-4">
-            <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-              <Leaf className="h-6 w-6 text-primary" />
-              <span className="font-headline">গ্রিনবাস্কেট</span>
-            </Link>
-        </div>
-        
-        {/* Mobile menu */}
-        <div className="md:hidden ml-auto">
+        <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6" />
+                <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="left">
@@ -55,8 +48,15 @@ export function AppHeader() {
           </Sheet>
         </div>
         
-        <div className="flex-1 flex justify-center items-center">
-          <div className="hidden sm:block w-full max-w-md">
+        <div className="flex items-center gap-4 md:mr-auto">
+            <Link href="/" className="flex items-center gap-2 font-bold text-lg">
+              <Leaf className="h-6 w-6 text-primary" />
+              <span className="font-headline">গ্রিনবাস্কেট</span>
+            </Link>
+        </div>
+        
+        <div className="flex-1 flex justify-center items-center mx-4">
+          <div className="w-full max-w-md">
             <form>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -66,7 +66,7 @@ export function AppHeader() {
           </div>
         </div>
 
-        <div className="flex items-center justify-end space-x-2 md:space-x-4 ml-auto">
+        <div className="flex items-center justify-end space-x-2 md:space-x-4">
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
               <Link
