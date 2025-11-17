@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -12,6 +13,44 @@ import { useCart } from '@/context/cart-context';
 import { ProductCard } from '@/app/_components/product-card';
 import { cn } from '@/lib/utils';
 import { notFound, useParams } from 'next/navigation';
+
+function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
+    return (
+      <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91s-4.45-9.91-9.91-9.91zM17.51 14.83c-.15.42-1 1.2-1.18 1.22-.17.02-.36.02-1.61-.53s-2.08-1.27-3.48-2.67c-1.4-1.4-2.3-2.89-2.67-3.48-.37-.6-.06-.9.24-1.21.28-.28.58-.37.78-.37.2 0 .37 0 .53.05.15.05.34.42.39.58.05.17.05.36 0 .53-.1.18-.15.28-.28.42-.12.15-.24.3-.3.42-.07.12-.15.24.03.45.18.2.42.6.95 1.13.53.53.92.73 1.13.95.2.18.33.15.45.03.12-.07.28-.3.42-.42.15-.12.24-.22.42-.1.17.1.58.32.7.38.1.05.2.1.24.15.05.05.05.28 0 .42z" />
+      </svg>
+    );
+}
+
+function MessengerIcon(props: React.SVGProps<SVGSVGElement>) {
+    return (
+      <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        stroke="currentColor"
+        strokeWidth="1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c.83 0 1.63-.1 2.38-.29a.5.5 0 0 0 .43-.72L14 14.41V11.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v2.91l-1.81 6.51a.5.5 0 0 0 .43.72A10 10 0 0 0 22 12c0-5.52-4.48-10-10-10zm-3.5 10.5L6 15l2.5-2.5L11 15l2.5-2.5L16 15l-2.5-2.5L11 10l-2.5 2.5z" />
+      </svg>
+    );
+}
 
 export default function ProductDetailPage() {
   const params = useParams();
@@ -49,6 +88,11 @@ export default function ProductDetailPage() {
       imageId: product.imageId,
     });
   };
+
+  const phoneNumber = "1234567890"; // Replace with your WhatsApp number
+  const message = `হ্যালো, আমি ${product.name} সম্পর্কে জানতে আগ্রহী।`;
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const messengerUrl = `https://m.me/your-page-id`; // Replace with your Facebook Page ID
 
   return (
     <div className="container mx-auto px-4 py-8 lg:py-12">
@@ -96,10 +140,27 @@ export default function ProductDetailPage() {
             </div>
           </div>
           
-          <Button size="lg" className="w-full lg:w-auto text-lg" onClick={handleAddToCart}>
-            <ShoppingCart className="mr-2 h-5 w-5" />
-            কার্টে যোগ করুন
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 items-center">
+            <Button size="lg" className="w-full sm:w-auto text-lg" onClick={handleAddToCart}>
+                <ShoppingCart className="mr-2 h-5 w-5" />
+                কার্টে যোগ করুন
+            </Button>
+            <div className="flex gap-2">
+                <Button asChild variant="outline" size="icon" className="w-12 h-12 bg-[#25D366] text-white hover:bg-[#1DAE53] hover:text-white border-0">
+                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                        <WhatsAppIcon className="h-6 w-6" />
+                        <span className="sr-only">WhatsApp-এ মেসেজ দিন</span>
+                    </a>
+                </Button>
+                <Button asChild variant="outline" size="icon" className="w-12 h-12 bg-[#00B2FF] text-white hover:bg-[#0099e6] hover:text-white border-0">
+                    <a href={messengerUrl} target="_blank" rel="noopener noreferrer">
+                        <MessengerIcon className="h-6 w-6" />
+                        <span className="sr-only">Messenger-এ মেসেজ দিন</span>
+                    </a>
+                </Button>
+            </div>
+          </div>
+
 
           <div className="mt-8 space-y-4 text-sm text-muted-foreground border-t pt-6">
             <div className="flex items-center gap-3">
