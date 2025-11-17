@@ -21,6 +21,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const [reviewsCount, setReviewsCount] = useState(0);
 
   useEffect(() => {
+    // This check ensures we only set a random number on the client-side after initial render.
     if (product.reviewsCount === undefined) {
       setReviewsCount(Math.floor(Math.random() * 100) + 10);
     } else {
@@ -41,7 +42,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const rating = product.rating || 4.5;
   
   return (
-    <Card className="group overflow-hidden rounded-xl border-transparent transition-all duration-300 shadow-sm hover:shadow-lg">
+    <Card className="group overflow-hidden rounded-xl border-transparent transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1">
       <CardContent className="p-0">
         <div className="relative aspect-[4/3] w-full overflow-hidden">
           {image && (
