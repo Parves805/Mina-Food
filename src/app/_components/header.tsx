@@ -12,7 +12,6 @@ import { Badge } from '@/components/ui/badge';
 const navLinks = [
   { href: '/', label: 'হোম' },
   { href: '/products', label: 'পণ্য' },
-  { href: '/admin', label: 'অ্যাডমিন' },
 ];
 
 export function AppHeader() {
