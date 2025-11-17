@@ -37,7 +37,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                     <Leaf className="h-7 w-7" />
                 </Link>
             </Button>
-            <span className="text-lg font-semibold font-headline">গ্রিনবাস্কেট</span>
+            <span className="text-lg font-semibold font-headline">মিনা ফুড</span>
           </div>
         </SidebarHeader>
         <SidebarContent>

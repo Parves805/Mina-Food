@@ -12,7 +12,7 @@ const noto_sans_bengali = Noto_Sans_Bengali({
 });
 
 export const metadata: Metadata = {
-  title: 'গ্রিনবাস্কেট',
+  title: 'মিনা ফুড',
   description: 'তাজা জৈব খাবার, আপনার দরজায় পৌঁছে দেওয়া হয়।',
 };
 

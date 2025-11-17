@@ -13,7 +13,7 @@ export function AppFooter() {
           <div className="col-span-1 md:col-span-2 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2 font-bold text-xl mb-4 text-primary-foreground">
               <Leaf className="h-7 w-7" />
-              <span className="font-headline">গ্রিনবাস্কেট</span>
+              <span className="font-headline">মিনা ফুড</span>
             </Link>
             <p className="text-primary-foreground/80 text-sm">
              তাজা জৈব খাবার, আপনার দরজায় পৌঁছে দেওয়া হয়।
@@ -52,7 +52,7 @@ export function AppFooter() {
           </div>
         </div>
         <div className="mt-12 border-t border-primary-foreground/20 pt-8 text-center text-sm text-primary-foreground/80">
-          <p>&copy; {currentYear} গ্রিনবাস্কেট। সর্বস্বত্ব সংরক্ষিত।</p>
+          <p>&copy; {currentYear} মিনা ফুড। সর্বস্বত্ব সংরক্ষিত।</p>
         </div>
       </div>
     </footer>

@@ -114,7 +114,7 @@ export default function Home() {
       {/* Why Choose Us Section */}
       <section className="py-16 lg:py-24 bg-secondary/50">
         <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold font-headline mb-4">কেন গ্রিনবাস্কেট?</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold font-headline mb-4">কেন মিনা ফুড?</h2>
             <p className="max-w-3xl mx-auto text-muted-foreground mb-12">
                 আমরা টেকসই চাষাবাদ সমর্থন করার পাশাপাশি আপনাকে সর্বোচ্চ মানের জৈব পণ্য সরবরাহ করতে প্রতিশ্রুতিবদ্ধ।
             </p>

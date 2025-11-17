@@ -32,7 +32,7 @@ export function AppHeader() {
               <nav className="grid gap-6 text-lg font-medium mt-8">
                 <Link href="/" className="flex items-center gap-2 font-bold text-lg mb-4">
                   <Leaf className="h-6 w-6 text-primary" />
-                  <span className="font-headline">গ্রিনবাস্কেট</span>
+                  <span className="font-headline">মিনা ফুড</span>
                 </Link>
                 {navLinks.map((link) => (
                   <Link
@@ -51,7 +51,7 @@ export function AppHeader() {
         <div className="flex items-center gap-4 md:mr-auto">
             <Link href="/" className="flex items-center gap-2 font-bold text-lg">
               <Leaf className="h-6 w-6 text-primary" />
-              <span className="font-headline">গ্রিনবাস্কেট</span>
+              <span className="font-headline">মিনা ফুড</span>
             </Link>
         </div>
         
