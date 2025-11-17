@@ -81,16 +81,16 @@ export default function CheckoutPage() {
               <CardContent className="space-y-3">
                  <div className="flex justify-between text-sm text-muted-foreground">
                     <span>জৈব গাজর x 2</span>
-                    <span>$5.98</span>
+                    <span>৳5.98</span>
                   </div>
                   <div className="flex justify-between text-sm text-muted-foreground">
                     <span>খट्टा রুটি x 1</span>
-                    <span>$5.49</span>
+                    <span>৳5.49</span>
                   </div>
                   <Separator/>
                    <div className="flex justify-between font-medium">
                     <span>উপমোট</span>
-                    <span>$11.47</span>
+                    <span>৳11.47</span>
                   </div>
                    <div className="flex justify-between font-medium">
                     <span>শিপিং</span>
@@ -99,7 +99,7 @@ export default function CheckoutPage() {
                   <Separator/>
                   <div className="flex justify-between font-bold text-lg">
                     <span>সর্বমোট</span>
-                    <span>$11.47</span>
+                    <span>৳11.47</span>
                   </div>
               </CardContent>
             </Card>
@@ -126,7 +126,7 @@ export default function CheckoutPage() {
               </CardContent>
             </Card>
             <Button size="lg" className="w-full text-lg" asChild>
-                <Link href="/account/orders">অর্ডার করুন ($11.47)</Link>
+                <Link href="/account/orders">অর্ডার করুন (৳11.47)</Link>
             </Button>
           </div>
         </div>

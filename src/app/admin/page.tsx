@@ -39,7 +39,7 @@ export default function AdminDashboardPage() {
             <DollarSign className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">$24,203.45</div>
+            <div className="text-2xl font-bold">৳24,203.45</div>
             <p className="text-xs text-muted-foreground">গত মাস থেকে +20.1%</p>
           </CardContent>
         </Card>
@@ -104,7 +104,7 @@ export default function AdminDashboardPage() {
                     </Badge>
                   </TableCell>
                   <TableCell>{format(order.orderDate, 'MMM dd, yyyy')}</TableCell>
-                  <TableCell className="text-right">${order.total.toFixed(2)}</TableCell>
+                  <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

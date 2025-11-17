@@ -28,10 +28,10 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <Card className="overflow-hidden group w-full transition-all duration-300 hover:shadow-lg">
-      <CardContent className="p-0">
+    <Card>
+      <CardContent className="p-4">
         <Link href="#">
-          <div className="relative aspect-[4/3] w-full overflow-hidden">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg mb-4">
             {image && (
               <Image
                 src={image.imageUrl}
@@ -43,17 +43,15 @@ export function ProductCard({ product }: ProductCardProps) {
             )}
           </div>
         </Link>
-        <div className="p-4 space-y-2">
-          <p className="text-sm text-muted-foreground">{product.category.name}</p>
-          <h3 className="text-lg font-semibold truncate" title={product.name}>
-             <Link href="#" className="hover:text-primary transition-colors">{product.name}</Link>
-          </h3>
-          <div className="flex justify-between items-center pt-2">
-            <p className="text-xl font-bold text-foreground">${product.price.toFixed(2)}</p>
-            <Button size="icon" variant="outline" onClick={handleAddToCart} aria-label={`Add ${product.name} to cart`}>
-              <ShoppingCart className="h-5 w-5" />
-            </Button>
-          </div>
+        <p className="text-sm text-muted-foreground">{product.category.name}</p>
+        <h3 className="text-lg font-semibold truncate mt-1">
+          <Link href="#" className="hover:text-primary transition-colors">{product.name}</Link>
+        </h3>
+        <div className="flex justify-between items-center mt-4">
+          <p className="text-2xl font-bold text-foreground">৳{product.price.toFixed(2)}</p>
+          <Button size="icon" variant="outline" onClick={handleAddToCart} aria-label={`Add ${product.name} to cart`}>
+            <ShoppingCart className="h-5 w-5" />
+          </Button>
         </div>
       </CardContent>
     </Card>
