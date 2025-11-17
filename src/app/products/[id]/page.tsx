@@ -11,13 +11,15 @@ import { Star, Plus, Minus, ShoppingCart, Truck, ShieldCheck } from 'lucide-reac
 import { useCart } from '@/context/cart-context';
 import { ProductCard } from '@/app/_components/product-card';
 import { cn } from '@/lib/utils';
-import { notFound } from 'next/navigation';
+import { notFound, useParams } from 'next/navigation';
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
+export default function ProductDetailPage() {
+  const params = useParams();
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
 
-  const product = products.find((p) => p.id === params.id);
+  const productId = Array.isArray(params.id) ? params.id[0] : params.id;
+  const product = products.find((p) => p.id === productId);
 
   if (!product) {
     notFound();
