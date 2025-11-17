@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -7,6 +9,7 @@ import placeholderImages from '@/lib/placeholder-images.json';
 import { ProductRecommendations } from '@/app/_components/recommendations';
 import { ProductCard } from '@/app/_components/product-card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 export default function Home() {
   const featuredProducts = products.slice(0, 4);
@@ -46,7 +49,7 @@ export default function Home() {
           className="w-full h-full"
           opts={{ loop: true }}
           plugins={[
-            require('embla-carousel-autoplay')({ delay: 5000, stopOnInteraction: true }),
+            Autoplay({ delay: 5000, stopOnInteraction: true }),
           ]}
         >
           <CarouselContent>
