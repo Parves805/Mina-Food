@@ -14,6 +14,8 @@ export type Product = {
   stock: number;
   certifications: Certification[];
   imageId: string;
+  rating?: number;
+  reviewsCount?: number;
 };
 
 export type Address = {

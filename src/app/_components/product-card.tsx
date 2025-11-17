@@ -3,11 +3,12 @@
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Star, StarHalf } from 'lucide-react';
 import type { Product } from '@/lib/types';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { useCart } from '@/context/cart-context';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 interface ProductCardProps {
   product: Product;
@@ -27,8 +28,11 @@ export function ProductCard({ product }: ProductCardProps) {
     });
   };
 
+  const rating = product.rating || 4.5;
+  const reviewsCount = product.reviewsCount || Math.floor(Math.random() * 100) + 10;
+
   return (
-    <Card className="group overflow-hidden rounded-xl border-2 border-transparent hover:border-primary transition-all duration-300 shadow-md hover:shadow-primary/20">
+    <Card className="group overflow-hidden rounded-xl border-transparent transition-all duration-300 shadow-sm hover:shadow-lg">
       <CardContent className="p-0">
         <div className="relative aspect-[4/3] w-full overflow-hidden">
           {image && (
@@ -42,9 +46,10 @@ export function ProductCard({ product }: ProductCardProps) {
               />
             </Link>
           )}
-          <div className="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-             <Button size="icon" variant="default" onClick={handleAddToCart} aria-label={`Add ${product.name} to cart`} className="rounded-full h-10 w-10 bg-background/80 hover:bg-background text-primary hover:text-primary/90 backdrop-blur-sm">
-                <ShoppingCart className="h-5 w-5" />
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+             <Button onClick={handleAddToCart} aria-label={`Add ${product.name} to cart`} className="w-full">
+                <ShoppingCart className="mr-2 h-4 w-4" />
+                কার্টে যোগ করুন
             </Button>
           </div>
         </div>
@@ -53,6 +58,25 @@ export function ProductCard({ product }: ProductCardProps) {
           <h3 className="text-lg font-semibold truncate leading-tight">
             <Link href="#" className="hover:text-primary transition-colors">{product.name}</Link>
           </h3>
+          <div className="mt-2 flex items-center gap-2">
+            <div className="flex items-center">
+              {[...Array(5)].map((_, i) => {
+                const ratingValue = i + 1;
+                return (
+                  <Star
+                    key={i}
+                    className={cn(
+                      'h-4 w-4',
+                      ratingValue <= Math.floor(rating)
+                        ? 'text-yellow-400 fill-yellow-400'
+                        : 'text-muted-foreground/50 fill-muted-foreground/20'
+                    )}
+                  />
+                );
+              })}
+            </div>
+            <span className="text-xs text-muted-foreground">({reviewsCount})</span>
+          </div>
           <div className="mt-3">
             <p className="text-xl font-bold text-primary">৳{product.price.toFixed(2)}</p>
           </div>
