@@ -63,6 +63,7 @@ export default function ProductDetailPage() {
   
   useEffect(() => {
     if (product) {
+      // This check ensures we only set a random number on the client-side after initial render.
       if (product.reviewsCount === undefined) {
         setReviewsCount(Math.floor(Math.random() * 100) + 10);
       } else {
@@ -140,22 +141,22 @@ export default function ProductDetailPage() {
             </div>
           </div>
           
-          <div className="flex flex-col sm:flex-row gap-4 items-center">
-            <Button size="lg" className="w-full sm:w-auto text-lg" onClick={handleAddToCart}>
+          <div className="flex flex-col gap-4">
+            <Button size="lg" className="w-full text-lg h-12" onClick={handleAddToCart}>
                 <ShoppingCart className="mr-2 h-5 w-5" />
                 কার্টে যোগ করুন
             </Button>
-            <div className="flex gap-2">
-                <Button asChild variant="outline" size="icon" className="w-12 h-12 bg-[#25D366] text-white hover:bg-[#1DAE53] hover:text-white border-0">
+            <div className="grid grid-cols-2 gap-4">
+                <Button asChild variant="outline" className="h-14 text-base bg-[#25D366] text-white hover:bg-[#1DAE53] hover:text-white border-0">
                     <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                         <WhatsAppIcon className="h-6 w-6" />
-                        <span className="sr-only">WhatsApp-এ মেসেজ দিন</span>
+                        <span>WhatsApp</span>
                     </a>
                 </Button>
-                <Button asChild variant="outline" size="icon" className="w-12 h-12 bg-[#00B2FF] text-white hover:bg-[#0099e6] hover:text-white border-0">
+                <Button asChild variant="outline" className="h-14 text-base bg-[#00B2FF] text-white hover:bg-[#0099e6] hover:text-white border-0">
                     <a href={messengerUrl} target="_blank" rel="noopener noreferrer">
                         <MessengerIcon className="h-6 w-6" />
-                        <span className="sr-only">Messenger-এ মেসেজ দিন</span>
+                        <span>Messenger</span>
                     </a>
                 </Button>
             </div>
