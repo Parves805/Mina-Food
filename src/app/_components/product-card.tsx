@@ -28,11 +28,11 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   return (
-    <Card>
-      <CardContent className="p-4">
-        <Link href="#">
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg mb-4">
-            {image && (
+    <Card className="group overflow-hidden rounded-xl border-2 border-transparent hover:border-primary transition-all duration-300 shadow-md hover:shadow-primary/20">
+      <CardContent className="p-0">
+        <div className="relative aspect-[4/3] w-full overflow-hidden">
+          {image && (
+            <Link href="#">
               <Image
                 src={image.imageUrl}
                 alt={product.name}
@@ -40,18 +40,22 @@ export function ProductCard({ product }: ProductCardProps) {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
               />
-            )}
+            </Link>
+          )}
+          <div className="absolute top-2 right-2 flex flex-col gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+             <Button size="icon" variant="default" onClick={handleAddToCart} aria-label={`Add ${product.name} to cart`} className="rounded-full h-10 w-10 bg-background/80 hover:bg-background text-primary hover:text-primary/90 backdrop-blur-sm">
+                <ShoppingCart className="h-5 w-5" />
+            </Button>
           </div>
-        </Link>
-        <p className="text-sm text-muted-foreground">{product.category.name}</p>
-        <h3 className="text-lg font-semibold truncate mt-1">
-          <Link href="#" className="hover:text-primary transition-colors">{product.name}</Link>
-        </h3>
-        <div className="flex justify-between items-center mt-4">
-          <p className="text-2xl font-bold text-foreground">৳{product.price.toFixed(2)}</p>
-          <Button size="icon" variant="outline" onClick={handleAddToCart} aria-label={`Add ${product.name} to cart`}>
-            <ShoppingCart className="h-5 w-5" />
-          </Button>
+        </div>
+        <div className="p-4 bg-background">
+          <p className="text-sm text-muted-foreground mb-1">{product.category.name}</p>
+          <h3 className="text-lg font-semibold truncate leading-tight">
+            <Link href="#" className="hover:text-primary transition-colors">{product.name}</Link>
+          </h3>
+          <div className="mt-3">
+            <p className="text-xl font-bold text-primary">৳{product.price.toFixed(2)}</p>
+          </div>
         </div>
       </CardContent>
     </Card>
