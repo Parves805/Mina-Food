@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { products } from '@/lib/data';
 import placeholderImages from '@/lib/placeholder-images.json';
@@ -17,9 +17,20 @@ export default function ProductDetailPage() {
   const params = useParams();
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
+  const [reviewsCount, setReviewsCount] = useState(0);
 
   const productId = Array.isArray(params.id) ? params.id[0] : params.id;
   const product = products.find((p) => p.id === productId);
+  
+  useEffect(() => {
+    if (product) {
+      if (product.reviewsCount === undefined) {
+        setReviewsCount(Math.floor(Math.random() * 100) + 10);
+      } else {
+        setReviewsCount(product.reviewsCount);
+      }
+    }
+  }, [product]);
 
   if (!product) {
     notFound();
@@ -27,7 +38,6 @@ export default function ProductDetailPage() {
 
   const image = placeholderImages.placeholderImages.find(p => p.id === product.imageId);
   const rating = product.rating || 4.5;
-  const reviewsCount = product.reviewsCount || (Math.floor(Math.random() * 100) + 10);
   const relatedProducts = products.filter(p => p.category.id === product.category.id && p.id !== product.id).slice(0, 4);
 
   const handleAddToCart = () => {
@@ -68,7 +78,7 @@ export default function ProductDetailPage() {
                 <Star key={i} className={cn('h-5 w-5', rating > i ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/30')} />
               ))}
             </div>
-            <span className="text-sm text-muted-foreground">({reviewsCount} reviews)</span>
+            {reviewsCount > 0 && <span className="text-sm text-muted-foreground">({reviewsCount} reviews)</span>}
           </div>
 
           <p className="text-4xl font-bold text-primary mb-6">৳{product.price.toFixed(2)}</p>
