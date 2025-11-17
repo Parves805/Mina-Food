@@ -7,12 +7,12 @@ import { Leaf } from 'lucide-react';
 
 export default function RegisterPage() {
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-14rem)] py-12 px-4">
-      <Card className="mx-auto max-w-sm w-full shadow-lg">
-        <CardHeader className="text-center">
-          <div className="flex justify-center items-center mb-4">
-            <Leaf className="h-8 w-8 text-primary" />
-          </div>
+    <div className="flex items-center justify-center bg-secondary/50 min-h-[calc(100vh-4rem)] py-12 px-4">
+      <Card className="mx-auto max-w-sm w-full">
+        <CardHeader className="text-center space-y-4">
+           <Link href="/" className="inline-block">
+            <Leaf className="h-10 w-10 text-primary mx-auto" />
+          </Link>
           <CardTitle className="text-2xl font-headline">একটি অ্যাকাউন্ট তৈরি করুন</CardTitle>
           <CardDescription>একটি নতুন অ্যাকাউন্ট তৈরি করতে আপনার তথ্য লিখুন</CardDescription>
         </CardHeader>
@@ -34,9 +34,9 @@ export default function RegisterPage() {
               অ্যাকাউন্ট তৈরি করুন
             </Button>
           </div>
-          <div className="mt-4 text-center text-sm">
+          <div className="mt-6 text-center text-sm">
             এর মধ্যেই একটি অ্যাকাউন্ট আছে?{' '}
-            <Link href="/login" className="underline">
+            <Link href="/login" className="underline font-medium hover:text-primary">
               লগইন করুন
             </Link>
           </div>
