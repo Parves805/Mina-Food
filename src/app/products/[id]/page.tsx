@@ -181,7 +181,7 @@ export default function ProductDetailPage() {
           </div>
 
           <div className="mt-6">
-            {product.certifications.map(cert => (
+            {product.certifications.filter(cert => !['USDA Organic', 'Non-GMO Project Verified'].includes(cert)).map(cert => (
                 <Badge key={cert} variant="secondary" className="mr-2 mb-2">{cert}</Badge>
             ))}
           </div>
