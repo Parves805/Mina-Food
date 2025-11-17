@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -17,6 +18,15 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
   const image = placeholderImages.placeholderImages.find(p => p.id === product.imageId);
+  const [reviewsCount, setReviewsCount] = useState(product.reviewsCount || 0);
+
+  useEffect(() => {
+    // This check ensures we only generate a random number on the client
+    // and only if no review count is provided in the product data.
+    if (!product.reviewsCount) {
+      setReviewsCount(Math.floor(Math.random() * 100) + 10);
+    }
+  }, [product.reviewsCount]);
 
   const handleAddToCart = () => {
     addToCart({
@@ -29,8 +39,7 @@ export function ProductCard({ product }: ProductCardProps) {
   };
 
   const rating = product.rating || 4.5;
-  const reviewsCount = product.reviewsCount || Math.floor(Math.random() * 100) + 10;
-
+  
   return (
     <Card className="group overflow-hidden rounded-xl border-transparent transition-all duration-300 shadow-sm hover:shadow-lg">
       <CardContent className="p-0">
@@ -75,7 +84,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 );
               })}
             </div>
-            <span className="text-xs text-muted-foreground">({reviewsCount})</span>
+            {reviewsCount > 0 && <span className="text-xs text-muted-foreground">({reviewsCount})</span>}
           </div>
           <div className="mt-3">
             <p className="text-xl font-bold text-primary">৳{product.price.toFixed(2)}</p>
