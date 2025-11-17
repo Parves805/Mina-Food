@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ShoppingCart, Star, StarHalf } from 'lucide-react';
+import { ShoppingCart, Star } from 'lucide-react';
 import type { Product } from '@/lib/types';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { useCart } from '@/context/cart-context';
@@ -18,13 +18,13 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const { addToCart } = useCart();
   const image = placeholderImages.placeholderImages.find(p => p.id === product.imageId);
-  const [reviewsCount, setReviewsCount] = useState(product.reviewsCount || 0);
+  const [reviewsCount, setReviewsCount] = useState(0);
 
   useEffect(() => {
-    // This check ensures we only generate a random number on the client
-    // and only if no review count is provided in the product data.
-    if (!product.reviewsCount) {
+    if (product.reviewsCount === undefined) {
       setReviewsCount(Math.floor(Math.random() * 100) + 10);
+    } else {
+      setReviewsCount(product.reviewsCount);
     }
   }, [product.reviewsCount]);
 
@@ -55,7 +55,7 @@ export function ProductCard({ product }: ProductCardProps) {
               />
             </Link>
           )}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out">
              <Button onClick={handleAddToCart} aria-label={`Add ${product.name} to cart`} className="w-full">
                 <ShoppingCart className="mr-2 h-4 w-4" />
                 কার্টে যোগ করুন
