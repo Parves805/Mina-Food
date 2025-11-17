@@ -46,7 +46,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <CardContent className="p-0">
         <div className="relative aspect-[4/3] w-full overflow-hidden">
           {image && (
-            <Link href="#">
+            <Link href={`/products/${product.id}`}>
               <Image
                 src={image.imageUrl}
                 alt={product.name}
@@ -66,7 +66,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="p-4 bg-background">
           <p className="text-sm text-muted-foreground mb-1">{product.category.name}</p>
           <h3 className="text-lg font-semibold truncate leading-tight">
-            <Link href="#" className="hover:text-primary transition-colors">{product.name}</Link>
+            <Link href={`/products/${product.id}`} className="hover:text-primary transition-colors">{product.name}</Link>
           </h3>
           <div className="mt-2 flex items-center gap-2">
             <div className="flex items-center">
