@@ -20,14 +20,15 @@ export function AppHeader() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <div className="mr-4 hidden md:flex">
-          <Link href="/" className="flex items-center gap-2 font-bold text-lg">
-            <Leaf className="h-6 w-6 text-primary" />
-            <span className="font-headline">গ্রিনবাস্কেট</span>
-          </Link>
+        <div className="mr-auto flex items-center gap-4">
+            <Link href="/" className="flex items-center gap-2 font-bold text-lg">
+              <Leaf className="h-6 w-6 text-primary" />
+              <span className="font-headline">গ্রিনবাস্কেট</span>
+            </Link>
         </div>
         
-        <div className="md:hidden">
+        {/* Mobile menu */}
+        <div className="md:hidden ml-auto">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
@@ -54,27 +55,30 @@ export function AppHeader() {
           </Sheet>
         </div>
         
-        <nav className="hidden md:flex items-center space-x-6 text-sm font-medium mx-auto">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="transition-colors text-foreground/60 hover:text-foreground/80"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex flex-1 items-center justify-end space-x-2 md:space-x-4">
-          <div className="hidden sm:block">
+        <div className="flex-1 flex justify-center items-center">
+          <div className="hidden sm:block w-full max-w-md">
             <form>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input type="search" placeholder="পণ্য খুঁজুন..." className="pl-9 w-full md:w-48 lg:w-64" />
+                <Input type="search" placeholder="পণ্য খুঁজুন..." className="pl-9 w-full" />
               </div>
             </form>
           </div>
+        </div>
+
+        <div className="flex items-center justify-end space-x-2 md:space-x-4 ml-auto">
+          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition-colors text-foreground/60 hover:text-foreground/80"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
           <div className="flex items-center space-x-1">
             <Button asChild variant="ghost" size="icon" className="relative">
               <Link href="/cart">
