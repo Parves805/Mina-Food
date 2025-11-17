@@ -2,14 +2,9 @@
 
 import Link from 'next/link';
 import { Leaf } from 'lucide-react';
-import { useState, useEffect } from 'react';
 
 export function AppFooter() {
-  const [currentYear, setCurrentYear] = useState<number | null>(null);
-
-  useEffect(() => {
-    setCurrentYear(new Date().getFullYear());
-  }, []);
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-secondary/50">
