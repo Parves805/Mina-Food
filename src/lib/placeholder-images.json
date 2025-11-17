@@ -1,10 +1,22 @@
 {
   "placeholderImages": [
     {
-      "id": "hero-1",
+      "id": "slider-1",
       "description": "A vibrant assortment of fresh organic vegetables on a rustic wooden table.",
       "imageUrl": "https://images.unsplash.com/photo-1568158958563-c13c713d69f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmcmVzaCUyMHZlZ2V0YWJsZXN8ZW58MHx8fHwxNzYyNzQ1NzY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fresh vegetables"
+    },
+    {
+      "id": "slider-2",
+      "description": "Freshly baked bread and pastries on a wooden board.",
+      "imageUrl": "https://images.unsplash.com/photo-1517433670267-38bbd3be8900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxiYWtlcnl8ZW58MHx8fHwxNzYzMjY4NjI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bakery goods"
+    },
+    {
+      "id": "slider-3",
+      "description": "A colorful basket of freshly picked seasonal vegetables.",
+      "imageUrl": "https://images.unsplash.com/photo-1445282768818-728615cc910a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmYXJtJTIwZnJlc2glMjB2ZWdldGFibGVzfGVufDB8fHx8MTc2MzI2ODY1OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "farm vegetables"
     },
     {
       "id": "prod-1",

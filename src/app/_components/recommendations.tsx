@@ -44,7 +44,7 @@ export function ProductRecommendations() {
 
   if (loading) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
         {[...Array(4)].map((_, i) => (
            <div key={i} className="flex flex-col space-y-3">
              <Skeleton className="h-[224px] w-full rounded-xl" />
@@ -70,9 +70,9 @@ export function ProductRecommendations() {
       }}
       className="w-full"
     >
-      <CarouselContent>
+      <CarouselContent className="-ml-2 md:-ml-4">
         {recommendedProducts.map((product) => (
-          <CarouselItem key={product.id} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
+          <CarouselItem key={product.id} className="pl-2 md:pl-4 sm:basis-1/2 lg:basis-1/3 xl:basis-1/4">
             <div className="p-1">
               <ProductCard product={product} />
             </div>

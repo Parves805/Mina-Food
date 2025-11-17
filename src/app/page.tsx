@@ -6,39 +6,84 @@ import { products } from '@/lib/data';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { ProductRecommendations } from '@/app/_components/recommendations';
 import { ProductCard } from '@/app/_components/product-card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
 export default function Home() {
   const featuredProducts = products.slice(0, 4);
-  const heroImage = placeholderImages.placeholderImages.find(p => p.id === 'hero-1');
+  
+  const sliderImages = [
+    placeholderImages.placeholderImages.find(p => p.id === 'slider-1'),
+    placeholderImages.placeholderImages.find(p => p.id === 'slider-2'),
+    placeholderImages.placeholderImages.find(p => p.id === 'slider-3'),
+  ].filter(Boolean);
+
+  const sliderContent = [
+    {
+      headline: "খাঁটিভাবে। সহজভাবে। জৈবভাবে।",
+      description: "সেরা জৈব খাবার আবিষ্কার করুন, দায়িত্বের সাথে সংগ্রহ করা এবং আপনার দোরগোড়ায় তাজা পৌঁছে দেওয়া হয়।",
+      buttonText: "এখনই কিনুন",
+      buttonLink: "/products"
+    },
+    {
+      headline: "সকালের নাস্তার সেরা ডিল",
+      description: "আমাদের বেকারির তাজা পণ্য এবং দুগ্ধজাত খাবারের সাথে আপনার দিন শুরু করুন।",
+      buttonText: "অফার দেখুন",
+      buttonLink: "/products?category=cat-3"
+    },
+    {
+      headline: "সতেজ সবজি, স্বাস্থ্যকর জীবন",
+      description: "খামার থেকে সরাসরি আপনার রান্নাঘরে আসা মওসুমি সবজির সেরা সম্ভার।",
+      buttonText: "সবজি কিনুন",
+      buttonLink: "/products?category=cat-1"
+    }
+  ];
 
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative w-full h-[70vh] md:h-[80vh]">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            data-ai-hint={heroImage.imageHint}
-            fill
-            className="object-cover"
-            priority
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
-        <div className="relative z-10 flex flex-col items-center justify-end h-full text-center p-8 md:p-12 text-white">
-          <h1 className="text-4xl md:text-6xl font-bold font-headline mb-4 tracking-tight">
-            খাঁটিভাবে। সহজভাবে। জৈবভাবে।
-          </h1>
-          <p className="max-w-2xl text-lg md:text-xl mb-8 text-primary-foreground/90">
-            সেরা জৈব খাবার আবিষ্কার করুন, দায়িত্বের সাথে সংগ্রহ করা এবং আপনার দোরগোড়ায় তাজা পৌঁছে দেওয়া হয়।
-          </p>
-          <Button asChild size="lg" className="font-semibold text-lg">
-            <Link href="/products">
-              এখনই কিনুন <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
+        <Carousel
+          className="w-full h-full"
+          opts={{ loop: true }}
+          plugins={[
+            require('embla-carousel-autoplay')({ delay: 5000, stopOnInteraction: true }),
+          ]}
+        >
+          <CarouselContent>
+            {sliderImages.map((image, index) => (
+              <CarouselItem key={image!.id}>
+                <div className="relative w-full h-[70vh] md:h-[80vh]">
+                  {image && (
+                    <Image
+                      src={image.imageUrl}
+                      alt={image.description}
+                      data-ai-hint={image.imageHint}
+                      fill
+                      className="object-cover"
+                      priority={index === 0}
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
+                  <div className="relative z-10 flex flex-col items-center justify-end h-full text-center p-8 md:p-12 text-white">
+                    <h1 className="text-4xl md:text-6xl font-bold font-headline mb-4 tracking-tight">
+                      {sliderContent[index].headline}
+                    </h1>
+                    <p className="max-w-2xl text-lg md:text-xl mb-8 text-primary-foreground/90">
+                      {sliderContent[index].description}
+                    </p>
+                    <Button asChild size="lg" className="font-semibold text-lg">
+                      <Link href={sliderContent[index].buttonLink}>
+                        {sliderContent[index].buttonText} <ArrowRight className="ml-2 h-5 w-5" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white bg-black/30 hover:bg-black/50 border-none h-12 w-12" />
+          <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white bg-black/30 hover:bg-black/50 border-none h-12 w-12" />
+        </Carousel>
       </section>
 
       {/* Featured Products */}
@@ -48,7 +93,7 @@ export default function Home() {
             <h2 className="text-3xl lg:text-4xl font-bold font-headline">বৈশিষ্ট্যযুক্ত পণ্য</h2>
             <p className="text-muted-foreground mt-2">আমাদের সেরা বিক্রেতাদের থেকে আপনার পছন্দের জিনিসগুলি খুঁজুন।</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
