@@ -59,7 +59,7 @@ export function ProductRecommendations() {
   }
 
   if (recommendedProducts.length === 0) {
-    return <p className="text-center text-muted-foreground">No recommendations available at this time.</p>;
+    return <p className="text-center text-muted-foreground">এখন কোনো সুপারিশ উপলব্ধ নেই।</p>;
   }
 
   return (
