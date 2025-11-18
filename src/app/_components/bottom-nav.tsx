@@ -21,7 +21,6 @@ const navItems = [
   { id: 'products', href: '/products', label: 'পণ্য', icon: ShoppingBasket },
   { id: 'search', href: '#', label: 'সার্চ', icon: Search },
   { id: 'cart', href: '/cart', label: 'কার্ট', icon: ShoppingCart },
-  { id: 'account', href: '/account', label: 'অ্যাকাউন্ট', icon: User },
 ];
 
 function MobileSearchSheet() {
@@ -137,7 +136,7 @@ export function BottomNav() {
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-background border-t z-50">
       <nav className="h-full">
-        <ul className="h-full grid grid-cols-5">
+        <ul className="h-full grid grid-cols-4">
           {navItems.map((item) => {
             if (item.id === 'search') {
               return (

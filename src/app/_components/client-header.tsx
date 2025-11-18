@@ -14,7 +14,7 @@ import { categories, products } from '@/lib/data';
 import placeholderImages from '@/lib/placeholder-images.json';
 import type { Product } from '@/lib/types';
 import { cn } from '@/lib/utils';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Separator } from '@/components/ui/separator';
 
 
 const navLinks = [
@@ -110,6 +110,11 @@ export function ClientHeader() {
                           {link.label}
                       </Link>
                   ))}
+                  <Separator className="my-4" />
+                  <Link href="/account" onClick={closeMobileMenu} className="text-foreground transition-colors hover:text-primary py-2">প্রোফাইল</Link>
+                  <Link href="/account/orders" onClick={closeMobileMenu} className="text-foreground transition-colors hover:text-primary py-2">অর্ডার</Link>
+                  <Separator className="my-4" />
+                  <Link href="/login" onClick={closeMobileMenu} className="text-foreground transition-colors hover:text-primary py-2">লগইন</Link>
                 </nav>
               </SheetContent>
             </Sheet>
