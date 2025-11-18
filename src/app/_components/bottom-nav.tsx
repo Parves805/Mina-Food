@@ -11,14 +11,15 @@ import { Badge } from '@/components/ui/badge';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { products } from '@/lib/data';
+import { products, categories } from '@/lib/data';
 import placeholderImages from '@/lib/placeholder-images.json';
 import type { Product } from '@/lib/types';
+import { Card } from '@/components/ui/card';
 
 
 const navItems = [
   { id: 'home', href: '/', label: 'হোম', icon: Home },
-  { id: 'categories', href: '/categories', label: 'ক্যাটাগরি', icon: LayoutGrid },
+  { id: 'categories', href: '#', label: 'ক্যাটাগরি', icon: LayoutGrid },
   { id: 'search', href: '#', label: 'সার্চ', icon: Search },
   { id: 'cart', href: '/cart', label: 'কার্ট', icon: ShoppingCart },
 ];
@@ -128,6 +129,60 @@ function MobileSearchSheet() {
   );
 }
 
+function MobileCategoriesSheet() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const closeSheet = () => {
+    setIsOpen(false);
+  };
+
+  return (
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+      <SheetTrigger asChild>
+        <button
+          className="flex flex-col items-center justify-center h-full w-full text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+        >
+          <LayoutGrid className="h-6 w-6" />
+          <span className="text-xs mt-1">ক্যাটাগরি</span>
+        </button>
+      </SheetTrigger>
+      <SheetContent side="bottom" className="h-[80vh] flex flex-col">
+        <SheetHeader className="text-left">
+          <SheetTitle>পণ্যের ক্যাটাগরি</SheetTitle>
+        </SheetHeader>
+        <div className="flex-grow overflow-y-auto mt-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {categories.map((category) => {
+              const image = placeholderImages.placeholderImages.find(p => p.id === category.imageId);
+              return (
+                <Link key={category.id} href={`/products?category=${category.id}`} onClick={closeSheet}>
+                  <Card className="group overflow-hidden rounded-lg border-transparent transition-all duration-300 shadow-sm hover:shadow-md">
+                    <div className="relative aspect-square w-full overflow-hidden">
+                      {image && (
+                        <Image
+                          src={image.imageUrl}
+                          alt={category.name}
+                          data-ai-hint={image.imageHint}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                      <div className="relative z-10 flex items-end justify-center h-full text-center p-2 text-white">
+                        <h2 className="text-base font-semibold tracking-tight">{category.name}</h2>
+                      </div>
+                    </div>
+                  </Card>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </SheetContent>
+    </Sheet>
+  );
+}
+
 
 export function BottomNav() {
   const pathname = usePathname();
@@ -142,6 +197,13 @@ export function BottomNav() {
               return (
                 <li key={item.id} className="h-full flex items-center justify-center">
                   <MobileSearchSheet />
+                </li>
+              );
+            }
+             if (item.id === 'categories') {
+              return (
+                <li key={item.id} className="h-full flex items-center justify-center">
+                  <MobileCategoriesSheet />
                 </li>
               );
             }
