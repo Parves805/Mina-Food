@@ -14,6 +14,7 @@ import { categories, products } from '@/lib/data';
 import placeholderImages from '@/lib/placeholder-images.json';
 import type { Product } from '@/lib/types';
 import { cn } from '@/lib/utils';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 
 const navLinks = [
@@ -81,25 +82,38 @@ export function ClientHeader() {
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right">
+              <SheetContent side="right" className="flex flex-col">
                 <SheetHeader>
-                  <SheetTitle>Menu</SheetTitle>
-                </SheetHeader>
-                <nav className="grid gap-6 text-lg font-medium mt-8">
-                  <Link href="/" onClick={closeMobileMenu} className="flex items-center gap-2 font-bold text-lg mb-4">
+                   <Link href="/" onClick={closeMobileMenu} className="flex items-center gap-2 font-bold text-lg mb-4">
                     <Leaf className="h-6 w-6 text-primary" />
                     <span className="font-headline">মিনা ফুড</span>
                   </Link>
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
+                </SheetHeader>
+                <nav className="flex-grow grid gap-4 text-base font-medium mt-4 overflow-y-auto">
+                  
+                  <Link
+                      href="/"
                       onClick={closeMobileMenu}
-                      className="text-muted-foreground transition-colors hover:text-primary"
+                      className="text-foreground transition-colors hover:text-primary py-2"
                     >
-                      {link.label}
+                      হোম
                     </Link>
-                  ))}
+                  <Accordion type="single" collapsible>
+                    <AccordionItem value="products">
+                        <AccordionTrigger className="py-2 text-base font-medium text-foreground hover:no-underline hover:text-primary">
+                            <Link href="/products" onClick={closeMobileMenu} className="flex-grow">পণ্য</Link>
+                        </AccordionTrigger>
+                        <AccordionContent>
+                            <div className="grid gap-2 pl-6 mt-2 border-l">
+                                {categoryLinks.map(link => (
+                                    <Link key={link.href} href={link.href} onClick={closeMobileMenu} className="text-muted-foreground transition-colors hover:text-primary py-1">
+                                        {link.label}
+                                    </Link>
+                                ))}
+                            </div>
+                        </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
                 </nav>
               </SheetContent>
             </Sheet>
