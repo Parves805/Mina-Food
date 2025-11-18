@@ -10,6 +10,7 @@ import {
   SidebarMenuButton,
   SidebarTrigger,
 } from '@/components/ui/sidebar';
+import { SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Leaf, Home, ShoppingBasket, Package, Users, Tag, BarChart2 } from 'lucide-react';
@@ -67,7 +68,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <main className="bg-secondary/40 min-h-screen md:ml-64">
           <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b h-16 flex items-center px-6">
             <div className="md:hidden">
-              <SidebarTrigger />
+              <SidebarTrigger>
+                <SheetHeader>
+                  <SheetTitle className='sr-only'>Admin Menu</SheetTitle>
+                </SheetHeader>
+              </SidebarTrigger>
             </div>
             <h2 className="text-xl font-semibold ml-4">
               {menuItems.find(item => pathname.startsWith(item.href))?.label || 'ড্যাশবোর্ড'}

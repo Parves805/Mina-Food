@@ -9,7 +9,6 @@ import { Leaf, Menu, Search, ShoppingCart, User } from 'lucide-react';
 import { useCart } from '@/context/cart-context';
 import { Badge } from '@/components/ui/badge';
 import { categories } from '@/lib/data';
-import { cn } from '@/lib/utils';
 
 const navLinks = [
   { href: '/', label: 'হোম' },
@@ -100,7 +99,7 @@ export function ClientHeader() {
             </SheetTrigger>
             <SheetContent side="right">
               <SheetHeader>
-                <SheetTitle className="sr-only">Menu</SheetTitle>
+                <SheetTitle>Menu</SheetTitle>
               </SheetHeader>
               <nav className="grid gap-6 text-lg font-medium mt-8">
                 <Link href="/" className="flex items-center gap-2 font-bold text-lg mb-4">

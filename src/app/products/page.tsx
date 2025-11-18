@@ -186,7 +186,7 @@ export default function ProductsPage() {
               </SheetTrigger>
               <SheetContent side="left">
                 <SheetHeader>
-                  <SheetTitle className="sr-only">Filters</SheetTitle>
+                  <SheetTitle>Filters</SheetTitle>
                 </SheetHeader>
                 <div className="mt-8">
                 <Filters {...filterProps} />
