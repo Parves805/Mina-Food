@@ -125,7 +125,7 @@ export function ClientHeader() {
           <nav className="flex items-center justify-center space-x-4 lg:space-x-6">
             {categoryLinks.map((link) => (
                 <Button key={link.href} asChild variant="ghost" className="text-sm font-medium h-12 hover:bg-accent rounded-none">
-                    <Link href={link.href} className="text-muted-foreground hover:text-primary">{link.label}</Link>
+                    <Link href={link.href} className="text-foreground hover:text-primary">{link.label}</Link>
                 </Button>
             ))}
           </nav>
