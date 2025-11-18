@@ -90,30 +90,27 @@ export function ClientHeader() {
                   </Link>
                 </SheetHeader>
                 <nav className="flex-grow grid gap-4 text-base font-medium mt-4 overflow-y-auto">
-                  
                   <Link
-                      href="/"
-                      onClick={closeMobileMenu}
-                      className="text-foreground transition-colors hover:text-primary py-2"
-                    >
-                      হোম
-                    </Link>
-                  <Accordion type="single" collapsible>
-                    <AccordionItem value="products">
-                        <AccordionTrigger className="py-2 text-base font-medium text-foreground hover:no-underline hover:text-primary">
-                            <Link href="/products" onClick={closeMobileMenu} className="flex-grow">পণ্য</Link>
-                        </AccordionTrigger>
-                        <AccordionContent>
-                            <div className="grid gap-2 pl-6 mt-2 border-l">
-                                {categoryLinks.map(link => (
-                                    <Link key={link.href} href={link.href} onClick={closeMobileMenu} className="text-muted-foreground transition-colors hover:text-primary py-1">
-                                        {link.label}
-                                    </Link>
-                                ))}
-                            </div>
-                        </AccordionContent>
-                    </AccordionItem>
-                  </Accordion>
+                    href="/"
+                    onClick={closeMobileMenu}
+                    className="text-foreground transition-colors hover:text-primary py-2"
+                  >
+                    হোম
+                  </Link>
+                  <Link
+                    href="/products"
+                    onClick={closeMobileMenu}
+                    className="text-foreground transition-colors hover:text-primary py-2 font-semibold"
+                  >
+                    সকল পণ্য
+                  </Link>
+                  <div className="grid gap-2 pl-6 border-l">
+                      {categoryLinks.map(link => (
+                          <Link key={link.href} href={link.href} onClick={closeMobileMenu} className="text-muted-foreground transition-colors hover:text-primary py-1">
+                              {link.label}
+                          </Link>
+                      ))}
+                  </div>
                 </nav>
               </SheetContent>
             </Sheet>
@@ -199,7 +196,7 @@ export function ClientHeader() {
           </div>
 
           <div className="flex items-center justify-end space-x-2">
-            <nav className="flex items-center space-x-6 text-sm font-medium">
+            <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
