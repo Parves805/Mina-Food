@@ -104,7 +104,7 @@ export function ClientHeader() {
                   >
                     সকল পণ্য
                   </Link>
-                  <div className="grid gap-2 pl-6 border-l">
+                  <div className="grid gap-2">
                       {categoryLinks.map(link => (
                           <Link key={link.href} href={link.href} onClick={closeMobileMenu} className="text-muted-foreground transition-colors hover:text-primary py-1">
                               {link.label}
