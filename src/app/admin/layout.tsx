@@ -8,6 +8,7 @@ import {
   SidebarMenu,
   SidebarMenuItem,
   SidebarMenuButton,
+  SidebarTrigger,
 } from '@/components/ui/sidebar';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -65,7 +66,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </Sidebar>
         <main className="bg-secondary/40 min-h-screen md:ml-64">
           <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-sm border-b h-16 flex items-center px-6">
-            <h2 className="text-xl font-semibold ml-4 hidden md:block">
+            <div className="md:hidden">
+              <SidebarTrigger />
+            </div>
+            <h2 className="text-xl font-semibold ml-4">
               {menuItems.find(item => pathname.startsWith(item.href))?.label || 'ড্যাশবোর্ড'}
             </h2>
           </header>
