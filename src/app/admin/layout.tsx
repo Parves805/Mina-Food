@@ -34,9 +34,6 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
       <SidebarProvider>
         <Sidebar>
-          <SheetHeader className="md:hidden">
-              <SheetTitle className="sr-only">Admin Menu</SheetTitle>
-          </SheetHeader>
           <SidebarHeader className="p-4">
             <div className="flex items-center gap-2">
               <Button variant="ghost" size="icon" className="text-primary rounded-lg" asChild>
