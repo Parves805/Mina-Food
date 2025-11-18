@@ -84,6 +84,7 @@ export function ClientHeader() {
               </SheetTrigger>
               <SheetContent side="right" className="flex flex-col">
                 <SheetHeader>
+                  <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
                    <Link href="/" onClick={closeMobileMenu} className="flex items-center gap-2 font-bold text-lg mb-4">
                     <Leaf className="h-6 w-6 text-primary" />
                     <span className="font-headline">মিনা ফুড</span>
