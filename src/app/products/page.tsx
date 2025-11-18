@@ -14,6 +14,9 @@ import { X, SlidersHorizontal } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { ClientHeader } from '../_components/client-header';
+import { AppFooter } from '../_components/footer';
+import { BottomNav } from '../_components/bottom-nav';
 
 const allCertifications: Certification[] = ['USDA Organic', 'Non-GMO Project Verified', 'Fair Trade Certified'];
 
@@ -164,63 +167,70 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 lg:py-12">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl lg:text-5xl font-bold font-headline">আমাদের পণ্য</h1>
-        <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">আমাদের তাজা এবং জৈব পণ্যের সংগ্রহ অন্বেষণ করুন। গুণমান এবং সতেজতার জন্য সাবধানে নির্বাচিত।</p>
-      </div>
-      
-      <div className="mb-6 lg:hidden flex items-center justify-between">
-        <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
-          <SheetTrigger asChild>
-            <Button variant="outline">
-              <SlidersHorizontal className="mr-2 h-4 w-4" />
-              ফিল্টার
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left">
-            <SheetHeader>
-              <SheetTitle className="sr-only">Filters</SheetTitle>
-            </SheetHeader>
-            <div className="mt-8">
-             <Filters {...filterProps} />
-            </div>
-          </SheetContent>
-        </Sheet>
-        <div className="text-sm text-muted-foreground">
-            {filteredProducts.length}টি পণ্য দেখানো হচ্ছে
-        </div>
-      </div>
-
-
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 xl:gap-12">
-        {/* Filters - Desktop */}
-        <aside className="hidden lg:block lg:col-span-1 self-start sticky top-24">
-          <Filters {...filterProps} />
-        </aside>
-
-        {/* Product Grid */}
-        <main className="lg:col-span-3">
-          <div className="hidden lg:block mb-6 text-sm text-muted-foreground">
-            {filteredProducts.length}টি পণ্য দেখানো হচ্ছে
+    <>
+      <ClientHeader />
+      <main className="flex-grow pb-16 md:pb-0">
+        <div className="container mx-auto px-4 py-8 lg:py-12">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl lg:text-5xl font-bold font-headline">আমাদের পণ্য</h1>
+            <p className="text-lg text-muted-foreground mt-2 max-w-2xl mx-auto">আমাদের তাজা এবং জৈব পণ্যের সংগ্রহ অন্বেষণ করুন। গুণমান এবং সতেজতার জন্য সাবধানে নির্বাচিত।</p>
           </div>
-          {filteredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
-              {filteredProducts.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))}
+          
+          <div className="mb-6 lg:hidden flex items-center justify-between">
+            <Sheet open={isSheetOpen} onOpenChange={setSheetOpen}>
+              <SheetTrigger asChild>
+                <Button variant="outline">
+                  <SlidersHorizontal className="mr-2 h-4 w-4" />
+                  ফিল্টার
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left">
+                <SheetHeader>
+                  <SheetTitle className="sr-only">Filters</SheetTitle>
+                </SheetHeader>
+                <div className="mt-8">
+                <Filters {...filterProps} />
+                </div>
+              </SheetContent>
+            </Sheet>
+            <div className="text-sm text-muted-foreground">
+                {filteredProducts.length}টি পণ্য দেখানো হচ্ছে
             </div>
-          ) : (
-            <div className="text-center py-20 border-2 border-dashed rounded-lg flex flex-col items-center">
-              <h3 className="text-xl font-semibold">কোনো পণ্য পাওয়া যায়নি</h3>
-              <p className="text-lg text-muted-foreground mt-2">আপনার ফিল্টারের সাথে কোনো পণ্য মেল খায় না।</p>
-              <Button onClick={clearFilters} variant="link" className="mt-4">
-                <X className="mr-2 h-4 w-4" /> সমস্ত ফিল্টার সাফ করুন
-              </Button>
-            </div>
-          )}
-        </main>
-      </div>
-    </div>
+          </div>
+
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 xl:gap-12">
+            {/* Filters - Desktop */}
+            <aside className="hidden lg:block lg:col-span-1 self-start sticky top-24">
+              <Filters {...filterProps} />
+            </aside>
+
+            {/* Product Grid */}
+            <main className="lg:col-span-3">
+              <div className="hidden lg:block mb-6 text-sm text-muted-foreground">
+                {filteredProducts.length}টি পণ্য দেখানো হচ্ছে
+              </div>
+              {filteredProducts.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+                  {filteredProducts.map(product => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-center py-20 border-2 border-dashed rounded-lg flex flex-col items-center">
+                  <h3 className="text-xl font-semibold">কোনো পণ্য পাওয়া যায়নি</h3>
+                  <p className="text-lg text-muted-foreground mt-2">আপনার ফিল্টারের সাথে কোনো পণ্য মেল খায় না।</p>
+                  <Button onClick={clearFilters} variant="link" className="mt-4">
+                    <X className="mr-2 h-4 w-4" /> সমস্ত ফিল্টার সাফ করুন
+                  </Button>
+                </div>
+              )}
+            </main>
+          </div>
+        </div>
+      </main>
+      <AppFooter />
+      <BottomNav />
+    </>
   );
 }

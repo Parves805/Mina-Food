@@ -10,11 +10,17 @@ import { Separator } from '@/components/ui/separator';
 import { Trash2, Plus, Minus, ArrowRight, ShoppingCart } from 'lucide-react';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { Label } from '@/components/ui/label';
+import { ClientHeader } from '../_components/client-header';
+import { AppFooter } from '../_components/footer';
+import { BottomNav } from '../_components/bottom-nav';
 
 export default function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, cartTotal } = useCart();
 
   return (
+    <>
+    <ClientHeader />
+    <main className="flex-grow pb-16 md:pb-0">
     <div className="container mx-auto px-4 py-8 lg:py-12">
       <h1 className="text-3xl md:text-4xl font-bold font-headline mb-8">আপনার শপিং কার্ট</h1>
       {cartItems.length === 0 ? (
@@ -103,5 +109,9 @@ export default function CartPage() {
         </div>
       )}
     </div>
+    </main>
+    <AppFooter />
+    <BottomNav />
+    </>
   );
 }

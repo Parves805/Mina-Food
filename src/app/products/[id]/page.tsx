@@ -11,6 +11,9 @@ import { useCart } from '@/context/cart-context';
 import { ProductCard } from '@/app/_components/product-card';
 import { cn } from '@/lib/utils';
 import { notFound, useParams, useRouter } from 'next/navigation';
+import { ClientHeader } from '@/app/_components/client-header';
+import { AppFooter } from '@/app/_components/footer';
+import { BottomNav } from '@/app/_components/bottom-nav';
 
 function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
@@ -106,6 +109,9 @@ export default function ProductDetailPage() {
   const messengerUrl = `https://m.me/your-page-id`; // Replace with your Facebook Page ID
 
   return (
+    <>
+    <ClientHeader />
+    <main className="flex-grow pb-16 md:pb-0">
     <div className="container mx-auto px-4 py-8 lg:py-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
         {/* Product Image Gallery */}
@@ -215,5 +221,9 @@ export default function ProductDetailPage() {
         </div>
       </div>
     </div>
+    </main>
+    <AppFooter />
+    <BottomNav />
+    </>
   );
 }

@@ -4,8 +4,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Separator } from '@/components/ui/separator';
-import { CreditCard, Truck, ArrowLeft, Wallet, Landmark } from 'lucide-react';
+import { Truck, ArrowLeft, Wallet, Landmark } from 'lucide-react';
 import Link from 'next/link';
+import { ClientHeader } from '../_components/client-header';
+import { AppFooter } from '../_components/footer';
+import { BottomNav } from '../_components/bottom-nav';
 
 function BkashIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
@@ -39,116 +42,123 @@ function RocketIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export default function CheckoutPage() {
   return (
-    <div className="bg-secondary/50 min-h-[calc(100vh-4rem)] py-8 md:py-12">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="flex items-center mb-8">
-            <Button variant="ghost" size="icon" className="mr-2" asChild>
-                <Link href="/cart"><ArrowLeft /></Link>
-            </Button>
-            <h1 className="text-3xl font-bold font-headline">চেকআউট</h1>
-        </div>
+    <>
+      <ClientHeader />
+      <main className="flex-grow pb-16 md:pb-0">
+        <div className="bg-secondary/50 min-h-[calc(100vh-4rem)] py-8 md:py-12">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="flex items-center mb-8">
+                <Button variant="ghost" size="icon" className="mr-2" asChild>
+                    <Link href="/cart"><ArrowLeft /></Link>
+                </Button>
+                <h1 className="text-3xl font-bold font-headline">চেকআউট</h1>
+            </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          
-          {/* Left Column: Shipping */}
-          <div className="space-y-6">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl"><Truck className="h-6 w-6" /> শিপিং ঠিকানা</CardTitle>
-              </CardHeader>
-              <CardContent className="grid grid-cols-1 gap-4">
-                <div className="grid gap-2">
-                  <Label htmlFor="name">পুরো নাম</Label>
-                  <Input id="name" placeholder="জেন ডো" />
-                </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="address">রাস্তার ঠিকানা</Label>
-                  <Input id="address" placeholder="১২৩ গ্রিন ওয়ে" />
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="grid gap-2">
-                    <Label htmlFor="city">শহর</Label>
-                    <Input id="city" placeholder="নেচারভিল" />
-                  </div>
-                  <div className="grid gap-2">
-                    <Label htmlFor="zip">জিপ কোড</Label>
-                    <Input id="zip" placeholder="90210" />
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              
+              {/* Left Column: Shipping */}
+              <div className="space-y-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-xl"><Truck className="h-6 w-6" /> শিপিং ঠিকানা</CardTitle>
+                  </CardHeader>
+                  <CardContent className="grid grid-cols-1 gap-4">
+                    <div className="grid gap-2">
+                      <Label htmlFor="name">পুরো নাম</Label>
+                      <Input id="name" placeholder="জেন ডো" />
+                    </div>
+                    <div className="grid gap-2">
+                      <Label htmlFor="address">রাস্তার ঠিকানা</Label>
+                      <Input id="address" placeholder="১২৩ গ্রিন ওয়ে" />
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="grid gap-2">
+                        <Label htmlFor="city">শহর</Label>
+                        <Input id="city" placeholder="নেচারভিল" />
+                      </div>
+                      <div className="grid gap-2">
+                        <Label htmlFor="zip">জিপ কোড</Label>
+                        <Input id="zip" placeholder="90210" />
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Right Column: Payment & Summary */}
+              <div className="space-y-6 sticky top-24">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="text-xl">অর্ডার সারাংশ</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <div className="flex justify-between text-sm text-muted-foreground">
+                        <span>জৈব গাজর x 2</span>
+                        <span>৳5.98</span>
+                      </div>
+                      <div className="flex justify-between text-sm text-muted-foreground">
+                        <span>খट्टा রুটি x 1</span>
+                        <span>৳5.49</span>
+                      </div>
+                      <Separator/>
+                      <div className="flex justify-between font-medium">
+                        <span>উপমোট</span>
+                        <span>৳11.47</span>
+                      </div>
+                      <div className="flex justify-between font-medium">
+                        <span>শিপিং</span>
+                        <span className="text-primary">বিনামূল্যে</span>
+                      </div>
+                      <Separator/>
+                      <div className="flex justify-between font-bold text-lg">
+                        <span>সর্বমোট</span>
+                        <span>৳11.47</span>
+                      </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-xl"><Wallet className="h-6 w-6" /> অর্থপ্রদানের বিবরণ</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <RadioGroup defaultValue="cod" className="gap-4">
+                      <Label htmlFor="cod" className="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:border-primary has-[input:checked]:border-primary has-[input:checked]:bg-primary/5">
+                        <RadioGroupItem value="cod" id="cod" />
+                        <Wallet className="h-5 w-5 mr-2" />
+                        <span className="font-medium">ক্যাশ অন ডেলিভারি</span>
+                      </Label>
+                      
+                      <Label htmlFor="bkash" className="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:border-primary has-[input:checked]:border-primary has-[input:checked]:bg-primary/5">
+                        <RadioGroupItem value="bkash" id="bkash" />
+                        <BkashIcon className="h-6 w-6" />
+                        <span className="font-medium">bKash</span>
+                      </Label>
+
+                      <Label htmlFor="nagad" className="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:border-primary has-[input:checked]:border-primary has-[input:checked]:bg-primary/5">
+                        <RadioGroupItem value="nagad" id="nagad" />
+                        <NagadIcon className="h-6 w-6" />
+                        <span className="font-medium">Nagad</span>
+                      </Label>
+
+                      <Label htmlFor="rocket" className="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:border-primary has-[input:checked]:border-primary has-[input:checked]:bg-primary/5">
+                        <RadioGroupItem value="rocket" id="rocket" />
+                        <RocketIcon className="h-6 w-6" />
+                        <span className="font-medium">Rocket</span>
+                      </Label>
+                    </RadioGroup>
+                  </CardContent>
+                </Card>
+                <Button size="lg" className="w-full text-lg" asChild>
+                    <Link href="/account/orders">অর্ডার করুন (৳11.47)</Link>
+                </Button>
+              </div>
+            </div>
           </div>
-
-          {/* Right Column: Payment & Summary */}
-          <div className="space-y-6 sticky top-24">
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl">অর্ডার সারাংশ</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                 <div className="flex justify-between text-sm text-muted-foreground">
-                    <span>জৈব গাজর x 2</span>
-                    <span>৳5.98</span>
-                  </div>
-                  <div className="flex justify-between text-sm text-muted-foreground">
-                    <span>খट्टा রুটি x 1</span>
-                    <span>৳5.49</span>
-                  </div>
-                  <Separator/>
-                   <div className="flex justify-between font-medium">
-                    <span>উপমোট</span>
-                    <span>৳11.47</span>
-                  </div>
-                   <div className="flex justify-between font-medium">
-                    <span>শিপিং</span>
-                    <span className="text-primary">বিনামূল্যে</span>
-                  </div>
-                  <Separator/>
-                  <div className="flex justify-between font-bold text-lg">
-                    <span>সর্বমোট</span>
-                    <span>৳11.47</span>
-                  </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-xl"><CreditCard className="h-6 w-6" /> অর্থপ্রদানের বিবরণ</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <RadioGroup defaultValue="cod" className="gap-4">
-                  <Label htmlFor="cod" className="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:border-primary has-[input:checked]:border-primary has-[input:checked]:bg-primary/5">
-                    <RadioGroupItem value="cod" id="cod" />
-                    <Wallet className="h-5 w-5 mr-2" />
-                    <span className="font-medium">ক্যাশ অন ডেলিভারি</span>
-                  </Label>
-                  
-                  <Label htmlFor="bkash" className="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:border-primary has-[input:checked]:border-primary has-[input:checked]:bg-primary/5">
-                    <RadioGroupItem value="bkash" id="bkash" />
-                    <BkashIcon className="h-6 w-6" />
-                    <span className="font-medium">bKash</span>
-                  </Label>
-
-                  <Label htmlFor="nagad" className="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:border-primary has-[input:checked]:border-primary has-[input:checked]:bg-primary/5">
-                    <RadioGroupItem value="nagad" id="nagad" />
-                    <NagadIcon className="h-6 w-6" />
-                    <span className="font-medium">Nagad</span>
-                  </Label>
-
-                  <Label htmlFor="rocket" className="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:border-primary has-[input:checked]:border-primary has-[input:checked]:bg-primary/5">
-                    <RadioGroupItem value="rocket" id="rocket" />
-                    <RocketIcon className="h-6 w-6" />
-                    <span className="font-medium">Rocket</span>
-                  </Label>
-                </RadioGroup>
-              </CardContent>
-            </Card>
-            <Button size="lg" className="w-full text-lg" asChild>
-                <Link href="/account/orders">অর্ডার করুন (৳11.47)</Link>
-            </Button>
-          </div>
         </div>
-      </div>
-    </div>
+      </main>
+      <AppFooter />
+      <BottomNav />
+    </>
   );
 }
