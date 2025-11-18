@@ -89,7 +89,7 @@ export function ClientHeader() {
                     <span className="font-headline">মিনা ফুড</span>
                   </Link>
                 </SheetHeader>
-                <nav className="flex-grow grid gap-4 text-base font-medium mt-4 overflow-y-auto">
+                <nav className="flex-grow flex flex-col text-base font-medium mt-4 overflow-y-auto">
                   <Link
                     href="/"
                     onClick={closeMobileMenu}
@@ -104,13 +104,12 @@ export function ClientHeader() {
                   >
                     সকল পণ্য
                   </Link>
-                  <div className="grid gap-2">
-                      {categoryLinks.map(link => (
-                          <Link key={link.href} href={link.href} onClick={closeMobileMenu} className="text-muted-foreground transition-colors hover:text-primary py-1">
-                              {link.label}
-                          </Link>
-                      ))}
-                  </div>
+                  
+                  {categoryLinks.map(link => (
+                      <Link key={link.href} href={link.href} onClick={closeMobileMenu} className="text-muted-foreground transition-colors hover:text-primary py-2">
+                          {link.label}
+                      </Link>
+                  ))}
                 </nav>
               </SheetContent>
             </Sheet>
