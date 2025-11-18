@@ -65,7 +65,7 @@ export function ClientHeader() {
             </Link>
         </div>
         
-        <div className="flex-1 flex justify-center items-center mx-4">
+        <div className="hidden md:flex flex-1 justify-center items-center mx-4">
           <div className="w-full max-w-md">
             <form>
               <div className="relative">
@@ -89,7 +89,7 @@ export function ClientHeader() {
             ))}
           </nav>
 
-          <div className="flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-1">
             <Button asChild variant="ghost" size="icon" className="relative">
               <Link href="/cart">
                 <ShoppingCart className="h-5 w-5" />
