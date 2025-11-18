@@ -40,7 +40,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8'];
 export default function AdminAnalyticsPage() {
   return (
     <div className="space-y-6">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">মোট রাজস্ব</CardTitle>
@@ -80,7 +80,7 @@ export default function AdminAnalyticsPage() {
                     <CardDescription>গত ১২ মাসের বিক্রয় দেখুন</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <ChartContainer config={{}} className="h-80 w-full">
+                    <ChartContainer config={{}} className="h-80 w-full aspect-video">
                         <BarChart data={monthlySalesData} margin={{ top: 5, right: 20, left: -10, bottom: 5 }}>
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="month" />
@@ -97,24 +97,26 @@ export default function AdminAnalyticsPage() {
                     <CardDescription>প্রতিটি বিভাগে বিক্রয়ের বন্টন</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <ChartContainer config={{}} className="h-80 w-full">
-                        <PieChart>
-                            <Pie
-                                data={salesByCategoryData}
-                                cx="50%"
-                                cy="50%"
-                                labelLine={false}
-                                outerRadius={120}
-                                fill="#8884d8"
-                                dataKey="value"
-                            >
-                                {salesByCategoryData.map((entry, index) => (
-                                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                                ))}
-                            </Pie>
-                            <Tooltip content={<ChartTooltipContent />} />
-                            <Legend />
-                        </PieChart>
+                    <ChartContainer config={{}} className="h-80 w-full aspect-video">
+                        <ResponsiveContainer width="100%" height="100%">
+                            <PieChart>
+                                <Pie
+                                    data={salesByCategoryData}
+                                    cx="50%"
+                                    cy="50%"
+                                    labelLine={false}
+                                    outerRadius={100}
+                                    fill="#8884d8"
+                                    dataKey="value"
+                                >
+                                    {salesByCategoryData.map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                    ))}
+                                </Pie>
+                                <Tooltip content={<ChartTooltipContent />} />
+                                <Legend />
+                            </PieChart>
+                        </ResponsiveContainer>
                     </ChartContainer>
                 </CardContent>
             </Card>

@@ -54,21 +54,22 @@ export default function AdminSliderPage() {
           </div>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="hidden w-[100px] sm:table-cell">Image</TableHead>
-                <TableHead>Headline</TableHead>
-                <TableHead>Description</TableHead>
-                <TableHead>
-                  <span className="sr-only">Actions</span>
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {sliderContent.map((slide) => {
-                 const image = placeholderImages.placeholderImages.find(p => p.id === slide.imageId);
-                 return(
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[120px] hidden sm:table-cell">Image</TableHead>
+                  <TableHead>Headline</TableHead>
+                  <TableHead className="hidden md:table-cell">Description</TableHead>
+                  <TableHead>
+                    <span className="sr-only">Actions</span>
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {sliderContent.map((slide) => {
+                  const image = placeholderImages.placeholderImages.find(p => p.id === slide.imageId);
+                  return(
                   <TableRow key={slide.id}>
                     <TableCell className="hidden sm:table-cell">
                       <div className="relative h-16 w-28 rounded-md overflow-hidden">
@@ -83,8 +84,8 @@ export default function AdminSliderPage() {
                         )}
                       </div>
                     </TableCell>
-                    <TableCell className="font-medium max-w-xs truncate">{slide.headline}</TableCell>
-                    <TableCell className="max-w-sm truncate">{slide.description}</TableCell>
+                    <TableCell className="font-medium max-w-[200px] truncate">{slide.headline}</TableCell>
+                    <TableCell className="hidden md:table-cell max-w-[300px] truncate">{slide.description}</TableCell>
                     <TableCell>
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -101,14 +102,15 @@ export default function AdminSliderPage() {
                     </TableCell>
                   </TableRow>
                 );
-              })}
-            </TableBody>
-          </Table>
+                })}
+              </TableBody>
+            </Table>
+          </div>
         </CardContent>
       </Card>
       
       <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-        <SheetContent className="sm:max-w-lg">
+        <SheetContent className="sm:max-w-lg w-[90vw] overflow-y-auto">
           <SheetHeader>
             <SheetTitle>Edit Slide</SheetTitle>
           </SheetHeader>

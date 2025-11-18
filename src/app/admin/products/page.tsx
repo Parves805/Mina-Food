@@ -53,81 +53,83 @@ export default function AdminProductsPage() {
     <>
       <Card>
         <CardHeader>
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <CardTitle>পণ্য</CardTitle>
               <CardDescription>আপনার পণ্য পরিচালনা করুন এবং তাদের বিক্রয় কর্মক্ষমতা দেখুন।</CardDescription>
             </div>
-            <Button onClick={handleAddProduct}>
+            <Button onClick={handleAddProduct} className="w-full sm:w-auto">
               <PlusCircle className="mr-2 h-4 w-4" />
               পণ্য যোগ করুন
             </Button>
           </div>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="hidden w-[100px] sm:table-cell">ছবি</TableHead>
-                <TableHead>নাম</TableHead>
-                <TableHead>বিভাগ</TableHead>
-                <TableHead className="hidden md:table-cell">স্টক</TableHead>
-                <TableHead>মূল্য</TableHead>
-                <TableHead>
-                  <span className="sr-only">פעולות</span>
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {products.map((product) => {
-                 const image = placeholderImages.placeholderImages.find(p => p.id === product.imageId);
-                 return(
-                  <TableRow key={product.id}>
-                    <TableCell className="hidden sm:table-cell">
-                      <div className="relative h-12 w-12 rounded-md overflow-hidden">
-                        {image && (
-                          <Image
-                            src={image.imageUrl}
-                            alt={product.name}
-                            data-ai-hint={image.imageHint}
-                            fill
-                            className="object-cover"
-                          />
-                        )}
-                      </div>
-                    </TableCell>
-                    <TableCell className="font-medium">{product.name}</TableCell>
-                    <TableCell>
-                      <Badge variant="outline">{product.category.name}</Badge>
-                    </TableCell>
-                    <TableCell className="hidden md:table-cell">{product.stock}</TableCell>
-                    <TableCell>৳{product.price.toFixed(2)}</TableCell>
-                    <TableCell>
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button aria-haspopup="true" size="icon" variant="ghost">
-                            <MoreHorizontal className="h-4 w-4" />
-                            <span className="sr-only">Toggle menu</span>
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                          <DropdownMenuLabel>פעולות</DropdownMenuLabel>
-                          <DropdownMenuItem onClick={() => handleEditProduct(product)}>সম্পাদনা</DropdownMenuItem>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem className="text-destructive">মুছে ফেলুন</DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-            </TableBody>
-          </Table>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[80px]">ছবি</TableHead>
+                  <TableHead>নাম</TableHead>
+                  <TableHead className="hidden md:table-cell">বিভাগ</TableHead>
+                  <TableHead className="hidden lg:table-cell">স্টক</TableHead>
+                  <TableHead>মূল্য</TableHead>
+                  <TableHead>
+                    <span className="sr-only">פעולות</span>
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {products.map((product) => {
+                  const image = placeholderImages.placeholderImages.find(p => p.id === product.imageId);
+                  return(
+                    <TableRow key={product.id}>
+                      <TableCell>
+                        <div className="relative h-12 w-12 rounded-md overflow-hidden">
+                          {image && (
+                            <Image
+                              src={image.imageUrl}
+                              alt={product.name}
+                              data-ai-hint={image.imageHint}
+                              fill
+                              className="object-cover"
+                            />
+                          )}
+                        </div>
+                      </TableCell>
+                      <TableCell className="font-medium">{product.name}</TableCell>
+                      <TableCell className="hidden md:table-cell">
+                        <Badge variant="outline">{product.category.name}</Badge>
+                      </TableCell>
+                      <TableCell className="hidden lg:table-cell">{product.stock}</TableCell>
+                      <TableCell>৳{product.price.toFixed(2)}</TableCell>
+                      <TableCell>
+                        <DropdownMenu>
+                          <DropdownMenuTrigger asChild>
+                            <Button aria-haspopup="true" size="icon" variant="ghost">
+                              <MoreHorizontal className="h-4 w-4" />
+                              <span className="sr-only">Toggle menu</span>
+                            </Button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent align="end">
+                            <DropdownMenuLabel>פעולות</DropdownMenuLabel>
+                            <DropdownMenuItem onClick={() => handleEditProduct(product)}>সম্পাদনা</DropdownMenuItem>
+                            <DropdownMenuSeparator />
+                            <DropdownMenuItem className="text-destructive">মুছে ফেলুন</DropdownMenuItem>
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })}
+              </TableBody>
+            </Table>
+          </div>
         </CardContent>
       </Card>
       
       <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-        <SheetContent className="sm:max-w-lg">
+        <SheetContent className="sm:max-w-lg w-[90vw] overflow-y-auto">
           <SheetHeader>
             <SheetTitle>{selectedProduct ? 'পণ্য সম্পাদনা করুন' : 'নতুন পণ্য যোগ করুন'}</SheetTitle>
           </SheetHeader>

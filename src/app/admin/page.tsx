@@ -32,7 +32,7 @@ const recentOrders = orders.slice(0, 5);
 export default function AdminDashboardPage() {
   return (
     <div className="space-y-6">
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">মোট রাজস্ব</CardTitle>
@@ -80,35 +80,37 @@ export default function AdminDashboardPage() {
           <CardTitle>সাম্প্রতিক অর্ডার</CardTitle>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>গ্রাহক</TableHead>
-                <TableHead>স্ট্যাটাস</TableHead>
-                <TableHead>তারিখ</TableHead>
-                <TableHead className="text-right">পরিমাণ</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {recentOrders.map((order) => (
-                <TableRow key={order.id}>
-                  <TableCell>
-                    <div className="font-medium">{order.user.name}</div>
-                    <div className="hidden text-sm text-muted-foreground md:inline">
-                      {order.user.email}
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <Badge variant="outline" className={cn('capitalize', statusStyles[order.status])}>
-                      {order.status}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>{format(order.orderDate, 'MMM dd, yyyy')}</TableCell>
-                  <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>গ্রাহক</TableHead>
+                  <TableHead>স্ট্যাটাস</TableHead>
+                  <TableHead className="hidden sm:table-cell">তারিখ</TableHead>
+                  <TableHead className="text-right">পরিমাণ</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {recentOrders.map((order) => (
+                  <TableRow key={order.id}>
+                    <TableCell>
+                      <div className="font-medium">{order.user.name}</div>
+                      <div className="text-sm text-muted-foreground md:hidden">
+                        {format(order.orderDate, 'MMM dd, yyyy')}
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <Badge variant="outline" className={cn('capitalize', statusStyles[order.status])}>
+                        {order.status}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="hidden sm:table-cell">{format(order.orderDate, 'MMM dd, yyyy')}</TableCell>
+                    <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </CardContent>
       </Card>
     </div>

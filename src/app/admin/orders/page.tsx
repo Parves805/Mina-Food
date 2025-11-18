@@ -31,38 +31,40 @@ export default function AdminOrdersPage() {
         <CardDescription>সমস্ত গ্রাহক অর্ডার দেখুন এবং পরিচালনা করুন।</CardDescription>
       </CardHeader>
       <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>অর্ডার আইডি</TableHead>
-              <TableHead>গ্রাহক</TableHead>
-              <TableHead>তারিখ</TableHead>
-              <TableHead>স্ট্যাটাস</TableHead>
-              <TableHead className="text-right">মোট</TableHead>
-              <TableHead className="text-right">פעולה</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {orders.map((order) => (
-              <TableRow key={order.id}>
-                <TableCell className="font-medium">#{order.id.split('-')[1]}</TableCell>
-                <TableCell>{order.user.name}</TableCell>
-                <TableCell>{format(order.orderDate, 'MMM dd, yyyy')}</TableCell>
-                <TableCell>
-                  <Badge variant="outline" className={cn('capitalize', statusStyles[order.status])}>
-                    {order.status}
-                  </Badge>
-                </TableCell>
-                <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
-                <TableCell className="text-right">
-                  <Button asChild variant="outline" size="sm">
-                    <Link href={`/admin/orders/${order.id}`}>বিস্তারিত দেখুন</Link>
-                  </Button>
-                </TableCell>
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>অর্ডার আইডি</TableHead>
+                <TableHead>গ্রাহক</TableHead>
+                <TableHead className="hidden sm:table-cell">তারিখ</TableHead>
+                <TableHead>স্ট্যাটাস</TableHead>
+                <TableHead className="text-right">মোট</TableHead>
+                <TableHead className="text-right">פעולה</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {orders.map((order) => (
+                <TableRow key={order.id}>
+                  <TableCell className="font-medium">#{order.id.split('-')[1]}</TableCell>
+                  <TableCell>{order.user.name}</TableCell>
+                  <TableCell className="hidden sm:table-cell">{format(order.orderDate, 'MMM dd, yyyy')}</TableCell>
+                  <TableCell>
+                    <Badge variant="outline" className={cn('capitalize', statusStyles[order.status])}>
+                      {order.status}
+                    </Badge>
+                  </TableCell>
+                  <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
+                  <TableCell className="text-right">
+                    <Button asChild variant="outline" size="sm">
+                      <Link href={`/admin/orders/${order.id}`}>বিস্তারিত দেখুন</Link>
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </CardContent>
     </Card>
   );
