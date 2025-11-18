@@ -13,7 +13,7 @@ import {
 import { SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Leaf, Home, ShoppingBasket, Package, Users, Tag, BarChart2 } from 'lucide-react';
+import { Leaf, Home, ShoppingBasket, Package, Users, Tag, BarChart2, Megaphone, Settings } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
@@ -23,7 +23,9 @@ const menuItems = [
   { href: '/admin/orders', label: 'অর্ডার', icon: Package },
   { href: '/admin/users', label: 'ব্যবহারকারী', icon: Users },
   { href: '/admin/coupons', label: 'কুপন', icon: Tag },
+  { href: '/admin/marketing', label: 'মার্কেটিং', icon: Megaphone },
   { href: '/admin/analytics', label: 'বিশ্লেষণ', icon: BarChart2 },
+  { href: '/admin/settings', label: 'সেটিংস', icon: Settings },
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -49,11 +51,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   <SidebarMenuButton
                     asChild
                     className={cn(
-                      pathname === item.href
+                      pathname.startsWith(item.href) && item.href !== '/admin' || pathname === item.href
                         ? 'bg-primary/10 text-primary hover:bg-primary/20'
                         : 'hover:bg-accent'
                     )}
-                    isActive={pathname === item.href}
+                    isActive={pathname.startsWith(item.href) && item.href !== '/admin' || pathname === item.href}
                   >
                     <Link href={item.href}>
                       <item.icon className="h-5 w-5" />
