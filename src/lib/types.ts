@@ -72,3 +72,12 @@ export type CartItem = {
   quantity: number;
   imageId: string;
 };
+
+export type SliderContent = {
+    id: string;
+    imageId: string;
+    headline: string;
+    description: string;
+    buttonText: string;
+    buttonLink: string;
+};

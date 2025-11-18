@@ -1,4 +1,4 @@
-import type { Category, Product, User, Order, Coupon, Address } from './types';
+import type { Category, Product, User, Order, Coupon, Address, SliderContent } from './types';
 
 export const categories: Category[] = [
   { id: 'cat-1', name: 'Fresh Vegetables' },
@@ -51,3 +51,30 @@ export const coupons: Coupon[] = [
   { id: 'coupon-2', code: 'ORGANIC20', discount: 20, expiryDate: new Date('2024-10-31'), isActive: true },
   { id: 'coupon-3', code: 'EXPIRED5', discount: 5, expiryDate: new Date('2023-01-01'), isActive: false },
 ];
+
+export const sliderContent: SliderContent[] = [
+    {
+      id: 'slide-1',
+      imageId: 'slider-1',
+      headline: "খাঁটিভাবে। সহজভাবে। জৈবভাবে।",
+      description: "সেরা জৈব খাবার আবিষ্কার করুন, দায়িত্বের সাথে সংগ্রহ করা এবং আপনার দোরগোড়ায় তাজা পৌঁছে দেওয়া হয়।",
+      buttonText: "এখনই কিনুন",
+      buttonLink: "/products"
+    },
+    {
+      id: 'slide-2',
+      imageId: 'slider-2',
+      headline: "সকালের নাস্তার সেরা ডিল",
+      description: "আমাদের বেকারির তাজা পণ্য এবং দুগ্ধজাত খাবারের সাথে আপনার দিন শুরু করুন।",
+      buttonText: "অফার দেখুন",
+      buttonLink: "/products?category=cat-3"
+    },
+    {
+      id: 'slide-3',
+      imageId: 'slider-3',
+      headline: "সতেজ সবজি, স্বাস্থ্যকর জীবন",
+      description: "খামার থেকে সরাসরি আপনার রান্নাঘরে আসা মওসুমি সবজির সেরা সম্ভার।",
+      buttonText: "সবজি কিনুন",
+      buttonLink: "/products?category=cat-1"
+    }
+  ];

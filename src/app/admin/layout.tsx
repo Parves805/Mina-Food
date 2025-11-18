@@ -13,7 +13,7 @@ import {
 import { SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Leaf, Home, ShoppingBasket, Package, Users, Tag, BarChart2, Megaphone, Settings } from 'lucide-react';
+import { Leaf, Home, ShoppingBasket, Package, Users, Tag, BarChart2, Megaphone, Settings, ImageIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
@@ -25,6 +25,7 @@ const menuItems = [
   { href: '/admin/coupons', label: 'কুপন', icon: Tag },
   { href: '/admin/marketing', label: 'মার্কেটিং', icon: Megaphone },
   { href: '/admin/analytics', label: 'বিশ্লেষণ', icon: BarChart2 },
+  { href: '/admin/slider', label: 'Slider Settings', icon: ImageIcon },
   { href: '/admin/settings', label: 'সেটিংস', icon: Settings },
 ];
 
