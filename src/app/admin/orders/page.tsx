@@ -40,7 +40,7 @@ export default function AdminOrdersPage() {
                 <TableHead className="hidden sm:table-cell">তারিখ</TableHead>
                 <TableHead>স্ট্যাটাস</TableHead>
                 <TableHead className="text-right">মোট</TableHead>
-                <TableHead className="text-right">פעולה</TableHead>
+                <TableHead className="text-right">অ্যাকশন</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

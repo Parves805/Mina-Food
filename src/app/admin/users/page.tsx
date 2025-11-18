@@ -96,7 +96,7 @@ export default function AdminUsersPage() {
                   <TableHead>ভূমিকা</TableHead>
                   <TableHead className="hidden sm:table-cell">অর্ডার</TableHead>
                   <TableHead>
-                    <span className="sr-only">פעולות</span>
+                    <span className="sr-only">অ্যাকশন</span>
                   </TableHead>
                 </TableRow>
               </TableHeader>
@@ -137,7 +137,7 @@ export default function AdminUsersPage() {
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuLabel>פעולות</DropdownMenuLabel>
+                          <DropdownMenuLabel>অ্যাকশন</DropdownMenuLabel>
                           <DropdownMenuItem>প্রোফাইল দেখুন</DropdownMenuItem>
                           <DropdownMenuItem>অর্ডার দেখুন</DropdownMenuItem>
                           <DropdownMenuSub>

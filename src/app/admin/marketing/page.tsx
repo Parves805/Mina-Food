@@ -12,21 +12,14 @@ import { PlusCircle } from 'lucide-react';
 
 export default function AdminMarketingPage() {
   return (
-    <Tabs defaultValue="campaigns" className="flex flex-col">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-4">
-        <div>
-            <h1 className="text-2xl font-bold">মার্কেটিং</h1>
-            <p className="text-muted-foreground">
-                আপনার মার্কেটিং ক্যাম্পেইন, এসইও এবং সামাজিক কার্যকলাপ পরিচালনা করুন।
-            </p>
-        </div>
-        <TabsList className="w-full sm:w-auto">
-          <TabsTrigger value="campaigns" className="flex-1 sm:flex-none">ক্যাম্পেইন</TabsTrigger>
-          <TabsTrigger value="seo" className="flex-1 sm:flex-none">এসইও</TabsTrigger>
-          <TabsTrigger value="social" className="flex-1 sm:flex-none">সামাজিক</TabsTrigger>
+    <Tabs defaultValue="campaigns" className="w-full">
+      <div className="flex items-center">
+        <TabsList>
+          <TabsTrigger value="campaigns">ক্যাম্পেইন</TabsTrigger>
+          <TabsTrigger value="seo">এসইও</TabsTrigger>
+          <TabsTrigger value="social">সামাজিক</TabsTrigger>
         </TabsList>
       </div>
-      
       <TabsContent value="campaigns">
         <Card>
           <CardHeader>

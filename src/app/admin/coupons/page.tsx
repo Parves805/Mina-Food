@@ -24,17 +24,15 @@ import { format } from 'date-fns';
 export default function AdminCouponsPage() {
   return (
     <Card>
-      <CardHeader>
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <div>
+      <CardHeader className="flex flex-row justify-between items-center">
+        <div>
             <CardTitle>কুপন</CardTitle>
             <CardDescription>আপনার দোকানের জন্য প্রচারমূলক কোড পরিচালনা করুন।</CardDescription>
-          </div>
-          <Button className="w-full sm:w-auto">
+        </div>
+        <Button>
             <PlusCircle className="mr-2 h-4 w-4" />
             কুপন যোগ করুন
-          </Button>
-        </div>
+        </Button>
       </CardHeader>
       <CardContent>
         <div className="overflow-x-auto">
@@ -46,7 +44,7 @@ export default function AdminCouponsPage() {
                 <TableHead>স্ট্যাটাস</TableHead>
                 <TableHead className="hidden md:table-cell">মেয়াদ শেষ হওয়ার তারিখ</TableHead>
                 <TableHead>
-                  <span className="sr-only">פעולות</span>
+                  <span className="sr-only">অ্যাকশন</span>
                 </TableHead>
               </TableRow>
             </TableHeader>
@@ -70,7 +68,7 @@ export default function AdminCouponsPage() {
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>פעולות</DropdownMenuLabel>
+                        <DropdownMenuLabel>অ্যাকশন</DropdownMenuLabel>
                         <DropdownMenuItem>সম্পাদনা</DropdownMenuItem>
                         <DropdownMenuItem>{coupon.isActive ? 'নিষ্ক্রিয় করুন' : 'সক্রিয় করুন'}</DropdownMenuItem>
                         <DropdownMenuSeparator />

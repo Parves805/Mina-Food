@@ -51,19 +51,18 @@ export default function AdminProductsPage() {
 
   return (
     <>
+      <div className="flex items-center justify-between mb-6">
+        <div>
+            <h1 className='text-2xl font-bold'>পণ্য</h1>
+            <p className="text-muted-foreground">আপনার পণ্য পরিচালনা করুন এবং তাদের বিক্রয় কর্মক্ষমতা দেখুন।</p>
+        </div>
+        <Button onClick={handleAddProduct} className="w-full sm:w-auto">
+            <PlusCircle className="mr-2 h-4 w-4" />
+            পণ্য যোগ করুন
+        </Button>
+      </div>
+
       <Card>
-        <CardHeader>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-            <div>
-              <CardTitle>পণ্য</CardTitle>
-              <CardDescription>আপনার পণ্য পরিচালনা করুন এবং তাদের বিক্রয় কর্মক্ষমতা দেখুন।</CardDescription>
-            </div>
-            <Button onClick={handleAddProduct} className="w-full sm:w-auto">
-              <PlusCircle className="mr-2 h-4 w-4" />
-              পণ্য যোগ করুন
-            </Button>
-          </div>
-        </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
             <Table>

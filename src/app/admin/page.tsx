@@ -3,6 +3,7 @@ import {
   CardContent,
   CardHeader,
   CardTitle,
+  CardDescription,
 } from '@/components/ui/card';
 import {
   Table,
@@ -13,11 +14,13 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { DollarSign, Users, ShoppingBag, ArrowUpRight } from 'lucide-react';
+import { DollarSign, Users, ShoppingBag, Activity } from 'lucide-react';
 import { orders } from '@/lib/data';
 import { OrderStatus } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const statusStyles: Record<OrderStatus, string> = {
   Pending: 'bg-yellow-100 text-yellow-800 border-yellow-200',
@@ -31,50 +34,53 @@ const recentOrders = orders.slice(0, 5);
 
 export default function AdminDashboardPage() {
   return (
-    <div className="space-y-6">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
+      <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">মোট রাজস্ব</CardTitle>
-            <DollarSign className="h-4 w-4 text-muted-foreground" />
+          <CardHeader className="pb-2">
+            <CardDescription>এই সপ্তাহ</CardDescription>
+            <CardTitle className="text-4xl">৳1,329</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">৳24,203.45</div>
-            <p className="text-xs text-muted-foreground">গত মাস থেকে +20.1%</p>
+            <div className="text-xs text-muted-foreground">
+              গত সপ্তাহ থেকে +25%
+            </div>
           </CardContent>
         </Card>
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">বিক্রয়</CardTitle>
-            <ShoppingBag className="h-4 w-4 text-muted-foreground" />
+          <CardHeader className="pb-2">
+            <CardDescription>এই মাস</CardDescription>
+            <CardTitle className="text-4xl">৳5,329</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+1,234</div>
-            <p className="text-xs text-muted-foreground">গত মাস থেকে +19%</p>
+            <div className="text-xs text-muted-foreground">
+              গত মাস থেকে +10%
+            </div>
           </CardContent>
         </Card>
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">নতুন গ্রাহক</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
+          <CardHeader className="pb-2">
+            <CardDescription>এই সপ্তাহ</CardDescription>
+            <CardTitle className="text-4xl">৳1,329</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+234</div>
-            <p className="text-xs text-muted-foreground">গত মাস থেকে +180.1%</p>
+            <div className="text-xs text-muted-foreground">
+              গত সপ্তাহ থেকে +25%
+            </div>
           </CardContent>
         </Card>
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">এখন সক্রিয়</CardTitle>
-            <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
+          <CardHeader className="pb-2">
+            <CardDescription>এই মাস</CardDescription>
+            <CardTitle className="text-4xl">৳5,329</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">+57</div>
-            <p className="text-xs text-muted-foreground">অনলাইন</p>
+            <div className="text-xs text-muted-foreground">
+              গত মাস থেকে +10%
+            </div>
           </CardContent>
         </Card>
       </div>
-
       <Card>
         <CardHeader>
           <CardTitle>সাম্প্রতিক অর্ডার</CardTitle>
@@ -88,6 +94,7 @@ export default function AdminDashboardPage() {
                   <TableHead>স্ট্যাটাস</TableHead>
                   <TableHead className="hidden sm:table-cell">তারিখ</TableHead>
                   <TableHead className="text-right">পরিমাণ</TableHead>
+                   <TableHead className="text-right">অ্যাকশন</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -106,6 +113,11 @@ export default function AdminDashboardPage() {
                     </TableCell>
                     <TableCell className="hidden sm:table-cell">{format(order.orderDate, 'MMM dd, yyyy')}</TableCell>
                     <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
+                    <TableCell className="text-right">
+                         <Button asChild variant="outline" size="sm">
+                            <Link href={`/admin/orders/${order.id}`}>বিস্তারিত দেখুন</Link>
+                        </Button>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
