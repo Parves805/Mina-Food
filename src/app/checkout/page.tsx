@@ -140,12 +140,6 @@ export default function CheckoutPage() {
                     <RocketIcon className="h-6 w-6" />
                     <span className="font-medium">Rocket</span>
                   </Label>
-                  
-                  <Label htmlFor="card" className="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:border-primary has-[input:checked]:border-primary has-[input:checked]:bg-primary/5">
-                     <RadioGroupItem value="card" id="card" />
-                     <Landmark className="h-5 w-5 mr-2" />
-                    <span className="font-medium">কার্ড পেমেন্ট</span>
-                  </Label>
                 </RadioGroup>
               </CardContent>
             </Card>
