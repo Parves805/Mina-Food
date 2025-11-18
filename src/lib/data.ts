@@ -38,9 +38,9 @@ const mockAdmin: User = {
 export const users: User[] = [mockUser, mockAdmin];
 
 export const orders: Order[] = [
-  { id: 'order-1', user: mockUser, items: [{ product: products[0], quantity: 2, price: 2.99 }, { product: products[2], quantity: 1, price: 5.49 }], total: 11.47, status: 'Delivered', shippingAddress: mockAddress, orderDate: new Date('2023-10-15'), deliverySlot: '2:00 PM - 4:00 PM' },
-  { id: 'order-2', user: mockUser, items: [{ product: products[4], quantity: 1, price: 3.49 }, { product: products[5], quantity: 1, price: 4.29 }], total: 7.78, status: 'Shipped', shippingAddress: mockAddress, orderDate: new Date('2023-10-28'), deliverySlot: '10:00 AM - 12:00 PM' },
-  { id: 'order-3', user: mockAdmin, items: [{ product: products[1], quantity: 5, price: 0.99 }], total: 4.95, status: 'Delivered', shippingAddress: mockAddress, orderDate: new Date('2023-10-20'), deliverySlot: '6:00 PM - 8:00 PM' },
+  { id: 'order-1', user: mockUser, items: [{ product: products[0], quantity: 2, price: 2.99 }, { product: products[2], quantity: 1, price: 5.49 }], total: 11.47, status: 'Delivered', shippingAddress: mockAddress, orderDate: new Date('2023-10-15') },
+  { id: 'order-2', user: mockUser, items: [{ product: products[4], quantity: 1, price: 3.49 }, { product: products[5], quantity: 1, price: 4.29 }], total: 7.78, status: 'Shipped', shippingAddress: mockAddress, orderDate: new Date('2023-10-28') },
+  { id: 'order-3', user: mockAdmin, items: [{ product: products[1], quantity: 5, price: 0.99 }], total: 4.95, status: 'Delivered', shippingAddress: mockAddress, orderDate: new Date('2023-10-20') },
 ];
 
 mockUser.orderHistory = orders.filter(o => o.user.id === mockUser.id);

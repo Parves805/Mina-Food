@@ -38,12 +38,6 @@ function RocketIcon(props: React.SVGProps<SVGSVGElement>) {
 
 
 export default function CheckoutPage() {
-  const deliverySlots = [
-    "আজ, 4:00 PM - 6:00 PM",
-    "আগামীকাল, 9:00 AM - 11:00 AM",
-    "আগামীকাল, 2:00 PM - 4:00 PM",
-  ];
-
   return (
     <div className="bg-secondary/50 min-h-[calc(100vh-4rem)] py-8 md:py-12">
       <div className="container mx-auto px-4 max-w-4xl">
@@ -56,7 +50,7 @@ export default function CheckoutPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           
-          {/* Left Column: Shipping & Delivery */}
+          {/* Left Column: Shipping */}
           <div className="space-y-6">
             <Card>
               <CardHeader>
@@ -81,23 +75,6 @@ export default function CheckoutPage() {
                     <Input id="zip" placeholder="90210" />
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-xl">ডেলিভারি স্লট</CardTitle>
-                <CardDescription>আপনার ডেলিভারির জন্য একটি সুবিধাজনক সময় বেছে নিন।</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <RadioGroup defaultValue={deliverySlots[0]} className="gap-4">
-                  {deliverySlots.map(slot => (
-                    <Label key={slot} htmlFor={slot} className="flex items-center space-x-3 p-4 border rounded-lg cursor-pointer hover:border-primary has-[input:checked]:border-primary has-[input:checked]:bg-primary/5">
-                      <RadioGroupItem value={slot} id={slot} />
-                      <span className="font-medium">{slot}</span>
-                    </Label>
-                  ))}
-                </RadioGroup>
               </CardContent>
             </Card>
           </div>

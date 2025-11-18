@@ -54,7 +54,7 @@ export type Order = {
   status: OrderStatus;
   shippingAddress: Address;
   orderDate: Date;
-  deliverySlot: string;
+  deliverySlot?: string;
 };
 
 export type Coupon = {
