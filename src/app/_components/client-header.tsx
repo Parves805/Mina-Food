@@ -51,7 +51,7 @@ export function ClientHeader() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="transition-colors text-foreground/60 hover:text-foreground/80"
+                className="transition-colors text-muted-foreground hover:text-primary"
               >
                 {link.label}
               </Link>
