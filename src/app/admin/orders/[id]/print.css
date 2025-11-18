@@ -1,0 +1,50 @@
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .printable-area, .printable-area * {
+    visibility: visible;
+  }
+  .printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    box-shadow: none;
+    border: none;
+  }
+  .no-print {
+    display: none;
+  }
+  .print-header, .print-footer {
+    display: block;
+  }
+   h1, h2, h3, h4, h5, h6, p, span, div {
+    color: #000 !important;
+  }
+  .bg-yellow-100 { background-color: #fef9c3 !important; }
+  .text-yellow-800 { color: #92400e !important; }
+  .bg-blue-100 { background-color: #dbeafe !important; }
+  .text-blue-800 { color: #1e40af !important; }
+  .bg-indigo-100 { background-color: #e0e7ff !important; }
+  .text-indigo-800 { color: #3730a3 !important; }
+  .bg-green-100 { background-color: #d1fae5 !important; }
+  .text-green-800 { color: #065f46 !important; }
+  .bg-red-100 { background-color: #fee2e2 !important; }
+  .text-red-800 { color: #991b1b !important; }
+  .text-muted-foreground { color: #666 !important; }
+  .font-semibold { font-weight: 600 !important; }
+  .font-bold { font-weight: 700 !important; }
+  
+  .card, .table {
+    border: 1px solid #ccc !important;
+  }
+  .table-cell, .table-head {
+      padding: 8px;
+  }
+  .table-row {
+      border-bottom: 1px solid #ccc;
+  }
+}

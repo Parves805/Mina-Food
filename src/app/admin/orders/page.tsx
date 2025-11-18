@@ -12,6 +12,8 @@ import { orders } from '@/lib/data';
 import { OrderStatus } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const statusStyles: Record<OrderStatus, string> = {
   Pending: 'bg-yellow-100 text-yellow-800 border-yellow-200',
@@ -37,6 +39,7 @@ export default function AdminOrdersPage() {
               <TableHead>তারিখ</TableHead>
               <TableHead>স্ট্যাটাস</TableHead>
               <TableHead className="text-right">মোট</TableHead>
+              <TableHead className="text-right">פעולה</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -51,6 +54,11 @@ export default function AdminOrdersPage() {
                   </Badge>
                 </TableCell>
                 <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
+                <TableCell className="text-right">
+                  <Button asChild variant="outline" size="sm">
+                    <Link href={`/admin/orders/${order.id}`}>বিস্তারিত দেখুন</Link>
+                  </Button>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

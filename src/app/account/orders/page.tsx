@@ -12,6 +12,7 @@ import { orders } from '@/lib/data';
 import { OrderStatus } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
+import Link from 'next/link';
 
 const statusStyles: Record<OrderStatus, string> = {
   Pending: 'bg-yellow-100 text-yellow-800 border-yellow-200',
@@ -50,7 +51,9 @@ export default function OrderHistoryPage() {
                 </TableCell>
                 <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
                 <TableCell className="text-right">
-                  <Button variant="outline" size="sm">বিস্তারিত দেখুন</Button>
+                  <Button asChild variant="outline" size="sm">
+                    <Link href={`/account/orders/${order.id}`}>বিস্তারিত দেখুন</Link>
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
