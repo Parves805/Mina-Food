@@ -6,11 +6,11 @@ import { products } from '@/lib/data';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Star, Plus, Minus, ShoppingCart, Truck, ShieldCheck } from 'lucide-react';
+import { Star, Plus, Minus, ShoppingCart, Truck, ShieldCheck, ShoppingBag } from 'lucide-react';
 import { useCart } from '@/context/cart-context';
 import { ProductCard } from '@/app/_components/product-card';
 import { cn } from '@/lib/utils';
-import { notFound, useParams } from 'next/navigation';
+import { notFound, useParams, useRouter } from 'next/navigation';
 
 function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
@@ -52,6 +52,7 @@ function MessengerIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export default function ProductDetailPage() {
   const params = useParams();
+  const router = useRouter();
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
   const [reviewsCount, setReviewsCount] = useState(0);
@@ -86,6 +87,17 @@ export default function ProductDetailPage() {
       quantity,
       imageId: product.imageId,
     });
+  };
+
+  const handleBuyNow = () => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity,
+      imageId: product.imageId,
+    });
+    router.push('/checkout');
   };
 
   const phoneNumber = "1234567890"; // Replace with your WhatsApp number
@@ -140,10 +152,16 @@ export default function ProductDetailPage() {
           </div>
           
           <div className="flex flex-col gap-4">
-            <Button size="lg" className="w-full text-lg h-12" onClick={handleAddToCart}>
-                <ShoppingCart className="mr-2 h-5 w-5" />
-                কার্টে যোগ করুন
-            </Button>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <Button size="lg" variant="outline" className="w-full text-lg h-12" onClick={handleAddToCart}>
+                  <ShoppingCart className="mr-2 h-5 w-5" />
+                  কার্টে যোগ করুন
+              </Button>
+              <Button size="lg" className="w-full text-lg h-12" onClick={handleBuyNow}>
+                  <ShoppingBag className="mr-2 h-5 w-5" />
+                  এখনই কিনুন
+              </Button>
+            </div>
             <div className="grid grid-cols-2 gap-4">
                 <Button asChild variant="outline" className="h-14 text-base bg-[#25D366] text-white hover:bg-[#1DAE53] hover:text-white border-0">
                     <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
