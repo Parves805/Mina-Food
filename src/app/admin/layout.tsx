@@ -31,6 +31,10 @@ const menuItems = [
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const currentPage = menuItems.find(item => {
+    if (item.href === '/admin') return pathname === item.href;
+    return pathname.startsWith(item.href)
+  })?.label || 'ড্যাশবোর্ড';
 
   return (
       <SidebarProvider>
@@ -77,8 +81,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 </SheetHeader>
               </SidebarTrigger>
             </div>
-            <h2 className="text-xl font-semibold ml-4">
-              {menuItems.find(item => pathname.startsWith(item.href))?.label || 'ড্যাশবোর্ড'}
+            <h2 className="text-xl font-semibold ml-4 md:ml-0">
+              {currentPage}
             </h2>
           </header>
           <div className="p-4 md:p-6">{children}</div>

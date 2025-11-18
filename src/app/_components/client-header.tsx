@@ -32,6 +32,7 @@ export function ClientHeader() {
   const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     if (searchTerm) {
@@ -60,21 +61,23 @@ export function ClientHeader() {
     setSearchTerm('');
     setSearchResults([]);
   }
+  
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         
-        <div className="flex items-center gap-4 mr-auto">
+        <div className="flex items-center gap-2 md:gap-4 mr-auto">
             <Link href="/" className="flex items-center gap-2 font-bold text-lg">
               <Leaf className="h-6 w-6 text-primary" />
-              <span className="font-headline">মিনা ফুড</span>
+              <span className="font-headline hidden sm:inline-block">মিনা ফুড</span>
             </Link>
         </div>
         
-        <div ref={searchRef} className="hidden md:flex flex-1 justify-center items-center mx-4">
+        <div ref={searchRef} className="flex-1 justify-center items-center mx-2 md:mx-4">
           <div className="w-full max-w-md relative">
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input 
@@ -142,7 +145,7 @@ export function ClientHeader() {
           </div>
         </div>
 
-        <div className="flex items-center justify-end space-x-2 md:space-x-4">
+        <div className="flex items-center justify-end space-x-1 md:space-x-2">
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
             {navLinks.map((link) => (
               <Link
@@ -186,8 +189,8 @@ export function ClientHeader() {
           </div>
         </div>
         
-        <div className="md:hidden ml-4">
-          <Sheet>
+        <div className="md:hidden ml-2">
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6" />
@@ -199,7 +202,7 @@ export function ClientHeader() {
                 <SheetTitle>Menu</SheetTitle>
               </SheetHeader>
               <nav className="grid gap-6 text-lg font-medium mt-8">
-                <Link href="/" className="flex items-center gap-2 font-bold text-lg mb-4">
+                <Link href="/" onClick={closeMobileMenu} className="flex items-center gap-2 font-bold text-lg mb-4">
                   <Leaf className="h-6 w-6 text-primary" />
                   <span className="font-headline">মিনা ফুড</span>
                 </Link>
@@ -207,6 +210,7 @@ export function ClientHeader() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={closeMobileMenu}
                     className="text-muted-foreground transition-colors hover:text-primary"
                   >
                     {link.label}

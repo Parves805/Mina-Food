@@ -87,87 +87,89 @@ export default function AdminUsersPage() {
           <CardDescription>আপনার গ্রাহক এবং প্রশাসকদের পরিচালনা করুন।</CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>নাম</TableHead>
-                <TableHead>ইমেল</TableHead>
-                <TableHead>ভূমিকা</TableHead>
-                <TableHead>অর্ডার</TableHead>
-                <TableHead>
-                  <span className="sr-only">פעולות</span>
-                </TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {users.map((user) => {
-                const avatar = placeholderImages.placeholderImages.find(p => p.id === user.avatarId);
-                return (
-                <TableRow key={user.id}>
-                  <TableCell className="font-medium">
-                    <div className="flex items-center gap-3">
-                      <div className="relative h-10 w-10 rounded-full overflow-hidden">
-                         {avatar && (
-                          <Image
-                            src={avatar.imageUrl}
-                            alt={user.name}
-                            data-ai-hint={avatar.imageHint}
-                            fill
-                            className="object-cover"
-                          />
-                        )}
-                      </div>
-                      <span>{user.name}</span>
-                    </div>
-                  </TableCell>
-                  <TableCell>{user.email}</TableCell>
-                  <TableCell>
-                    <Badge variant={user.role === 'admin' ? 'default' : 'secondary'} className="capitalize">
-                      {user.role}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>{user.orderHistory.length}</TableCell>
-                  <TableCell>
-                    <DropdownMenu>
-                      <DropdownMenuTrigger asChild>
-                        <Button aria-haspopup="true" size="icon" variant="ghost">
-                          <MoreHorizontal className="h-4 w-4" />
-                          <span className="sr-only">Toggle menu</span>
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>פעולות</DropdownMenuLabel>
-                        <DropdownMenuItem>প্রোফাইল দেখুন</DropdownMenuItem>
-                        <DropdownMenuItem>অর্ডার দেখুন</DropdownMenuItem>
-                        <DropdownMenuSub>
-                          <DropdownMenuSubTrigger>ভূমিকা পরিবর্তন করুন</DropdownMenuSubTrigger>
-                          <DropdownMenuPortal>
-                             <DropdownMenuSubContent>
-                                <DropdownMenuItem onClick={() => changeUserRole(user.id, 'admin')}>
-                                  <Shield className="mr-2 h-4 w-4" />
-                                  <span>অ্যাডমিন</span>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem onClick={() => changeUserRole(user.id, 'customer')}>
-                                  <User className="mr-2 h-4 w-4" />
-                                  <span>গ্রাহক</span>
-                                </DropdownMenuItem>
-                              </DropdownMenuSubContent>
-                          </DropdownMenuPortal>
-                        </DropdownMenuSub>
-
-                        <DropdownMenuSeparator />
-                        <DropdownMenuItem onClick={() => openConfirmationDialog(user, 'suspend')}>
-                           <XOctagon className="mr-2 h-4 w-4" />
-                           সাসপেন্ড করুন
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="text-destructive" onClick={() => openConfirmationDialog(user, 'delete')}>মুছে ফেলুন</DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </TableCell>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>নাম</TableHead>
+                  <TableHead className="hidden md:table-cell">ইমেল</TableHead>
+                  <TableHead>ভূমিকা</TableHead>
+                  <TableHead className="hidden sm:table-cell">অর্ডার</TableHead>
+                  <TableHead>
+                    <span className="sr-only">פעולות</span>
+                  </TableHead>
                 </TableRow>
-              )})}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {users.map((user) => {
+                  const avatar = placeholderImages.placeholderImages.find(p => p.id === user.avatarId);
+                  return (
+                  <TableRow key={user.id}>
+                    <TableCell className="font-medium">
+                      <div className="flex items-center gap-3">
+                        <div className="relative h-10 w-10 rounded-full overflow-hidden flex-shrink-0">
+                           {avatar && (
+                            <Image
+                              src={avatar.imageUrl}
+                              alt={user.name}
+                              data-ai-hint={avatar.imageHint}
+                              fill
+                              className="object-cover"
+                            />
+                          )}
+                        </div>
+                        <span className="truncate max-w-32 sm:max-w-none">{user.name}</span>
+                      </div>
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell">{user.email}</TableCell>
+                    <TableCell>
+                      <Badge variant={user.role === 'admin' ? 'default' : 'secondary'} className="capitalize">
+                        {user.role}
+                      </Badge>
+                    </TableCell>
+                    <TableCell className="hidden sm:table-cell">{user.orderHistory.length}</TableCell>
+                    <TableCell>
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button aria-haspopup="true" size="icon" variant="ghost">
+                            <MoreHorizontal className="h-4 w-4" />
+                            <span className="sr-only">Toggle menu</span>
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end">
+                          <DropdownMenuLabel>פעולות</DropdownMenuLabel>
+                          <DropdownMenuItem>প্রোফাইল দেখুন</DropdownMenuItem>
+                          <DropdownMenuItem>অর্ডার দেখুন</DropdownMenuItem>
+                          <DropdownMenuSub>
+                            <DropdownMenuSubTrigger>ভূমিকা পরিবর্তন করুন</DropdownMenuSubTrigger>
+                            <DropdownMenuPortal>
+                               <DropdownMenuSubContent>
+                                  <DropdownMenuItem onClick={() => changeUserRole(user.id, 'admin')}>
+                                    <Shield className="mr-2 h-4 w-4" />
+                                    <span>অ্যাডমিন</span>
+                                  </DropdownMenuItem>
+                                  <DropdownMenuItem onClick={() => changeUserRole(user.id, 'customer')}>
+                                    <User className="mr-2 h-4 w-4" />
+                                    <span>গ্রাহক</span>
+                                  </DropdownMenuItem>
+                                </DropdownMenuSubContent>
+                            </DropdownMenuPortal>
+                          </DropdownMenuSub>
+
+                          <DropdownMenuSeparator />
+                          <DropdownMenuItem onClick={() => openConfirmationDialog(user, 'suspend')}>
+                             <XOctagon className="mr-2 h-4 w-4" />
+                             সাসপেন্ড করুন
+                          </DropdownMenuItem>
+                          <DropdownMenuItem className="text-destructive" onClick={() => openConfirmationDialog(user, 'delete')}>মুছে ফেলুন</DropdownMenuItem>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    </TableCell>
+                  </TableRow>
+                )})}
+              </TableBody>
+            </Table>
+          </div>
         </CardContent>
       </Card>
       

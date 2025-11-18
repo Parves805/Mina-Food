@@ -27,7 +27,7 @@ export default function Home() {
       <ClientHeader />
       <main className="flex-grow pb-16 md:pb-0">
         {/* Hero Section */}
-        <section className="relative w-full h-[70vh] md:h-[80vh]">
+        <section className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh]">
           <Carousel
             className="w-full h-full"
             opts={{ loop: true }}
@@ -40,7 +40,7 @@ export default function Home() {
                 const image = placeholderImages.placeholderImages.find(p => p.id === content.imageId)
                 return (
                 <CarouselItem key={content.id}>
-                  <div className="relative w-full h-[70vh] md:h-[80vh]">
+                  <div className="relative w-full h-[60vh] sm:h-[70vh] md:h-[80vh]">
                     {image && (
                       <Image
                         src={image.imageUrl}
@@ -52,14 +52,14 @@ export default function Home() {
                       />
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-black/20" />
-                    <div className="relative z-10 flex flex-col items-center justify-end h-full text-center p-8 md:p-12 text-white">
-                      <h1 className="text-4xl md:text-6xl font-bold font-headline mb-4 tracking-tight">
+                    <div className="relative z-10 flex flex-col items-center justify-end h-full text-center p-4 sm:p-8 md:p-12 text-white">
+                      <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold font-headline mb-4 tracking-tight">
                         {content.headline}
                       </h1>
-                      <p className="max-w-2xl text-lg md:text-xl mb-8 text-primary-foreground/90">
+                      <p className="max-w-2xl text-base sm:text-lg md:text-xl mb-6 md:mb-8 text-primary-foreground/90">
                         {content.description}
                       </p>
-                      <Button asChild size="lg" className="font-semibold text-lg">
+                      <Button asChild size="lg" className="font-semibold text-base md:text-lg">
                         <Link href={content.buttonLink}>
                           {content.buttonText} <ArrowRight className="ml-2 h-5 w-5" />
                         </Link>
@@ -69,19 +69,19 @@ export default function Home() {
                 </CarouselItem>
               )})}
             </CarouselContent>
-            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white bg-black/30 hover:bg-black/50 border-none h-12 w-12" />
-            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white bg-black/30 hover:bg-black/50 border-none h-12 w-12" />
+            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 text-white bg-black/30 hover:bg-black/50 border-none h-10 w-10 sm:h-12 sm:w-12" />
+            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 text-white bg-black/30 hover:bg-black/50 border-none h-10 w-10 sm:h-12 sm:w-12" />
           </Carousel>
         </section>
 
         {/* Featured Products */}
-        <section className="py-16 lg:py-24 bg-background">
+        <section className="py-12 md:py-16 lg:py-24 bg-background">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">বৈশিষ্ট্যযুক্ত পণ্য</h2>
               <p className="text-muted-foreground mt-2">আমাদের সেরা বিক্রেতাদের থেকে আপনার পছন্দের জিনিসগুলি খুঁজুন।</p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
               {featuredProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
@@ -97,7 +97,7 @@ export default function Home() {
         </section>
         
         {/* Why Choose Us Section */}
-        <section className="py-16 lg:py-24 bg-secondary/50">
+        <section className="py-12 md:py-16 lg:py-24 bg-secondary/50">
           <div className="container mx-auto px-4 text-center">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline mb-4">কেন মিনা ফুড?</h2>
               <p className="max-w-3xl mx-auto text-muted-foreground mb-12">
@@ -130,9 +130,9 @@ export default function Home() {
         </section>
 
         {/* AI Recommendations Section */}
-        <section className="py-16 lg:py-24 bg-background">
+        <section className="py-12 md:py-16 lg:py-24 bg-background">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">আপনার জন্য প্রস্তাবিত</h2>
               <p className="text-muted-foreground mt-2">আপনার ব্রাউজিং ইতিহাসের উপর ভিত্তি করে ব্যক্তিগতকৃত পছন্দ।</p>
             </div>

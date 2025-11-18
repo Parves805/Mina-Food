@@ -38,7 +38,7 @@ export default function CartPage() {
             {cartItems.map((item) => {
               const image = placeholderImages.placeholderImages.find(p => p.id === item.imageId);
               return (
-                <Card key={item.id} className="flex items-center p-4">
+                <Card key={item.id} className="flex items-start sm:items-center p-4 flex-col sm:flex-row gap-4">
                   <div className="relative h-24 w-24 rounded-md overflow-hidden flex-shrink-0">
                     {image && (
                       <Image
@@ -50,11 +50,11 @@ export default function CartPage() {
                       />
                     )}
                   </div>
-                  <div className="ml-4 flex-grow grid gap-1">
+                  <div className="flex-grow grid gap-1">
                     <h2 className="font-semibold">{item.name}</h2>
                     <p className="text-sm text-muted-foreground">৳{item.price.toFixed(2)}</p>
                   </div>
-                  <div className="flex items-center gap-2 mx-4">
+                  <div className="flex items-center gap-2">
                     <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateQuantity(item.id, item.quantity - 1)}>
                       <Minus className="h-4 w-4" />
                     </Button>
@@ -64,7 +64,7 @@ export default function CartPage() {
                     </Button>
                   </div>
                   <p className="w-24 text-right font-semibold text-lg">৳{(item.price * item.quantity).toFixed(2)}</p>
-                  <Button variant="ghost" size="icon" className="ml-4 text-muted-foreground hover:text-destructive" onClick={() => removeFromCart(item.id)}>
+                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-destructive" onClick={() => removeFromCart(item.id)}>
                     <Trash2 className="h-5 w-5" />
                   </Button>
                 </Card>
