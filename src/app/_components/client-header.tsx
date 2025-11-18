@@ -82,11 +82,11 @@ export function ClientHeader() {
                   <span className="sr-only">Open menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="flex flex-col">
+              <SheetContent side="right" className="flex flex-col bg-primary text-primary-foreground">
                 <SheetHeader>
                   <SheetTitle className="sr-only">Mobile Menu</SheetTitle>
                    <Link href="/" onClick={closeMobileMenu} className="flex items-center gap-2 font-bold text-lg mb-4">
-                    <Leaf className="h-6 w-6 text-primary" />
+                    <Leaf className="h-6 w-6 text-primary-foreground" />
                     <span className="font-headline">মিনা ফুড</span>
                   </Link>
                 </SheetHeader>
@@ -94,28 +94,28 @@ export function ClientHeader() {
                   <Link
                     href="/"
                     onClick={closeMobileMenu}
-                    className="text-foreground transition-colors hover:text-primary py-2"
+                    className="text-primary-foreground transition-colors hover:text-primary-foreground/80 py-2"
                   >
                     হোম
                   </Link>
                   <Link
                     href="/products"
                     onClick={closeMobileMenu}
-                    className="text-foreground transition-colors hover:text-primary py-2 font-semibold"
+                    className="text-primary-foreground transition-colors hover:text-primary-foreground/80 py-2 font-semibold"
                   >
                     সকল পণ্য
                   </Link>
                   
                   {categoryLinks.map(link => (
-                      <Link key={link.href} href={link.href} onClick={closeMobileMenu} className="text-muted-foreground transition-colors hover:text-primary py-2">
+                      <Link key={link.href} href={link.href} onClick={closeMobileMenu} className="text-primary-foreground/90 transition-colors hover:text-primary-foreground py-2">
                           {link.label}
                       </Link>
                   ))}
-                  <Separator className="my-4" />
-                  <Link href="/account" onClick={closeMobileMenu} className="text-foreground transition-colors hover:text-primary py-2">প্রোফাইল</Link>
-                  <Link href="/account/orders" onClick={closeMobileMenu} className="text-foreground transition-colors hover:text-primary py-2">অর্ডার</Link>
-                  <Separator className="my-4" />
-                  <Link href="/login" onClick={closeMobileMenu} className="text-foreground transition-colors hover:text-primary py-2">লগইন</Link>
+                  <Separator className="my-4 bg-primary-foreground/20" />
+                  <Link href="/account" onClick={closeMobileMenu} className="text-primary-foreground transition-colors hover:text-primary-foreground/80 py-2">প্রোফাইল</Link>
+                  <Link href="/account/orders" onClick={closeMobileMenu} className="text-primary-foreground transition-colors hover:text-primary-foreground/80 py-2">অর্ডার</Link>
+                  <Separator className="my-4 bg-primary-foreground/20" />
+                  <Link href="/login" onClick={closeMobileMenu} className="text-primary-foreground transition-colors hover:text-primary-foreground/80 py-2">লগইন</Link>
                 </nav>
               </SheetContent>
             </Sheet>
