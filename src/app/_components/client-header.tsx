@@ -90,7 +90,7 @@ export function ClientHeader() {
                     <span className="font-headline">মিনা ফুড</span>
                   </Link>
                 </SheetHeader>
-                <nav className="flex-grow flex flex-col text-base font-medium mt-4 overflow-y-auto">
+                <nav className="flex-grow flex flex-col text-base font-medium mt-4 overflow-y-auto no-scrollbar">
                   <Link
                     href="/"
                     onClick={closeMobileMenu}
