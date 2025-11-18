@@ -101,6 +101,36 @@
       "description": "Another friendly-looking person.",
       "imageUrl": "https://images.unsplash.com/photo-1535643302794-19c3804b874b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVyc29uJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzYyNzE0NzIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "person portrait"
+    },
+    {
+      "id": "cat-veg",
+      "description": "An assortment of fresh vegetables on a dark background.",
+      "imageUrl": "https://images.unsplash.com/photo-1590779032174-0f5690553758?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmcmVzaCUyMHZlZ2V0YWJsZXN8ZW58MHx8fHwxNzYyNzQ1NzY3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fresh vegetables"
+    },
+    {
+      "id": "cat-fruit",
+      "description": "A variety of colorful fresh fruits.",
+      "imageUrl": "https://images.unsplash.com/photo-1586326442691-e407137b0685?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmcmVzaCUyMGZydWl0c3xlbnwwfHx8fDE3NjI4MTM2MjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "fresh fruits"
+    },
+    {
+      "id": "cat-bakery",
+      "description": "An assortment of freshly baked bread and pastries.",
+      "imageUrl": "https://images.unsplash.com/photo-1568251523344-4b2a7aa5d27b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxiYWtlcnl8ZW58MHx8fHwxNzYzMjY4NjI1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bakery goods"
+    },
+    {
+      "id": "cat-dairy",
+      "description": "A collection of dairy products including milk, cheese, and eggs.",
+      "imageUrl": "https://images.unsplash.com/photo-1628088167735-4927b2333f38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkYWlyeSUyMHByb2R1Y3RzfGVufDB8fHx8MTc2MjgxMzc4OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dairy products"
+    },
+    {
+      "id": "cat-pantry",
+      "description": "Pantry staples like grains, nuts, and honey in jars.",
+      "imageUrl": "https://images.unsplash.com/photo-1601642870428-356395353c7a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwYW50cnklMjBzdGFwbGVzfGVufDB8fHx8MTc2MjgxMzg5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pantry staples"
     }
   ]
 }

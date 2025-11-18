@@ -1,11 +1,11 @@
 import type { Category, Product, User, Order, Coupon, Address, SliderContent } from './types';
 
 export const categories: Category[] = [
-  { id: 'cat-1', name: 'Fresh Vegetables' },
-  { id: 'cat-2', name: 'Fresh Fruits' },
-  { id: 'cat-3', name: 'Bakery' },
-  { id: 'cat-4', name: 'Dairy & Eggs' },
-  { id: 'cat-5', name: 'Pantry' },
+  { id: 'cat-1', name: 'Fresh Vegetables', imageId: 'cat-veg' },
+  { id: 'cat-2', name: 'Fresh Fruits', imageId: 'cat-fruit' },
+  { id: 'cat-3', name: 'Bakery', imageId: 'cat-bakery' },
+  { id: 'cat-4', name: 'Dairy & Eggs', imageId: 'cat-dairy' },
+  { id: 'cat-5', name: 'Pantry', imageId: 'cat-pantry' },
 ];
 
 export const products: Product[] = [

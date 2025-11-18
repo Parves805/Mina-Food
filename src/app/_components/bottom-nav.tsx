@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Home, ShoppingBasket, ShoppingCart, User, Search, X } from 'lucide-react';
+import { Home, ShoppingCart, Search, X, LayoutGrid } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useCart } from '@/context/cart-context';
 import { Badge } from '@/components/ui/badge';
@@ -18,7 +18,7 @@ import type { Product } from '@/lib/types';
 
 const navItems = [
   { id: 'home', href: '/', label: 'হোম', icon: Home },
-  { id: 'products', href: '/products', label: 'পণ্য', icon: ShoppingBasket },
+  { id: 'categories', href: '/categories', label: 'ক্যাটাগরি', icon: LayoutGrid },
   { id: 'search', href: '#', label: 'সার্চ', icon: Search },
   { id: 'cart', href: '/cart', label: 'কার্ট', icon: ShoppingCart },
 ];
