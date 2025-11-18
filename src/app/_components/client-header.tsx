@@ -1,14 +1,20 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { Leaf, Menu, Search, ShoppingCart, User } from 'lucide-react';
+import { Leaf, Menu, Search, ShoppingCart, User, X } from 'lucide-react';
 import { useCart } from '@/context/cart-context';
 import { Badge } from '@/components/ui/badge';
-import { categories } from '@/lib/data';
+import { categories, products } from '@/lib/data';
+import placeholderImages from '@/lib/placeholder-images.json';
+import type { Product } from '@/lib/types';
+import { cn } from '@/lib/utils';
+
 
 const navLinks = [
   { href: '/', label: 'হোম' },
@@ -22,6 +28,38 @@ const categoryLinks = categories.map(category => ({
 
 export function ClientHeader() {
   const { cartCount } = useCart();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const searchRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (searchTerm) {
+      const results = products.filter(product =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+      ).slice(0, 5); // Limit to 5 results
+      setSearchResults(results);
+    } else {
+      setSearchResults([]);
+    }
+  }, [searchTerm]);
+  
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setIsSearchFocused(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const handleClearSearch = () => {
+    setSearchTerm('');
+    setSearchResults([]);
+  }
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -34,14 +72,73 @@ export function ClientHeader() {
             </Link>
         </div>
         
-        <div className="hidden md:flex flex-1 justify-center items-center mx-4">
-          <div className="w-full max-w-md">
+        <div ref={searchRef} className="hidden md:flex flex-1 justify-center items-center mx-4">
+          <div className="w-full max-w-md relative">
             <form>
               <div className="relative">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input type="search" placeholder="পণ্য খুঁজুন..." className="pl-9 w-full" />
+                <Input 
+                  type="search" 
+                  placeholder="পণ্য খুঁজুন..." 
+                  className="pl-9 w-full"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onFocus={() => setIsSearchFocused(true)}
+                />
+                 {searchTerm && (
+                    <Button
+                        type="button"
+                        variant="ghost"
+                        size="icon"
+                        className="absolute right-2 top-1/2 -translate-y-1/2 h-7 w-7"
+                        onClick={handleClearSearch}
+                    >
+                        <X className="h-4 w-4 text-muted-foreground" />
+                    </Button>
+                )}
               </div>
             </form>
+            {isSearchFocused && searchResults.length > 0 && (
+              <div className="absolute top-full mt-2 w-full bg-background border rounded-md shadow-lg z-50 overflow-hidden">
+                <ul>
+                  {searchResults.map(product => {
+                    const image = placeholderImages.placeholderImages.find(p => p.id === product.imageId);
+                    return (
+                    <li key={product.id}>
+                      <Link 
+                        href={`/products/${product.id}`}
+                        className="flex items-center gap-4 p-3 hover:bg-accent transition-colors"
+                        onClick={() => {
+                          setSearchTerm('');
+                          setIsSearchFocused(false);
+                        }}
+                      >
+                         <div className="relative h-12 w-12 rounded-md overflow-hidden flex-shrink-0">
+                          {image && (
+                            <Image
+                              src={image.imageUrl}
+                              alt={product.name}
+                              data-ai-hint={image.imageHint}
+                              fill
+                              className="object-cover"
+                            />
+                          )}
+                        </div>
+                        <div className='flex-grow'>
+                            <p className="font-medium truncate">{product.name}</p>
+                            <p className="text-sm text-primary font-semibold">৳{product.price.toFixed(2)}</p>
+                        </div>
+                      </Link>
+                    </li>
+                  )})}
+                </ul>
+              </div>
+            )}
+            {isSearchFocused && searchTerm && searchResults.length === 0 && (
+                 <div className="absolute top-full mt-2 w-full bg-background border rounded-md shadow-lg z-50 p-4 text-center text-muted-foreground">
+                    <p>কোনো পণ্য পাওয়া যায়নি।</p>
+                </div>
+            )}
           </div>
         </div>
 
