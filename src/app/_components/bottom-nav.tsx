@@ -53,7 +53,7 @@ function MobileSearchSheet() {
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
         <button
-            className="flex flex-col items-center justify-center h-full text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            className="flex flex-col items-center justify-center h-full w-full text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
         >
           <Search className="h-6 w-6" />
           <span className="text-xs mt-1">সার্চ</span>
@@ -140,7 +140,7 @@ export function BottomNav() {
           {navItems.map((item) => {
             if (item.id === 'search') {
               return (
-                <li key={item.id} className="h-full">
+                <li key={item.id} className="h-full flex items-center justify-center">
                   <MobileSearchSheet />
                 </li>
               );
@@ -152,7 +152,7 @@ export function BottomNav() {
                 <Link
                   href={item.href}
                   className={cn(
-                    'flex flex-col items-center justify-center h-full text-sm font-medium transition-colors',
+                    'flex flex-col items-center justify-center h-full text-sm font-medium transition-colors w-full',
                     isActive ? 'text-primary' : 'text-muted-foreground hover:text-primary'
                   )}
                 >
