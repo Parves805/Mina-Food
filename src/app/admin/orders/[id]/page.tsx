@@ -83,10 +83,10 @@ export default function OrderDetailsPage() {
             <CardHeader>
               <CardTitle>অর্ডারের সারাংশ</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="space-y-2">
                <p><strong>অর্ডারের তারিখ:</strong> {format(order.orderDate, 'MMM dd, yyyy')}</p>
                <p><strong>সর্বমোট:</strong> ৳{order.total.toFixed(2)}</p>
-               <p><strong>স্ট্যাটাস:</strong> <Badge variant="outline" className={cn('capitalize', statusStyles[order.status])}>{order.status}</Badge></p>
+               <div className="flex items-center gap-2"><strong>স্ট্যাটাস:</strong> <Badge variant="outline" className={cn('capitalize', statusStyles[order.status])}>{order.status}</Badge></div>
             </CardContent>
           </Card>
         </div>
