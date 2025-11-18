@@ -120,12 +120,12 @@ export function ClientHeader() {
           </Sheet>
         </div>
       </div>
-      <div className="hidden md:block bg-primary text-primary-foreground">
+      <div className="hidden md:block border-t">
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-center space-x-4 lg:space-x-6">
             {categoryLinks.map((link) => (
-                <Button key={link.href} asChild variant="ghost" className="text-sm font-medium h-12 hover:bg-primary/90 hover:text-primary-foreground rounded-none">
-                    <Link href={link.href}>{link.label}</Link>
+                <Button key={link.href} asChild variant="ghost" className="text-sm font-medium h-12 hover:bg-accent rounded-none">
+                    <Link href={link.href} className="text-muted-foreground hover:text-primary">{link.label}</Link>
                 </Button>
             ))}
           </nav>
