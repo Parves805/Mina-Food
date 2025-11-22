@@ -1,10 +1,13 @@
+'use client';
+
+import { useCart } from '@/context/cart-context';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Separator } from '@/components/ui/separator';
-import { Truck, ArrowLeft, Wallet, Landmark } from 'lucide-react';
+import { Truck, ArrowLeft, Wallet } from 'lucide-react';
 import Link from 'next/link';
 import { ClientHeader } from '../_components/client-header';
 import { AppFooter } from '../_components/footer';
@@ -39,26 +42,14 @@ function RocketIcon(props: React.SVGProps<SVGSVGElement>) {
     )
 }
 
-
-export default function CheckoutPage() {
-  return (
-    <>
-      <ClientHeader />
-      <main className="flex-grow pb-16 md:pb-0">
-        <div className="bg-secondary/50 min-h-[calc(100vh-4rem)] py-8 md:py-12">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="flex items-center mb-8">
-                <Button variant="ghost" size="icon" className="mr-2" asChild>
-                    <Link href="/cart"><ArrowLeft /></Link>
-                </Button>
-                <h1 className="text-3xl font-bold font-headline">চেকআউট</h1>
-            </div>
-
+export function CheckoutForm() {
+    const { cartItems, cartTotal } = useCart();
+    
+    return (
+        <div className="py-8 md:py-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-              
               <div className="space-y-6 md:col-span-2">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Left Column: Shipping */}
                     <div className="space-y-6">
                         <Card>
                         <CardHeader>
@@ -66,46 +57,43 @@ export default function CheckoutPage() {
                         </CardHeader>
                         <CardContent className="grid grid-cols-1 gap-4">
                             <div className="grid gap-2">
-                            <Label htmlFor="name">পুরো নাম</Label>
-                            <Input id="name" placeholder="জেন ডো" />
+                                <Label htmlFor="name">পুরো নাম</Label>
+                                <Input id="name" placeholder="জেন ডো" />
                             </div>
                             <div className="grid gap-2">
-                            <Label htmlFor="address">রাস্তার ঠিকানা</Label>
-                            <Input id="address" placeholder="১২৩ গ্রিন ওয়ে" />
+                                <Label htmlFor="address">রাস্তার ঠিকানা</Label>
+                                <Input id="address" placeholder="১২৩ গ্রিন ওয়ে" />
                             </div>
                             <div className="grid grid-cols-2 gap-4">
-                            <div className="grid gap-2">
-                                <Label htmlFor="city">শহর</Label>
-                                <Input id="city" placeholder="নেচারভিল" />
-                            </div>
-                            <div className="grid gap-2">
-                                <Label htmlFor="zip">জিপ কোড</Label>
-                                <Input id="zip" placeholder="90210" />
-                            </div>
+                                <div className="grid gap-2">
+                                    <Label htmlFor="city">শহর</Label>
+                                    <Input id="city" placeholder="নেচারভিল" />
+                                </div>
+                                <div className="grid gap-2">
+                                    <Label htmlFor="zip">জিপ কোড</Label>
+                                    <Input id="zip" placeholder="90210" />
+                                </div>
                             </div>
                         </CardContent>
                         </Card>
                     </div>
 
-                    {/* Right Column: Payment & Summary */}
                     <div className="space-y-6">
                         <Card>
                         <CardHeader>
                             <CardTitle className="text-xl">অর্ডার সারাংশ</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-3">
-                            <div className="flex justify-between text-sm text-muted-foreground">
-                                <span>জৈব গাজর x 2</span>
-                                <span>৳5.98</span>
-                            </div>
-                            <div className="flex justify-between text-sm text-muted-foreground">
-                                <span>খट्टा রুটি x 1</span>
-                                <span>৳5.49</span>
-                            </div>
+                             {cartItems.map(item => (
+                                <div key={item.id} className="flex justify-between text-sm text-muted-foreground">
+                                    <span>{item.name} x {item.quantity}</span>
+                                    <span>৳{(item.price * item.quantity).toFixed(2)}</span>
+                                </div>
+                             ))}
                             <Separator/>
                             <div className="flex justify-between font-medium">
                                 <span>উপমোট</span>
-                                <span>৳11.47</span>
+                                <span>৳{cartTotal.toFixed(2)}</span>
                             </div>
                             <div className="flex justify-between font-medium">
                                 <span>শিপিং</span>
@@ -114,7 +102,7 @@ export default function CheckoutPage() {
                             <Separator/>
                             <div className="flex justify-between font-bold text-lg">
                                 <span>সর্বমোট</span>
-                                <span>৳11.47</span>
+                                <span>৳{cartTotal.toFixed(2)}</span>
                             </div>
                         </CardContent>
                         </Card>
@@ -152,12 +140,31 @@ export default function CheckoutPage() {
                         </CardContent>
                         </Card>
                         <Button size="lg" className="w-full text-lg" asChild>
-                            <Link href="/account/orders">অর্ডার করুন (৳11.47)</Link>
+                            <Link href="/account/orders">অর্ডার করুন (৳{cartTotal.toFixed(2)})</Link>
                         </Button>
                     </div>
                 </div>
               </div>
             </div>
+        </div>
+    )
+}
+
+
+export default function CheckoutPage() {
+  return (
+    <>
+      <ClientHeader />
+      <main className="flex-grow pb-16 md:pb-0">
+        <div className="bg-secondary/50 min-h-[calc(100vh-4rem)] py-8 md:py-12">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="flex items-center mb-8">
+                <Button variant="ghost" size="icon" className="mr-2" asChild>
+                    <Link href="/cart"><ArrowLeft /></Link>
+                </Button>
+                <h1 className="text-3xl font-bold font-headline">চেকআউট</h1>
+            </div>
+            <CheckoutForm />
           </div>
         </div>
       </main>

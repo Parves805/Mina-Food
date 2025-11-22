@@ -14,6 +14,9 @@ import { notFound, useParams, useRouter } from 'next/navigation';
 import { ClientHeader } from '@/app/_components/client-header';
 import { AppFooter } from '@/app/_components/footer';
 import { BottomNav } from '@/app/_components/bottom-nav';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { CheckoutForm } from '@/app/checkout/page';
+
 
 function WhatsAppIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
@@ -59,13 +62,13 @@ export default function ProductDetailPage() {
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useCart();
   const [reviewsCount, setReviewsCount] = useState(0);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   const productId = Array.isArray(params.id) ? params.id[0] : params.id;
   const product = products.find((p) => p.id === productId);
   
   useEffect(() => {
     if (product) {
-      // This check ensures we only set a random number on the client-side after initial render.
       if (product.reviewsCount === undefined) {
         setReviewsCount(Math.floor(Math.random() * 100) + 10);
       } else {
@@ -100,13 +103,13 @@ export default function ProductDetailPage() {
       quantity,
       imageId: product.imageId,
     });
-    router.push('/checkout');
+    setIsCheckoutOpen(true);
   };
 
-  const phoneNumber = "1234567890"; // Replace with your WhatsApp number
+  const phoneNumber = "1234567890";
   const message = `হ্যালো, আমি ${product.name} সম্পর্কে জানতে আগ্রহী।`;
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-  const messengerUrl = `https://m.me/your-page-id`; // Replace with your Facebook Page ID
+  const messengerUrl = `https://m.me/your-page-id`;
 
   return (
     <>
@@ -114,7 +117,6 @@ export default function ProductDetailPage() {
     <main className="flex-grow pb-16 md:pb-0">
     <div className="container mx-auto px-4 py-8 lg:py-12">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-        {/* Product Image Gallery */}
         <div className="relative aspect-square rounded-xl overflow-hidden">
           {image && (
             <Image
@@ -127,7 +129,6 @@ export default function ProductDetailPage() {
           )}
         </div>
 
-        {/* Product Details */}
         <div>
           <Badge variant="outline" className="mb-2">{product.category.name}</Badge>
           <h1 className="text-3xl lg:text-4xl font-bold font-headline mb-3">{product.name}</h1>
@@ -157,32 +158,42 @@ export default function ProductDetailPage() {
             </div>
           </div>
           
-          <div className="flex flex-col gap-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <Button size="lg" variant="outline" className="w-full text-lg h-12" onClick={handleAddToCart}>
-                  <ShoppingCart className="mr-2 h-5 w-5" />
-                  কার্টে যোগ করুন
-              </Button>
-              <Button size="lg" className="w-full text-lg h-12" onClick={handleBuyNow}>
-                  <ShoppingBag className="mr-2 h-5 w-5" />
-                  এখনই কিনুন
-              </Button>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-                <Button asChild variant="outline" className="h-14 text-base bg-[#25D366] text-white hover:bg-[#1DAE53] hover:text-white border-0">
-                    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                        <WhatsAppIcon className="h-6 w-6" />
-                        <span>WhatsApp</span>
-                    </a>
+          <Sheet open={isCheckoutOpen} onOpenChange={setIsCheckoutOpen}>
+            <div className="flex flex-col gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Button size="lg" variant="outline" className="w-full text-lg h-12" onClick={handleAddToCart}>
+                    <ShoppingCart className="mr-2 h-5 w-5" />
+                    কার্টে যোগ করুন
                 </Button>
-                <Button asChild variant="outline" className="h-14 text-base bg-[#00B2FF] text-white hover:bg-[#0099e6] hover:text-white border-0">
-                    <a href={messengerUrl} target="_blank" rel="noopener noreferrer">
-                        <MessengerIcon className="h-6 w-6" />
-                        <span>Messenger</span>
-                    </a>
-                </Button>
+                <SheetTrigger asChild>
+                  <Button size="lg" className="w-full text-lg h-12" onClick={handleBuyNow}>
+                      <ShoppingBag className="mr-2 h-5 w-5" />
+                      এখনই কিনুন
+                  </Button>
+                </SheetTrigger>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                  <Button asChild variant="outline" className="h-14 text-base bg-[#25D366] text-white hover:bg-[#1DAE53] hover:text-white border-0">
+                      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                          <WhatsAppIcon className="h-6 w-6" />
+                          <span>WhatsApp</span>
+                      </a>
+                  </Button>
+                  <Button asChild variant="outline" className="h-14 text-base bg-[#00B2FF] text-white hover:bg-[#0099e6] hover:text-white border-0">
+                      <a href={messengerUrl} target="_blank" rel="noopener noreferrer">
+                          <MessengerIcon className="h-6 w-6" />
+                          <span>Messenger</span>
+                      </a>
+                  </Button>
+              </div>
             </div>
-          </div>
+            <SheetContent className="w-full max-w-2xl overflow-y-auto">
+              <SheetHeader>
+                <SheetTitle>চেকআউট</SheetTitle>
+              </SheetHeader>
+              <CheckoutForm />
+            </SheetContent>
+          </Sheet>
 
 
           <div className="mt-8 space-y-4 text-sm text-muted-foreground border-t pt-6">
@@ -211,7 +222,6 @@ export default function ProductDetailPage() {
         </div>
       </div>
       
-      {/* Related Products */}
       <div className="mt-16 lg:mt-24">
         <h2 className="text-3xl font-bold font-headline text-center mb-8">সম্পর্কিত পণ্য</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
