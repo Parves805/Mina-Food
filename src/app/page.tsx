@@ -149,18 +149,20 @@ export default function Home() {
         </section>
         
         {/* Category-wise Product Sections */}
-        {categories.find(c => c.id === 'cat-1') && (
-          <CategoryProductSection
-            category={categories.find(c => c.id === 'cat-1')!}
-            products={vegetableProducts}
-          />
-        )}
-        {categories.find(c => c.id === 'cat-2') && (
-          <CategoryProductSection
-            category={categories.find(c => c.id === 'cat-2')!}
-            products={fruitProducts}
-          />
-        )}
+        <div className="space-y-8">
+          {categories.find(c => c.id === 'cat-1') && (
+            <CategoryProductSection
+              category={categories.find(c => c.id === 'cat-1')!}
+              products={vegetableProducts}
+            />
+          )}
+          {categories.find(c => c.id === 'cat-2') && (
+            <CategoryProductSection
+              category={categories.find(c => c.id === 'cat-2')!}
+              products={fruitProducts}
+            />
+          )}
+        </div>
         
         {/* Why Choose Us Section */}
         <section className="py-12 md:py-16 lg:py-24 bg-background">
