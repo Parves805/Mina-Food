@@ -23,23 +23,23 @@ import { MoreHorizontal } from 'lucide-react';
 import { sliderContent } from '@/lib/data';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { useState } from 'react';
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { SliderForm } from './_components/slider-form';
 import type { SliderContent as SliderContentType } from '@/lib/types';
 
 export default function AdminSliderPage() {
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedSlide, setSelectedSlide] = useState<SliderContentType | null>(null);
 
   const handleEditSlide = (slide: SliderContentType) => {
     setSelectedSlide(slide);
-    setIsSheetOpen(true);
+    setIsDialogOpen(true);
   };
 
   const handleFormSubmit = (values: any) => {
     console.log('Form submitted', values);
     // Here you would typically handle updating the slider content
-    setIsSheetOpen(false);
+    setIsDialogOpen(false);
   };
 
   return (
@@ -109,20 +109,20 @@ export default function AdminSliderPage() {
         </CardContent>
       </Card>
       
-      <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-        <SheetContent className="sm:max-w-lg w-[90vw] overflow-y-auto">
-          <SheetHeader>
-            <SheetTitle>Edit Slide</SheetTitle>
-          </SheetHeader>
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-lg w-[90vw] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>Edit Slide</DialogTitle>
+          </DialogHeader>
           <div className="mt-4">
             <SliderForm
               slide={selectedSlide}
               onSubmit={handleFormSubmit}
-              onCancel={() => setIsSheetOpen(false)}
+              onCancel={() => setIsDialogOpen(false)}
             />
           </div>
-        </SheetContent>
-      </Sheet>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

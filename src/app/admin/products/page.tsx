@@ -25,28 +25,28 @@ import { MoreHorizontal, PlusCircle } from 'lucide-react';
 import { products } from '@/lib/data';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { useState } from 'react';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { ProductForm } from './_components/product-form';
 import type { Product } from '@/lib/types';
 
 export default function AdminProductsPage() {
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const handleAddProduct = () => {
     setSelectedProduct(null);
-    setIsSheetOpen(true);
+    setIsDialogOpen(true);
   };
 
   const handleEditProduct = (product: Product) => {
     setSelectedProduct(product);
-    setIsSheetOpen(true);
+    setIsDialogOpen(true);
   };
 
   const handleFormSubmit = (values: any) => {
     console.log('Form submitted', values);
     // Here you would typically handle creating/updating the product
-    setIsSheetOpen(false);
+    setIsDialogOpen(false);
   };
 
   return (
@@ -127,20 +127,20 @@ export default function AdminProductsPage() {
         </CardContent>
       </Card>
       
-      <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-        <SheetContent className="sm:max-w-lg w-[90vw] overflow-y-auto">
-          <SheetHeader>
-            <SheetTitle>{selectedProduct ? 'Edit Product' : 'Add New Product'}</SheetTitle>
-          </SheetHeader>
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-lg w-[90vw] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>{selectedProduct ? 'Edit Product' : 'Add New Product'}</DialogTitle>
+          </DialogHeader>
           <div className="mt-4">
             <ProductForm
               product={selectedProduct}
               onSubmit={handleFormSubmit}
-              onCancel={() => setIsSheetOpen(false)}
+              onCancel={() => setIsDialogOpen(false)}
             />
           </div>
-        </SheetContent>
-      </Sheet>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
