@@ -36,7 +36,7 @@ export function AppFooter() {
                         className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
                     >
                        <Download className="mr-2 h-4 w-4" />
-                        অ্যাপ ডাউনলোড করুন
+                        ডাউনলোড নাও
                     </Button>
                 </div>
             )}
