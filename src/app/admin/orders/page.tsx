@@ -54,7 +54,7 @@ export default function AdminOrdersPage() {
                       {order.status}
                     </Badge>
                   </TableCell>
-                  <TableCell className="text-right">${order.total.toFixed(2)}</TableCell>
+                  <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
                   <TableCell className="text-right">
                     <Button asChild variant="outline" size="sm">
                       <Link href={`/admin/orders/${order.id}`}>View Details</Link>

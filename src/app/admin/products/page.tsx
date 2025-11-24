@@ -101,7 +101,7 @@ export default function AdminProductsPage() {
                         <Badge variant="outline">{product.category.name}</Badge>
                       </TableCell>
                       <TableCell className="hidden lg:table-cell">{product.stock}</TableCell>
-                      <TableCell>${product.price.toFixed(2)}</TableCell>
+                      <TableCell>৳{product.price.toFixed(2)}</TableCell>
                       <TableCell>
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>

@@ -39,7 +39,7 @@ export default function AdminDashboardPage() {
         <Card>
           <CardHeader className="pb-2">
             <CardDescription>This Week</CardDescription>
-            <CardTitle className="text-4xl">$1,329</CardTitle>
+            <CardTitle className="text-4xl">৳1,329</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-xs text-muted-foreground">
@@ -50,7 +50,7 @@ export default function AdminDashboardPage() {
         <Card>
           <CardHeader className="pb-2">
             <CardDescription>This Month</CardDescription>
-            <CardTitle className="text-4xl">$5,329</CardTitle>
+            <CardTitle className="text-4xl">৳5,329</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-xs text-muted-foreground">
@@ -61,7 +61,7 @@ export default function AdminDashboardPage() {
         <Card>
           <CardHeader className="pb-2">
             <CardDescription>This Week</CardDescription>
-            <CardTitle className="text-4xl">$1,329</CardTitle>
+            <CardTitle className="text-4xl">৳1,329</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-xs text-muted-foreground">
@@ -72,7 +72,7 @@ export default function AdminDashboardPage() {
         <Card>
           <CardHeader className="pb-2">
             <CardDescription>This Month</CardDescription>
-            <CardTitle className="text-4xl">$5,329</CardTitle>
+            <CardTitle className="text-4xl">৳5,329</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-xs text-muted-foreground">
@@ -112,7 +112,7 @@ export default function AdminDashboardPage() {
                       </Badge>
                     </TableCell>
                     <TableCell className="hidden sm:table-cell">{format(order.orderDate, 'MMM dd, yyyy')}</TableCell>
-                    <TableCell className="text-right">${order.total.toFixed(2)}</TableCell>
+                    <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
                     <TableCell className="text-right">
                          <Button asChild variant="outline" size="sm">
                             <Link href={`/admin/orders/${order.id}`}>View Details</Link>

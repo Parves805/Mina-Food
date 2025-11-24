@@ -85,7 +85,7 @@ export default function OrderDetailsPage() {
             </CardHeader>
             <CardContent className="space-y-2">
                <p><strong>Order Date:</strong> {format(order.orderDate, 'MMM dd, yyyy')}</p>
-               <p><strong>Total:</strong> ${order.total.toFixed(2)}</p>
+               <p><strong>Total:</strong> ৳{order.total.toFixed(2)}</p>
                <div className="flex items-center gap-2"><strong>Status:</strong> <Badge variant="outline" className={cn('capitalize', statusStyles[order.status])}>{order.status}</Badge></div>
             </CardContent>
           </Card>
@@ -110,8 +110,8 @@ export default function OrderDetailsPage() {
                   <TableRow key={index}>
                     <TableCell className="font-medium">{allProducts.find(p => p.id === item.product.id)?.name || 'Unknown Product'}</TableCell>
                     <TableCell>{item.quantity}</TableCell>
-                    <TableCell className="text-right">${item.price.toFixed(2)}</TableCell>
-                    <TableCell className="text-right">${(item.quantity * item.price).toFixed(2)}</TableCell>
+                    <TableCell className="text-right">৳{item.price.toFixed(2)}</TableCell>
+                    <TableCell className="text-right">৳{(item.quantity * item.price).toFixed(2)}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -123,16 +123,16 @@ export default function OrderDetailsPage() {
             <div className="w-full max-w-xs space-y-2">
                 <div className="flex justify-between">
                     <span className="text-muted-foreground">Subtotal</span>
-                    <span>${order.total.toFixed(2)}</span>
+                    <span>৳{order.total.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                     <span className="text-muted-foreground">Shipping</span>
-                    <span>$0.00</span>
+                    <span>৳0.00</span>
                 </div>
                 <Separator />
                 <div className="flex justify-between font-bold text-lg">
                     <span>Total</span>
-                    <span>${order.total.toFixed(2)}</span>
+                    <span>৳{order.total.toFixed(2)}</span>
                 </div>
             </div>
         </div>
