@@ -79,7 +79,7 @@ export default function Home() {
         </section>
 
         {/* Categories Section */}
-        <section className="py-12 md:py-16 lg:py-24 bg-background">
+        <section className="py-8 md:py-12 lg:py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">আমাদের ক্যাটাগরি</h2>
@@ -127,7 +127,7 @@ export default function Home() {
         </section>
 
         {/* Featured Products */}
-        <section className="py-12 md:py-16 lg:py-24 bg-background">
+        <section className="py-8 md:py-12 lg:py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">বৈশিষ্ট্যযুক্ত পণ্য</h2>
