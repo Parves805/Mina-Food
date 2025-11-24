@@ -25,7 +25,7 @@ import { MoreHorizontal, PlusCircle } from 'lucide-react';
 import { products } from '@/lib/data';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ProductForm } from './_components/product-form';
 import type { Product } from '@/lib/types';
 
@@ -128,7 +128,7 @@ export default function AdminProductsPage() {
       </Card>
       
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="sm:max-w-lg w-[90vw] overflow-y-auto">
+        <DialogContent className="sm:max-w-lg w-[90vw]">
           <DialogHeader>
             <DialogTitle>{selectedProduct ? 'Edit Product' : 'Add New Product'}</DialogTitle>
           </DialogHeader>
