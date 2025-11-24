@@ -79,7 +79,7 @@ export default function Home() {
         </section>
 
         {/* Categories Section */}
-        <section className="py-8 md:py-12 lg:py-16 bg-background">
+        <section className="pt-8 md:pt-12 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">আমাদের ক্যাটাগরি</h2>
