@@ -26,12 +26,12 @@ export default function AdminCouponsPage() {
     <Card>
       <CardHeader className="flex flex-row justify-between items-center">
         <div>
-            <CardTitle>কুপন</CardTitle>
-            <CardDescription>আপনার দোকানের জন্য প্রচারমূলক কোড পরিচালনা করুন।</CardDescription>
+            <CardTitle>Coupons</CardTitle>
+            <CardDescription>Manage promotional codes for your store.</CardDescription>
         </div>
         <Button>
             <PlusCircle className="mr-2 h-4 w-4" />
-            কুপন যোগ করুন
+            Add Coupon
         </Button>
       </CardHeader>
       <CardContent>
@@ -39,12 +39,12 @@ export default function AdminCouponsPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>কোড</TableHead>
-                <TableHead className="hidden sm:table-cell">ডিসকাউন্ট</TableHead>
-                <TableHead>স্ট্যাটাস</TableHead>
-                <TableHead className="hidden md:table-cell">মেয়াদ শেষ হওয়ার তারিখ</TableHead>
+                <TableHead>Code</TableHead>
+                <TableHead className="hidden sm:table-cell">Discount</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead className="hidden md:table-cell">Expiry Date</TableHead>
                 <TableHead>
-                  <span className="sr-only">অ্যাকশন</span>
+                  <span className="sr-only">Actions</span>
                 </TableHead>
               </TableRow>
             </TableHeader>
@@ -55,7 +55,7 @@ export default function AdminCouponsPage() {
                   <TableCell className="hidden sm:table-cell">{coupon.discount}%</TableCell>
                   <TableCell>
                     <Badge variant={coupon.isActive ? 'outline' : 'secondary'} className={coupon.isActive ? 'text-green-700 border-green-200' : ''}>
-                      {coupon.isActive ? 'সক্রিয়' : 'নিষ্ক্রিয়'}
+                      {coupon.isActive ? 'Active' : 'Inactive'}
                     </Badge>
                   </TableCell>
                   <TableCell className="hidden md:table-cell">{format(coupon.expiryDate, 'MMM dd, yyyy')}</TableCell>
@@ -68,11 +68,11 @@ export default function AdminCouponsPage() {
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>অ্যাকশন</DropdownMenuLabel>
-                        <DropdownMenuItem>সম্পাদনা</DropdownMenuItem>
-                        <DropdownMenuItem>{coupon.isActive ? 'নিষ্ক্রিয় করুন' : 'সক্রিয় করুন'}</DropdownMenuItem>
+                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                        <DropdownMenuItem>Edit</DropdownMenuItem>
+                        <DropdownMenuItem>{coupon.isActive ? 'Deactivate' : 'Activate'}</DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem className="text-destructive">মুছে ফেলুন</DropdownMenuItem>
+                        <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
                       </DropdownMenuContent>
                     </DropdownMenu>
                   </TableCell>

@@ -43,32 +43,32 @@ export default function AdminAnalyticsPage() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">মোট রাজস্ব</CardTitle>
+                    <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
                     <DollarSign className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
-                    <div className="text-2xl font-bold">৳24,203.45</div>
-                    <p className="text-xs text-muted-foreground">গত মাস থেকে +20.1%</p>
+                    <div className="text-2xl font-bold">$24,203.45</div>
+                    <p className="text-xs text-muted-foreground">+20.1% from last month</p>
                 </CardContent>
             </Card>
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">বিক্রয়</CardTitle>
+                    <CardTitle className="text-sm font-medium">Sales</CardTitle>
                     <ShoppingBag className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                     <div className="text-2xl font-bold">+1,234</div>
-                    <p className="text-xs text-muted-foreground">গত মাস থেকে +19%</p>
+                    <p className="text-xs text-muted-foreground">+19% from last month</p>
                 </CardContent>
             </Card>
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                    <CardTitle className="text-sm font-medium">নতুন গ্রাহক</CardTitle>
+                    <CardTitle className="text-sm font-medium">New Customers</CardTitle>
                     <Users className="h-4 w-4 text-muted-foreground" />
                 </CardHeader>
                 <CardContent>
                     <div className="text-2xl font-bold">+234</div>
-                    <p className="text-xs text-muted-foreground">গত মাস থেকে +180.1%</p>
+                    <p className="text-xs text-muted-foreground">+180.1% from last month</p>
                 </CardContent>
             </Card>
         </div>
@@ -76,8 +76,8 @@ export default function AdminAnalyticsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <Card>
                 <CardHeader>
-                    <CardTitle>মাসিক বিক্রয়</CardTitle>
-                    <CardDescription>গত ১২ মাসের বিক্রয় দেখুন</CardDescription>
+                    <CardTitle>Monthly Sales</CardTitle>
+                    <CardDescription>View sales over the last 12 months</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <ChartContainer config={{}} className="h-80 w-full aspect-video">
@@ -93,8 +93,8 @@ export default function AdminAnalyticsPage() {
 
             <Card>
                 <CardHeader>
-                    <CardTitle>বিভাগ অনুযায়ী বিক্রয়</CardTitle>
-                    <CardDescription>প্রতিটি বিভাগে বিক্রয়ের বন্টন</CardDescription>
+                    <CardTitle>Sales by Category</CardTitle>
+                    <CardDescription>Distribution of sales in each category</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <ChartContainer config={{}} className="h-80 w-full aspect-video">

@@ -62,10 +62,10 @@ export default function AdminUsersPage() {
 
     if (actionType === 'delete') {
       setUsers(users.filter(u => u.id !== selectedUser.id));
-      toast({ title: 'ব্যবহারকারী মুছে ফেলা হয়েছে', description: `${selectedUser.name} ব্যবহারকারীকে সিস্টেম থেকে মুছে ফেলা হয়েছে।` });
+      toast({ title: 'User Deleted', description: `User ${selectedUser.name} has been deleted from the system.` });
     } else if (actionType === 'suspend') {
       // In a real app, you'd update the user's status
-      toast({ title: 'ব্যবহারকারী সাসপেন্ড করা হয়েছে', description: `${selectedUser.name} ব্যবহারকারীকে সাসপেন্ড করা হয়েছে।` });
+      toast({ title: 'User Suspended', description: `User ${selectedUser.name} has been suspended.` });
     }
 
     setDialogOpen(false);
@@ -75,7 +75,7 @@ export default function AdminUsersPage() {
   
   const changeUserRole = (userId: string, newRole: 'customer' | 'admin') => {
     setUsers(users.map(u => u.id === userId ? {...u, role: newRole} : u));
-    toast({ title: 'ভূমিকা পরিবর্তিত হয়েছে', description: `ব্যবহারকারীর ভূমিকা সফলভাবে পরিবর্তন করা হয়েছে।` });
+    toast({ title: 'Role Changed', description: `User's role has been successfully changed.` });
   };
 
 
@@ -83,20 +83,20 @@ export default function AdminUsersPage() {
     <>
       <Card>
         <CardHeader>
-          <CardTitle>ব্যবহারকারী</CardTitle>
-          <CardDescription>আপনার গ্রাহক এবং প্রশাসকদের পরিচালনা করুন।</CardDescription>
+          <CardTitle>Users</CardTitle>
+          <CardDescription>Manage your customers and administrators.</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>নাম</TableHead>
-                  <TableHead className="hidden md:table-cell">ইমেল</TableHead>
-                  <TableHead>ভূমিকা</TableHead>
-                  <TableHead className="hidden sm:table-cell">অর্ডার</TableHead>
+                  <TableHead>Name</TableHead>
+                  <TableHead className="hidden md:table-cell">Email</TableHead>
+                  <TableHead>Role</TableHead>
+                  <TableHead className="hidden sm:table-cell">Orders</TableHead>
                   <TableHead>
-                    <span className="sr-only">অ্যাকশন</span>
+                    <span className="sr-only">Actions</span>
                   </TableHead>
                 </TableRow>
               </TableHeader>
@@ -137,20 +137,20 @@ export default function AdminUsersPage() {
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuLabel>অ্যাকশন</DropdownMenuLabel>
-                          <DropdownMenuItem>প্রোফাইল দেখুন</DropdownMenuItem>
-                          <DropdownMenuItem>অর্ডার দেখুন</DropdownMenuItem>
+                          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                          <DropdownMenuItem>View Profile</DropdownMenuItem>
+                          <DropdownMenuItem>View Orders</DropdownMenuItem>
                           <DropdownMenuSub>
-                            <DropdownMenuSubTrigger>ভূমিকা পরিবর্তন করুন</DropdownMenuSubTrigger>
+                            <DropdownMenuSubTrigger>Change Role</DropdownMenuSubTrigger>
                             <DropdownMenuPortal>
                                <DropdownMenuSubContent>
                                   <DropdownMenuItem onClick={() => changeUserRole(user.id, 'admin')}>
                                     <Shield className="mr-2 h-4 w-4" />
-                                    <span>অ্যাডমিন</span>
+                                    <span>Admin</span>
                                   </DropdownMenuItem>
                                   <DropdownMenuItem onClick={() => changeUserRole(user.id, 'customer')}>
                                     <User className="mr-2 h-4 w-4" />
-                                    <span>গ্রাহক</span>
+                                    <span>Customer</span>
                                   </DropdownMenuItem>
                                 </DropdownMenuSubContent>
                             </DropdownMenuPortal>
@@ -159,9 +159,9 @@ export default function AdminUsersPage() {
                           <DropdownMenuSeparator />
                           <DropdownMenuItem onClick={() => openConfirmationDialog(user, 'suspend')}>
                              <XOctagon className="mr-2 h-4 w-4" />
-                             সাসপেন্ড করুন
+                             Suspend
                           </DropdownMenuItem>
-                          <DropdownMenuItem className="text-destructive" onClick={() => openConfirmationDialog(user, 'delete')}>মুছে ফেলুন</DropdownMenuItem>
+                          <DropdownMenuItem className="text-destructive" onClick={() => openConfirmationDialog(user, 'delete')}>Delete</DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>
                     </TableCell>
@@ -176,20 +176,20 @@ export default function AdminUsersPage() {
       <AlertDialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>আপনি কি নিশ্চিত?</AlertDialogTitle>
+            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
             <AlertDialogDescription>
               {actionType === 'delete'
-                ? `আপনি ${selectedUser?.name}-কে স্থায়ীভাবে মুছে ফেলতে চলেছেন। এই পদক্ষেপটি ফিরিয়ে আনা যাবে না।`
-                : `আপনি কি নিশ্চিত যে আপনি ${selectedUser?.name}-কে সাসপেন্ড করতে চান?`}
+                ? `You are about to permanently delete ${selectedUser?.name}. This action cannot be undone.`
+                : `Are you sure you want to suspend ${selectedUser?.name}?`}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>বাতিল করুন</AlertDialogCancel>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
               onClick={handleConfirmAction}
               className={actionType === 'delete' ? 'bg-destructive text-destructive-foreground hover:bg-destructive/90' : ''}
             >
-              নিশ্চিত করুন
+              Confirm
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

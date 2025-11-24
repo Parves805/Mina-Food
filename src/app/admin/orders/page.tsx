@@ -27,20 +27,20 @@ export default function AdminOrdersPage() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>অর্ডার</CardTitle>
-        <CardDescription>সমস্ত গ্রাহক অর্ডার দেখুন এবং পরিচালনা করুন।</CardDescription>
+        <CardTitle>Orders</CardTitle>
+        <CardDescription>View and manage all customer orders.</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>অর্ডার আইডি</TableHead>
-                <TableHead>গ্রাহক</TableHead>
-                <TableHead className="hidden sm:table-cell">তারিখ</TableHead>
-                <TableHead>স্ট্যাটাস</TableHead>
-                <TableHead className="text-right">মোট</TableHead>
-                <TableHead className="text-right">অ্যাকশন</TableHead>
+                <TableHead>Order ID</TableHead>
+                <TableHead>Customer</TableHead>
+                <TableHead className="hidden sm:table-cell">Date</TableHead>
+                <TableHead>Status</TableHead>
+                <TableHead className="text-right">Total</TableHead>
+                <TableHead className="text-right">Action</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -54,10 +54,10 @@ export default function AdminOrdersPage() {
                       {order.status}
                     </Badge>
                   </TableCell>
-                  <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
+                  <TableCell className="text-right">${order.total.toFixed(2)}</TableCell>
                   <TableCell className="text-right">
                     <Button asChild variant="outline" size="sm">
-                      <Link href={`/admin/orders/${order.id}`}>বিস্তারিত দেখুন</Link>
+                      <Link href={`/admin/orders/${order.id}`}>View Details</Link>
                     </Button>
                   </TableCell>
                 </TableRow>

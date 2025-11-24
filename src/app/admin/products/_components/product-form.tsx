@@ -22,12 +22,12 @@ import { placeholderImages } from '@/lib/placeholder-images.json';
 import Image from 'next/image';
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: 'নাম অবশ্যই কমপক্ষে 2 অক্ষরের হতে হবে।' }),
-  description: z.string().min(10, { message: 'বর্ণনা অবশ্যই কমপক্ষে 10 অক্ষরের হতে হবে।' }),
-  price: z.coerce.number().positive({ message: 'মূল্য অবশ্যই একটি ধনাত্মক সংখ্যা হতে হবে।' }),
-  stock: z.coerce.number().int().min(0, { message: 'স্টক অবশ্যই 0 বা তার বেশি হতে হবে।' }),
-  categoryId: z.string({ required_error: 'একটি বিভাগ নির্বাচন করা আবশ্যক।' }),
-  imageId: z.string({ required_error: 'একটি ছবি নির্বাচন করা আবশ্যক।' }),
+  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
+  description: z.string().min(10, { message: 'Description must be at least 10 characters.' }),
+  price: z.coerce.number().positive({ message: 'Price must be a positive number.' }),
+  stock: z.coerce.number().int().min(0, { message: 'Stock must be 0 or more.' }),
+  categoryId: z.string({ required_error: 'A category is required.' }),
+  imageId: z.string({ required_error: 'An image is required.' }),
 });
 
 type ProductFormValues = z.infer<typeof formSchema>;
@@ -68,9 +68,9 @@ export function ProductForm({ product, onSubmit, onCancel }: ProductFormProps) {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>পণ্যের নাম</FormLabel>
+              <FormLabel>Product Name</FormLabel>
               <FormControl>
-                <Input placeholder="যেমন, জৈব গাজর" {...field} />
+                <Input placeholder="e.g., Organic Carrots" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -81,9 +81,9 @@ export function ProductForm({ product, onSubmit, onCancel }: ProductFormProps) {
           name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>পণ্যের বর্ণনা</FormLabel>
+              <FormLabel>Product Description</FormLabel>
               <FormControl>
-                <Textarea placeholder="পণ্যের একটি সংক্ষিপ্ত বিবরণ দিন..." {...field} />
+                <Textarea placeholder="Give a brief description of the product..." {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -95,7 +95,7 @@ export function ProductForm({ product, onSubmit, onCancel }: ProductFormProps) {
             name="price"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>মূল্য</FormLabel>
+                <FormLabel>Price</FormLabel>
                 <FormControl>
                   <Input type="number" placeholder="0.00" {...field} />
                 </FormControl>
@@ -108,7 +108,7 @@ export function ProductForm({ product, onSubmit, onCancel }: ProductFormProps) {
             name="stock"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>স্টক পরিমাণ</FormLabel>
+                <FormLabel>Stock Quantity</FormLabel>
                 <FormControl>
                   <Input type="number" placeholder="0" {...field} />
                 </FormControl>
@@ -122,11 +122,11 @@ export function ProductForm({ product, onSubmit, onCancel }: ProductFormProps) {
           name="categoryId"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>বিভাগ</FormLabel>
+              <FormLabel>Category</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="একটি বিভাগ নির্বাচন করুন" />
+                    <SelectValue placeholder="Select a category" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
@@ -144,11 +144,11 @@ export function ProductForm({ product, onSubmit, onCancel }: ProductFormProps) {
           name="imageId"
           render={({ field }) => (
             <FormItem>
-                <FormLabel>পণ্যের ছবি</FormLabel>
+                <FormLabel>Product Image</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
                         <SelectTrigger>
-                            <SelectValue placeholder="একটি ছবি নির্বাচন করুন" />
+                            <SelectValue placeholder="Select an image" />
                         </SelectTrigger>
                     </FormControl>
                     <SelectContent className="max-h-96">
@@ -170,9 +170,9 @@ export function ProductForm({ product, onSubmit, onCancel }: ProductFormProps) {
         />
         <div className="flex justify-end gap-2">
           <Button type="button" variant="outline" onClick={onCancel}>
-            বাতিল করুন
+            Cancel
           </Button>
-          <Button type="submit">{product ? 'সংরক্ষণ করুন' : 'পণ্য তৈরি করুন'}</Button>
+          <Button type="submit">{product ? 'Save Changes' : 'Create Product'}</Button>
         </div>
       </form>
     </Form>

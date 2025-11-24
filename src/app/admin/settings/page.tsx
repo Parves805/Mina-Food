@@ -26,19 +26,19 @@ import { toast } from '@/hooks/use-toast';
 
 const settingsFormSchema = z.object({
   siteName: z.string().min(2, {
-    message: 'সাইটের নাম কমপক্ষে ২ অক্ষরের হতে হবে।',
+    message: 'Site name must be at least 2 characters.',
   }),
   siteDescription: z.string().min(10, {
-    message: 'সাইটের বর্ণনা কমপক্ষে ১০ অক্ষরের হতে হবে।',
+    message: 'Site description must be at least 10 characters.',
   }),
-  logoUrl: z.string().url({ message: 'অনুগ্রহ করে একটি বৈধ URL লিখুন।' }),
+  logoUrl: z.string().url({ message: 'Please enter a valid URL.' }),
 });
 
 type SettingsFormValues = z.infer<typeof settingsFormSchema>;
 
 const defaultValues: Partial<SettingsFormValues> = {
-  siteName: 'মিনা ফুড',
-  siteDescription: 'তাজা জৈব খাবার, আপনার দরজায় পৌঁছে দেওয়া হয়।',
+  siteName: 'Mina Food',
+  siteDescription: 'Fresh organic food, delivered to your door.',
   logoUrl: '/logo.png', // Assuming you have a logo in public folder
 };
 
@@ -51,7 +51,7 @@ export default function SettingsPage() {
 
   function onSubmit(data: SettingsFormValues) {
     toast({
-      title: 'আপনি নিম্নলিখিত মান জমা দিয়েছেন:',
+      title: 'You submitted the following values:',
       description: (
         <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
           <code className="text-white">{JSON.stringify(data, null, 2)}</code>
@@ -64,8 +64,8 @@ export default function SettingsPage() {
     <div className="space-y-6">
        <Card>
         <CardHeader>
-            <CardTitle>সাধারণ সেটিংস</CardTitle>
-            <CardDescription>আপনার সাইটের নাম, বর্ণনা এবং লোগো পরিচালনা করুন।</CardDescription>
+            <CardTitle>General Settings</CardTitle>
+            <CardDescription>Manage your site's name, description, and logo.</CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
@@ -75,12 +75,12 @@ export default function SettingsPage() {
                 name="siteName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>সাইটের নাম</FormLabel>
+                    <FormLabel>Site Name</FormLabel>
                     <FormControl>
-                      <Input placeholder="আপনার সাইটের নাম" {...field} />
+                      <Input placeholder="Your site name" {...field} />
                     </FormControl>
                     <FormDescription>
-                      এটি আপনার সাইটের শিরোনাম হিসেবে প্রদর্শিত হবে।
+                      This will be displayed as the title of your site.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -91,16 +91,16 @@ export default function SettingsPage() {
                 name="siteDescription"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>সাইটের বর্ণনা</FormLabel>
+                    <FormLabel>Site Description</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="আপনার সাইট সম্পর্কে বলুন"
+                        placeholder="Tell us about your site"
                         className="resize-none"
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      এসইও-এর জন্য আপনার সাইটের একটি সংক্ষিপ্ত বর্ণনা।
+                      A brief description of your site for SEO.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -111,18 +111,18 @@ export default function SettingsPage() {
                 name="logoUrl"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>লোগো URL</FormLabel>
+                    <FormLabel>Logo URL</FormLabel>
                     <FormControl>
                       <Input placeholder="https://example.com/logo.png" {...field} />
                     </FormControl>
                     <FormDescription>
-                      আপনার সাইটের লোগোর জন্য সম্পূর্ণ URL দিন।
+                      Provide the full URL for your site's logo.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <Button type="submit">পরিবর্তনগুলি সংরক্ষণ করুন</Button>
+              <Button type="submit">Save Changes</Button>
             </form>
           </Form>
         </CardContent>

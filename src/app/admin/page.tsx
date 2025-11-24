@@ -38,63 +38,63 @@ export default function AdminDashboardPage() {
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
         <Card>
           <CardHeader className="pb-2">
-            <CardDescription>এই সপ্তাহ</CardDescription>
-            <CardTitle className="text-4xl">৳1,329</CardTitle>
+            <CardDescription>This Week</CardDescription>
+            <CardTitle className="text-4xl">$1,329</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-xs text-muted-foreground">
-              গত সপ্তাহ থেকে +25%
+              +25% from last week
             </div>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardDescription>এই মাস</CardDescription>
-            <CardTitle className="text-4xl">৳5,329</CardTitle>
+            <CardDescription>This Month</CardDescription>
+            <CardTitle className="text-4xl">$5,329</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-xs text-muted-foreground">
-              গত মাস থেকে +10%
+              +10% from last month
             </div>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardDescription>এই সপ্তাহ</CardDescription>
-            <CardTitle className="text-4xl">৳1,329</CardTitle>
+            <CardDescription>This Week</CardDescription>
+            <CardTitle className="text-4xl">$1,329</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-xs text-muted-foreground">
-              গত সপ্তাহ থেকে +25%
+              +25% from last week
             </div>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="pb-2">
-            <CardDescription>এই মাস</CardDescription>
-            <CardTitle className="text-4xl">৳5,329</CardTitle>
+            <CardDescription>This Month</CardDescription>
+            <CardTitle className="text-4xl">$5,329</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="text-xs text-muted-foreground">
-              গত মাস থেকে +10%
+              +10% from last month
             </div>
           </CardContent>
         </Card>
       </div>
       <Card>
         <CardHeader>
-          <CardTitle>সাম্প্রতিক অর্ডার</CardTitle>
+          <CardTitle>Recent Orders</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>গ্রাহক</TableHead>
-                  <TableHead>স্ট্যাটাস</TableHead>
-                  <TableHead className="hidden sm:table-cell">তারিখ</TableHead>
-                  <TableHead className="text-right">পরিমাণ</TableHead>
-                   <TableHead className="text-right">অ্যাকশন</TableHead>
+                  <TableHead>Customer</TableHead>
+                  <TableHead>Status</TableHead>
+                  <TableHead className="hidden sm:table-cell">Date</TableHead>
+                  <TableHead className="text-right">Amount</TableHead>
+                   <TableHead className="text-right">Action</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -112,10 +112,10 @@ export default function AdminDashboardPage() {
                       </Badge>
                     </TableCell>
                     <TableCell className="hidden sm:table-cell">{format(order.orderDate, 'MMM dd, yyyy')}</TableCell>
-                    <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
+                    <TableCell className="text-right">${order.total.toFixed(2)}</TableCell>
                     <TableCell className="text-right">
                          <Button asChild variant="outline" size="sm">
-                            <Link href={`/admin/orders/${order.id}`}>বিস্তারিত দেখুন</Link>
+                            <Link href={`/admin/orders/${order.id}`}>View Details</Link>
                         </Button>
                     </TableCell>
                   </TableRow>

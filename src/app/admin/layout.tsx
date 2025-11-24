@@ -37,15 +37,15 @@ import placeholderImages from '@/lib/placeholder-images.json';
 
 
 const menuItems = [
-    { href: '/admin', label: 'ড্যাশবোর্ড', icon: Home },
-    { href: '/admin/products', label: 'পণ্য', icon: Package },
-    { href: '/admin/orders', label: 'অর্ডার', icon: ShoppingCart },
-    { href: '/admin/users', label: 'ব্যবহারকারী', icon: Users },
-    { href: '/admin/analytics', label: 'বিশ্লেষণ', icon: LineChart },
-    { href: '/admin/coupons', label: 'কুপন', icon: Tag },
-    { href: '/admin/marketing', label: 'মার্কেটিং', icon: Megaphone },
+    { href: '/admin', label: 'Dashboard', icon: Home },
+    { href: '/admin/products', label: 'Products', icon: Package },
+    { href: '/admin/orders', label: 'Orders', icon: ShoppingCart },
+    { href: '/admin/users', label: 'Users', icon: Users },
+    { href: '/admin/analytics', label: 'Analytics', icon: LineChart },
+    { href: '/admin/coupons', label: 'Coupons', icon: Tag },
+    { href: '/admin/marketing', label: 'Marketing', icon: Megaphone },
     { href: '/admin/slider', label: 'Slider Settings', icon: ImageIcon },
-    { href: '/admin/settings', label: 'সেটিংস', icon: Settings },
+    { href: '/admin/settings', label: 'Settings', icon: Settings },
 ];
 
 export default function AdminLayout({
@@ -61,7 +61,7 @@ export default function AdminLayout({
         if (item.href === '/admin') return pathname === item.href;
         return pathname.startsWith(item.href);
     });
-    return currentItem?.label || 'ড্যাশবোর্ড';
+    return currentItem?.label || 'Dashboard';
   };
   
   const SidebarNav = () => (
@@ -105,7 +105,7 @@ export default function AdminLayout({
               className="flex items-center gap-2 text-lg font-semibold mb-4"
             >
               <Leaf className="h-6 w-6 text-primary" />
-              <span className="font-headline">মিনা ফুড</span>
+              <span className="font-headline">Mina Food</span>
             </Link>
             {menuItems.map(item => {
                 const isActive = (item.href === '/admin' && pathname === item.href) || 
@@ -136,7 +136,7 @@ export default function AdminLayout({
           <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
             <Link href="/" className="flex items-center gap-2 font-bold text-lg">
                 <Leaf className="h-6 w-6 text-primary" />
-                <span className="font-headline">মিনা ফুড</span>
+                <span className="font-headline">Mina Food</span>
             </Link>
             <DropdownMenu>
             <DropdownMenuTrigger asChild>

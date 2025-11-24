@@ -27,16 +27,16 @@ export default function OrderHistoryPage() {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold mb-6">আমার অর্ডার</h2>
+      <h2 className="text-2xl font-semibold mb-6">My Orders</h2>
       <div className="border rounded-lg">
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>অর্ডার আইডি</TableHead>
-              <TableHead>তারিখ</TableHead>
-              <TableHead>স্ট্যাটাস</TableHead>
-              <TableHead className="text-right">মোট</TableHead>
-              <TableHead className="text-right">פעולה</TableHead>
+              <TableHead>Order ID</TableHead>
+              <TableHead>Date</TableHead>
+              <TableHead>Status</TableHead>
+              <TableHead className="text-right">Total</TableHead>
+              <TableHead className="text-right">Action</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -52,7 +52,7 @@ export default function OrderHistoryPage() {
                 <TableCell className="text-right">৳{order.total.toFixed(2)}</TableCell>
                 <TableCell className="text-right">
                   <Button asChild variant="outline" size="sm">
-                    <Link href={`/account/orders/${order.id}`}>বিস্তারিত দেখুন</Link>
+                    <Link href={`/account/orders/${order.id}`}>View Details</Link>
                   </Button>
                 </TableCell>
               </TableRow>

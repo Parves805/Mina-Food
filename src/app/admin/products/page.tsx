@@ -53,12 +53,12 @@ export default function AdminProductsPage() {
     <>
       <div className="flex items-center justify-between mb-6">
         <div>
-            <h1 className='text-2xl font-bold'>পণ্য</h1>
-            <p className="text-muted-foreground">আপনার পণ্য পরিচালনা করুন এবং তাদের বিক্রয় কর্মক্ষমতা দেখুন।</p>
+            <h1 className='text-2xl font-bold'>Products</h1>
+            <p className="text-muted-foreground">Manage your products and view their sales performance.</p>
         </div>
         <Button onClick={handleAddProduct} className="w-full sm:w-auto">
             <PlusCircle className="mr-2 h-4 w-4" />
-            পণ্য যোগ করুন
+            Add Product
         </Button>
       </div>
 
@@ -68,13 +68,13 @@ export default function AdminProductsPage() {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-[80px]">ছবি</TableHead>
-                  <TableHead>নাম</TableHead>
-                  <TableHead className="hidden md:table-cell">বিভাগ</TableHead>
-                  <TableHead className="hidden lg:table-cell">স্টক</TableHead>
-                  <TableHead>মূল্য</TableHead>
+                  <TableHead className="w-[80px]">Image</TableHead>
+                  <TableHead>Name</TableHead>
+                  <TableHead className="hidden md:table-cell">Category</TableHead>
+                  <TableHead className="hidden lg:table-cell">Stock</TableHead>
+                  <TableHead>Price</TableHead>
                   <TableHead>
-                    <span className="sr-only">פעולות</span>
+                    <span className="sr-only">Actions</span>
                   </TableHead>
                 </TableRow>
               </TableHeader>
@@ -101,7 +101,7 @@ export default function AdminProductsPage() {
                         <Badge variant="outline">{product.category.name}</Badge>
                       </TableCell>
                       <TableCell className="hidden lg:table-cell">{product.stock}</TableCell>
-                      <TableCell>৳{product.price.toFixed(2)}</TableCell>
+                      <TableCell>${product.price.toFixed(2)}</TableCell>
                       <TableCell>
                         <DropdownMenu>
                           <DropdownMenuTrigger asChild>
@@ -111,10 +111,10 @@ export default function AdminProductsPage() {
                             </Button>
                           </DropdownMenuTrigger>
                           <DropdownMenuContent align="end">
-                            <DropdownMenuLabel>פעולות</DropdownMenuLabel>
-                            <DropdownMenuItem onClick={() => handleEditProduct(product)}>সম্পাদনা</DropdownMenuItem>
+                            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                            <DropdownMenuItem onClick={() => handleEditProduct(product)}>Edit</DropdownMenuItem>
                             <DropdownMenuSeparator />
-                            <DropdownMenuItem className="text-destructive">মুছে ফেলুন</DropdownMenuItem>
+                            <DropdownMenuItem className="text-destructive">Delete</DropdownMenuItem>
                           </DropdownMenuContent>
                         </DropdownMenu>
                       </TableCell>
@@ -130,7 +130,7 @@ export default function AdminProductsPage() {
       <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
         <SheetContent className="sm:max-w-lg w-[90vw] overflow-y-auto">
           <SheetHeader>
-            <SheetTitle>{selectedProduct ? 'পণ্য সম্পাদনা করুন' : 'নতুন পণ্য যোগ করুন'}</SheetTitle>
+            <SheetTitle>{selectedProduct ? 'Edit Product' : 'Add New Product'}</SheetTitle>
           </SheetHeader>
           <div className="mt-4">
             <ProductForm
