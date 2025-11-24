@@ -17,7 +17,7 @@ import { Card } from '@/components/ui/card';
 import { CategoryProductSection } from './_components/category-product-section';
 
 export default function Home() {
-  const featuredProducts = products.slice(0, 4);
+  const newProducts = products.slice(0, 4);
   const vegetableProducts = products.filter(p => p.category.id === 'cat-1').slice(0, 6);
   const fruitProducts = products.filter(p => p.category.id === 'cat-2').slice(0, 6);
 
@@ -126,15 +126,15 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Products */}
-        <section className="py-8 bg-background">
+        {/* New Products */}
+        <section className="bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8">
-              <h2 className="text-3xl lg:text-4xl font-bold font-headline">বৈশিষ্ট্যযুক্ত পণ্য</h2>
-              <p className="text-muted-foreground mt-2">আমাদের সেরা বিক্রেতাদের থেকে আপনার পছন্দের জিনিসগুলি খুঁজুন।</p>
+              <h2 className="text-3xl lg:text-4xl font-bold font-headline">নতুন পণ্য</h2>
+              <p className="text-muted-foreground mt-2">আমাদের সর্বশেষ পণ্যগুলি দেখুন।</p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
-              {featuredProducts.map((product) => (
+              {newProducts.map((product) => (
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
@@ -158,7 +158,7 @@ export default function Home() {
         </div>
         
         {/* Why Choose Us Section */}
-        <section className="py-8 bg-background">
+        <section className="bg-background">
           <div className="container mx-auto px-4 text-center">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline mb-4">কেন মিনা ফুড?</h2>
               <p className="max-w-3xl mx-auto text-muted-foreground mb-12">
@@ -194,8 +194,8 @@ export default function Home() {
         <section className="py-8 bg-secondary/50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8">
-              <h2 className="text-3xl lg:text-4xl font-bold font-headline">আপনার জন্য প্রস্তাবিত</h2>
-              <p className="text-muted-foreground mt-2">আপনার ব্রাউজিং ইতিহাসের উপর ভিত্তি করে ব্যক্তিগতকৃত পছন্দ।</p>
+              <h2 className="text-3xl lg:text-4xl font-bold font-headline">জনপ্রিয় পণ্য</h2>
+              <p className="text-muted-foreground mt-2">আপনার জন্য বিশেষভাবে নির্বাচিত আমাদের জনপ্রিয় পণ্যগুলো দেখুন।</p>
             </div>
             <ProductRecommendations />
           </div>
