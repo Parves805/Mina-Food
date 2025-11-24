@@ -131,7 +131,7 @@ export function ClientHeader() {
           </div>
           
           <div ref={searchRef} className="flex-1 flex justify-center items-center px-4">
-            <div className="w-full max-w-md relative">
+            <div className="w-full max-w-xl relative">
               <form onSubmit={(e) => e.preventDefault()}>
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
