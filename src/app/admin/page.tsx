@@ -1,4 +1,5 @@
 
+
 import {
   Card,
   CardContent,
@@ -38,47 +39,51 @@ export default function AdminDashboardPage() {
     <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
         <Card className="bg-primary text-primary-foreground">
-          <CardHeader className="pb-2">
-            <CardDescription className="text-primary-foreground/90">This Week</CardDescription>
-            <CardTitle className="text-4xl">৳1,329</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-base font-semibold">Total Revenue</CardTitle>
+            <DollarSign className="h-5 w-5 text-primary-foreground/80" />
           </CardHeader>
           <CardContent>
-            <div className="text-xs text-primary-foreground/80">
-              +25% from last week
-            </div>
+            <div className="text-3xl font-bold">৳2,532.50</div>
+            <p className="text-xs text-primary-foreground/80">
+              +100.0% from last month
+            </p>
           </CardContent>
         </Card>
         <Card className="bg-primary text-primary-foreground">
-          <CardHeader className="pb-2">
-            <CardDescription className="text-primary-foreground/90">This Month</CardDescription>
-            <CardTitle className="text-4xl">৳5,329</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-base font-semibold">Sales</CardTitle>
+            <ShoppingBag className="h-5 w-5 text-primary-foreground/80" />
           </CardHeader>
           <CardContent>
-            <div className="text-xs text-primary-foreground/80">
-              +10% from last month
-            </div>
+            <div className="text-3xl font-bold">+3</div>
+            <p className="text-xs text-primary-foreground/80">
+              +100.0% from last month
+            </p>
           </CardContent>
         </Card>
         <Card className="bg-primary text-primary-foreground">
-          <CardHeader className="pb-2">
-            <CardDescription className="text-primary-foreground/90">Total Orders</CardDescription>
-            <CardTitle className="text-4xl">1,250</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-base font-semibold">Total Products</CardTitle>
+            <Activity className="h-5 w-5 text-primary-foreground/80" />
           </CardHeader>
           <CardContent>
-            <div className="text-xs text-primary-foreground/80">
-              +15% from last month
-            </div>
+            <div className="text-3xl font-bold">14</div>
+            <p className="text-xs text-primary-foreground/80">
+              in stock
+            </p>
           </CardContent>
         </Card>
         <Card className="bg-primary text-primary-foreground">
-          <CardHeader className="pb-2">
-            <CardDescription className="text-primary-foreground/90">New Customers</CardDescription>
-            <CardTitle className="text-4xl">+23</CardTitle>
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-base font-semibold">Total Customers</CardTitle>
+            <Users className="h-5 w-5 text-primary-foreground/80" />
           </CardHeader>
           <CardContent>
-            <div className="text-xs text-primary-foreground/80">
-              +5% from last month
-            </div>
+            <div className="text-3xl font-bold">5</div>
+            <p className="text-xs text-primary-foreground/80">
+             unique customers
+            </p>
           </CardContent>
         </Card>
       </div>
