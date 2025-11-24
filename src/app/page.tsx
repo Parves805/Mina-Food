@@ -79,8 +79,8 @@ export default function Home() {
         </section>
 
         {/* Categories Section */}
-        <section className="py-8 md:py-12 bg-background">
-          <div className="container mx-auto px-4">
+        <section className="bg-background">
+          <div className="container mx-auto px-4 py-8">
             <div className="text-center mb-8">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">আমাদের ক্যাটাগরি</h2>
               <p className="text-muted-foreground mt-2">আপনার প্রয়োজনীয় পণ্যগুলো খুঁজে নিন।</p>
@@ -127,7 +127,7 @@ export default function Home() {
         </section>
 
         {/* Featured Products */}
-        <section className="py-8 md:py-12 bg-background">
+        <section className="py-8 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">বৈশিষ্ট্যযুক্ত পণ্য</h2>
@@ -138,18 +138,11 @@ export default function Home() {
                 <ProductCard key={product.id} product={product} />
               ))}
             </div>
-            <div className="text-center mt-12">
-              <Button asChild variant="outline">
-                <Link href="/products">
-                  সকল পণ্য দেখুন <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </div>
           </div>
         </section>
         
         {/* Category-wise Product Sections */}
-        <div className="space-y-8">
+        <div className="space-y-8 py-8">
           {categories.find(c => c.id === 'cat-1') && (
             <CategoryProductSection
               category={categories.find(c => c.id === 'cat-1')!}
@@ -165,7 +158,7 @@ export default function Home() {
         </div>
         
         {/* Why Choose Us Section */}
-        <section className="py-8 md:py-12 bg-background">
+        <section className="py-8 bg-background">
           <div className="container mx-auto px-4 text-center">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline mb-4">কেন মিনা ফুড?</h2>
               <p className="max-w-3xl mx-auto text-muted-foreground mb-12">
@@ -198,7 +191,7 @@ export default function Home() {
         </section>
 
         {/* AI Recommendations Section */}
-        <section className="py-8 md:py-12 bg-secondary/50">
+        <section className="py-8 bg-secondary/50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">আপনার জন্য প্রস্তাবিত</h2>
