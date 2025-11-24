@@ -1,0 +1,24 @@
+{
+  "name": "মিনা ফুড",
+  "short_name": "মিনা ফুড",
+  "description": "তাজা জৈব খাবার, আপনার দরজায় পৌঁছে দেওয়া হয়।",
+  "icons": [
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#4CAF50",
+  "background_color": "#FFFFFF",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait"
+}

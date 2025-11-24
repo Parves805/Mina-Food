@@ -12,6 +12,7 @@ const noto_sans_bengali = Noto_Sans_Bengali({
 export const metadata: Metadata = {
   title: 'মিনা ফুড',
   description: 'তাজা জৈব খাবার, আপনার দরজায় পৌঁছে দেওয়া হয়।',
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
