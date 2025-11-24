@@ -123,14 +123,14 @@ export function ClientHeader() {
         
         {/* Desktop Header */}
         <div className="hidden md:flex items-center w-full">
-          <div className="flex items-center gap-4 mr-auto">
+          <div className="flex items-center gap-4 flex-1">
               <Link href="/" className="flex items-center gap-2 font-bold text-lg">
                 <Leaf className="h-6 w-6 text-primary" />
                 <span className="font-headline">মিনা ফুড</span>
               </Link>
           </div>
           
-          <div ref={searchRef} className="flex-1 justify-center items-center mx-4">
+          <div ref={searchRef} className="flex-1 flex justify-center items-center px-4">
             <div className="w-full max-w-md relative">
               <form onSubmit={(e) => e.preventDefault()}>
                 <div className="relative">
@@ -200,7 +200,7 @@ export function ClientHeader() {
             </div>
           </div>
 
-          <div className="flex items-center justify-end space-x-2">
+          <div className="flex items-center justify-end space-x-2 flex-1">
             <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
               {navLinks.map((link) => (
                 <Link
