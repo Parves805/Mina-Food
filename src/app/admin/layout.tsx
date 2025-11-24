@@ -70,7 +70,9 @@ const collapsibleMenuItems = [
         label: 'Page Settings',
         icon: FileText,
         subItems: [
-            { href: '/admin/slider', label: 'Homepage Slider' },
+            { href: '/admin/settings/about', label: 'About & Legal' },
+            { href: '/admin/settings/homepage-sections', label: 'Homepage Sections' },
+            { href: '/admin/settings/promo-cards', label: 'Promo Cards' },
         ]
     },
     {
