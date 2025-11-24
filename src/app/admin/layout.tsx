@@ -80,7 +80,10 @@ const collapsibleMenuItems = [
         icon: Settings,
         subItems: [
             { href: '/admin/settings', label: 'General Settings' },
+            { href: '/admin/settings/admin-users', label: 'Admin Users' },
+            { href: '/admin/settings/shipping-rates', label: 'Shipping Rates' },
             { href: '/admin/analytics', label: 'Analytics' },
+            { href: '/admin/settings/seo-management', label: 'SEO Management' },
         ]
     }
 ]
