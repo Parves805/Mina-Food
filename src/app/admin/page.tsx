@@ -41,7 +41,7 @@ export default function AdminDashboardPage() {
         <Card className="bg-primary text-primary-foreground">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-base font-semibold">Total Revenue</CardTitle>
-            <DollarSign className="h-5 w-5 text-primary-foreground/80" />
+            <div className="h-5 w-5 text-primary-foreground/80 text-2xl font-bold">৳</div>
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-bold">৳2,532.50</div>
