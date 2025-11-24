@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { CartProvider } from '@/context/cart-context';
 import { PWAInstallProvider } from '@/context/pwa-install-context';
+import { ChatWidget } from './_components/chat-widget';
 
 
 const noto_sans_bengali = Noto_Sans_Bengali({
@@ -28,6 +29,7 @@ export default function RootLayout({
         <PWAInstallProvider>
           <CartProvider>
             {children}
+            <ChatWidget />
             <Toaster />
           </CartProvider>
         </PWAInstallProvider>
