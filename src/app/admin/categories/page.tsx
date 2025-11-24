@@ -31,12 +31,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  imageId: z.string({ required_error: 'An image is required.' }),
-  coverImageId: z.string({ required_error: 'A cover image is required.' }),
+  imageUrl: z.string().url({ message: 'Please enter a valid URL.' }),
+  bannerImageUrl: z.string().url({ message: 'Please enter a valid URL.' }),
 });
 
 type CategoryFormValues = z.infer<typeof formSchema>;
@@ -48,14 +47,17 @@ interface CategoryFormProps {
 }
 
 function CategoryForm({ category, onSubmit, onCancel }: CategoryFormProps) {
+  const image = category ? placeholderImages.placeholderImages.find(p => p.id === category.imageId) : null;
+  const coverImage = category ? placeholderImages.placeholderImages.find(p => p.id === category.coverImageId) : null;
+
   const defaultValues = category ? {
     name: category.name,
-    imageId: category.imageId,
-    coverImageId: category.coverImageId || '',
+    imageUrl: image?.imageUrl || '',
+    bannerImageUrl: coverImage?.imageUrl || '',
   } : {
     name: '',
-    imageId: undefined,
-    coverImageId: undefined,
+    imageUrl: '',
+    bannerImageUrl: '',
   };
 
   const form = useForm<CategoryFormValues>({
@@ -73,7 +75,7 @@ function CategoryForm({ category, onSubmit, onCancel }: CategoryFormProps) {
             <FormItem>
               <FormLabel>Category Name</FormLabel>
               <FormControl>
-                <Input placeholder="e.g., Fresh Vegetables" {...field} />
+                <Input placeholder="e.g., Men's T-Shirts" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -81,67 +83,35 @@ function CategoryForm({ category, onSubmit, onCancel }: CategoryFormProps) {
         />
         <FormField
           control={form.control}
-          name="imageId"
+          name="imageUrl"
           render={({ field }) => (
             <FormItem>
-                <FormLabel>Category Image</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                        <SelectTrigger>
-                            <SelectValue placeholder="Select an image" />
-                        </SelectTrigger>
-                    </FormControl>
-                    <SelectContent className="max-h-96">
-                        {placeholderImages.placeholderImages.filter(p => p.id.startsWith('cat-')).map(img => (
-                            <SelectItem key={img.id} value={img.id}>
-                                <div className="flex items-center gap-3">
-                                    <div className="relative h-10 w-10 rounded-md overflow-hidden flex-shrink-0">
-                                        <Image src={img.imageUrl} alt={img.description} fill className="object-cover" />
-                                    </div>
-                                    <span className="truncate">{img.description}</span>
-                                </div>
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
-                 <FormMessage />
+                <FormLabel>Image URL</FormLabel>
+                <FormControl>
+                    <Input placeholder="https://example.com/image.png" {...field} />
+                </FormControl>
+                <FormMessage />
             </FormItem>
            )}
         />
         <FormField
           control={form.control}
-          name="coverImageId"
+          name="bannerImageUrl"
           render={({ field }) => (
             <FormItem>
-                <FormLabel>Category Cover Image</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                        <SelectTrigger>
-                            <SelectValue placeholder="Select a cover image" />
-                        </SelectTrigger>
-                    </FormControl>
-                    <SelectContent className="max-h-96">
-                        {placeholderImages.placeholderImages.filter(p => p.id.startsWith('cover-')).map(img => (
-                            <SelectItem key={img.id} value={img.id}>
-                                <div className="flex items-center gap-3">
-                                    <div className="relative h-12 w-20 rounded-md overflow-hidden flex-shrink-0">
-                                        <Image src={img.imageUrl} alt={img.description} fill className="object-cover" />
-                                    </div>
-                                    <span className="truncate">{img.description}</span>
-                                </div>
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select>
-                 <FormMessage />
+                <FormLabel>Banner Image URL</FormLabel>
+                <FormControl>
+                    <Input placeholder="https://example.com/banner.png" {...field} />
+                </FormControl>
+                <FormMessage />
             </FormItem>
            )}
         />
-        <div className="flex justify-end gap-2">
+        <div className="flex justify-end gap-2 pt-4">
           <Button type="button" variant="outline" onClick={onCancel}>
             Cancel
           </Button>
-          <Button type="submit">{category ? 'Save Changes' : 'Create Category'}</Button>
+          <Button type="submit">{category ? 'Save Changes' : 'Add Category'}</Button>
         </div>
       </form>
     </Form>
@@ -239,11 +209,11 @@ export default function AdminCategoriesPage() {
       </Card>
       
       <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-        <SheetContent className="sm:max-w-lg w-[90vw] overflow-y-auto">
+        <SheetContent className="sm:max-w-md w-[90vw] overflow-y-auto">
           <SheetHeader>
             <SheetTitle>{selectedCategory ? 'Edit Category' : 'Add New Category'}</SheetTitle>
           </SheetHeader>
-          <div className="mt-4">
+          <div className="mt-6">
             <CategoryForm
               category={selectedCategory}
               onSubmit={handleFormSubmit}
@@ -255,4 +225,3 @@ export default function AdminCategoriesPage() {
     </>
   );
 }
-
