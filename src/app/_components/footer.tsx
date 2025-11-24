@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Leaf } from 'lucide-react';
+import { Leaf, Facebook, Twitter, Instagram } from 'lucide-react';
 
 export function AppFooter() {
   const currentYear = new Date().getFullYear();
@@ -18,6 +18,17 @@ export function AppFooter() {
             <p className="text-primary-foreground/80 text-sm max-w-sm">
              তাজা জৈব খাবার, আপনার দরজায় পৌঁছে দেওয়া হয়।
             </p>
+            <div className="flex space-x-4 mt-4">
+                <Link href="#" className="text-primary-foreground/80 hover:text-primary-foreground">
+                    <Facebook className="h-6 w-6" />
+                </Link>
+                <Link href="#" className="text-primary-foreground/80 hover:text-primary-foreground">
+                    <Twitter className="h-6 w-6" />
+                </Link>
+                <Link href="#" className="text-primary-foreground/80 hover:text-primary-foreground">
+                    <Instagram className="h-6 w-6" />
+                </Link>
+            </div>
           </div>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 md:col-span-3">
