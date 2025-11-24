@@ -64,11 +64,10 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
         </div>
         <div className="p-4 bg-background">
-          <p className="text-sm text-muted-foreground mb-1">{product.category.name}</p>
-          <h3 className="text-lg font-semibold truncate leading-tight">
+          <h3 className="text-lg font-semibold truncate leading-tight mb-2">
             <Link href={`/products/${product.id}`} className="hover:text-primary transition-colors">{product.name}</Link>
           </h3>
-          <div className="mt-2 flex items-center gap-2">
+          <div className="flex items-center gap-2">
             <div className="flex items-center">
               {[...Array(5)].map((_, i) => {
                 const ratingValue = i + 1;
