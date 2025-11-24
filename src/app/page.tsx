@@ -14,10 +14,13 @@ import { ClientHeader } from './_components/client-header';
 import { AppFooter } from './_components/footer';
 import { BottomNav } from './_components/bottom-nav';
 import { Card } from '@/components/ui/card';
+import { CategoryProductSection } from './_components/category-product-section';
 
 export default function Home() {
   const featuredProducts = products.slice(0, 4);
-  
+  const vegetableProducts = products.filter(p => p.category.id === 'cat-1').slice(0, 4);
+  const fruitProducts = products.filter(p => p.category.id === 'cat-2').slice(0, 4);
+
   const sliderImages = sliderContent.map(content => 
     placeholderImages.placeholderImages.find(p => p.id === content.imageId)
   ).filter(Boolean);
@@ -76,7 +79,7 @@ export default function Home() {
         </section>
 
         {/* Categories Section */}
-        <section className="py-12 md:py-16 lg:py-24 bg-secondary/50">
+        <section className="py-12 md:py-16 lg:py-24 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">আমাদের ক্যাটাগরি</h2>
@@ -145,8 +148,22 @@ export default function Home() {
           </div>
         </section>
         
+        {/* Category-wise Product Sections */}
+        {categories.find(c => c.id === 'cat-1') && (
+          <CategoryProductSection
+            category={categories.find(c => c.id === 'cat-1')!}
+            products={vegetableProducts}
+          />
+        )}
+        {categories.find(c => c.id === 'cat-2') && (
+          <CategoryProductSection
+            category={categories.find(c => c.id === 'cat-2')!}
+            products={fruitProducts}
+          />
+        )}
+        
         {/* Why Choose Us Section */}
-        <section className="py-12 md:py-16 lg:py-24 bg-secondary/50">
+        <section className="py-12 md:py-16 lg:py-24 bg-background">
           <div className="container mx-auto px-4 text-center">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline mb-4">কেন মিনা ফুড?</h2>
               <p className="max-w-3xl mx-auto text-muted-foreground mb-12">
@@ -179,7 +196,7 @@ export default function Home() {
         </section>
 
         {/* AI Recommendations Section */}
-        <section className="py-12 md:py-16 lg:py-24 bg-background">
+        <section className="py-12 md:py-16 lg:py-24 bg-secondary/50">
           <div className="container mx-auto px-4">
             <div className="text-center mb-8 md:mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">আপনার জন্য প্রস্তাবিত</h2>
