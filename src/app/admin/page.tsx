@@ -1,3 +1,4 @@
+
 import {
   Card,
   CardContent,
@@ -36,47 +37,47 @@ export default function AdminDashboardPage() {
   return (
     <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4">
-        <Card>
+        <Card className="bg-primary text-primary-foreground">
           <CardHeader className="pb-2">
-            <CardDescription>This Week</CardDescription>
+            <CardDescription className="text-primary-foreground/90">This Week</CardDescription>
             <CardTitle className="text-4xl">৳1,329</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-xs text-muted-foreground">
+            <div className="text-xs text-primary-foreground/80">
               +25% from last week
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="bg-primary text-primary-foreground">
           <CardHeader className="pb-2">
-            <CardDescription>This Month</CardDescription>
+            <CardDescription className="text-primary-foreground/90">This Month</CardDescription>
             <CardTitle className="text-4xl">৳5,329</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-xs text-muted-foreground">
+            <div className="text-xs text-primary-foreground/80">
               +10% from last month
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="bg-primary text-primary-foreground">
           <CardHeader className="pb-2">
-            <CardDescription>This Week</CardDescription>
-            <CardTitle className="text-4xl">৳1,329</CardTitle>
+            <CardDescription className="text-primary-foreground/90">Total Orders</CardDescription>
+            <CardTitle className="text-4xl">1,250</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-xs text-muted-foreground">
-              +25% from last week
+            <div className="text-xs text-primary-foreground/80">
+              +15% from last month
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="bg-primary text-primary-foreground">
           <CardHeader className="pb-2">
-            <CardDescription>This Month</CardDescription>
-            <CardTitle className="text-4xl">৳5,329</CardTitle>
+            <CardDescription className="text-primary-foreground/90">New Customers</CardDescription>
+            <CardTitle className="text-4xl">+23</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-xs text-muted-foreground">
-              +10% from last month
+            <div className="text-xs text-primary-foreground/80">
+              +5% from last month
             </div>
           </CardContent>
         </Card>
