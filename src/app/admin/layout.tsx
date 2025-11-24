@@ -62,8 +62,8 @@ const collapsibleMenuItems = [
         label: 'Marketing',
         icon: Megaphone,
         subItems: [
-            { href: '/admin/marketing/campaigns', label: 'Campaigns' },
-            { href: '/admin/marketing/seo', label: 'SEO' },
+            { href: '/admin/marketing/popup-campaign', label: 'Popup Campaign' },
+            { href: '/admin/marketing/email-marketing', label: 'Email Marketing' },
         ]
     },
     {
