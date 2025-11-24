@@ -16,7 +16,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { DollarSign, Users, ShoppingBag, Package } from 'lucide-react';
+import { DollarSign, Users, ShoppingCart, Package } from 'lucide-react';
 import { orders } from '@/lib/data';
 import { OrderStatus } from '@/lib/types';
 import { cn } from '@/lib/utils';
@@ -53,7 +53,7 @@ export default function AdminDashboardPage() {
         <Card className="bg-primary text-primary-foreground">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-base font-semibold">Sales</CardTitle>
-            <ShoppingBag className="h-5 w-5 text-primary-foreground/80" />
+            <ShoppingCart className="h-5 w-5 text-primary-foreground/80" />
           </CardHeader>
           <CardContent>
             <div className="text-3xl font-bold">+3</div>
