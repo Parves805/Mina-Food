@@ -18,8 +18,8 @@ import { CategoryProductSection } from './_components/category-product-section';
 
 export default function Home() {
   const featuredProducts = products.slice(0, 4);
-  const vegetableProducts = products.filter(p => p.category.id === 'cat-1').slice(0, 4);
-  const fruitProducts = products.filter(p => p.category.id === 'cat-2').slice(0, 4);
+  const vegetableProducts = products.filter(p => p.category.id === 'cat-1').slice(0, 6);
+  const fruitProducts = products.filter(p => p.category.id === 'cat-2').slice(0, 6);
 
   const sliderImages = sliderContent.map(content => 
     placeholderImages.placeholderImages.find(p => p.id === content.imageId)
