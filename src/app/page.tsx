@@ -79,9 +79,9 @@ export default function Home() {
         </section>
 
         {/* Categories Section */}
-        <section className="pt-8 md:pt-12 bg-background">
+        <section className="py-8 md:py-12 bg-background">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-8 md:mb-12">
+            <div className="text-center mb-8">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">আমাদের ক্যাটাগরি</h2>
               <p className="text-muted-foreground mt-2">আপনার প্রয়োজনীয় পণ্যগুলো খুঁজে নিন।</p>
             </div>
@@ -127,9 +127,9 @@ export default function Home() {
         </section>
 
         {/* Featured Products */}
-        <section className="py-8 md:py-12 lg:py-16 bg-background">
+        <section className="py-8 md:py-12 bg-background">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-8 md:mb-12">
+            <div className="text-center mb-8">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">বৈশিষ্ট্যযুক্ত পণ্য</h2>
               <p className="text-muted-foreground mt-2">আমাদের সেরা বিক্রেতাদের থেকে আপনার পছন্দের জিনিসগুলি খুঁজুন।</p>
             </div>
@@ -165,7 +165,7 @@ export default function Home() {
         </div>
         
         {/* Why Choose Us Section */}
-        <section className="py-12 md:py-16 lg:py-24 bg-background">
+        <section className="py-8 md:py-12 bg-background">
           <div className="container mx-auto px-4 text-center">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline mb-4">কেন মিনা ফুড?</h2>
               <p className="max-w-3xl mx-auto text-muted-foreground mb-12">
@@ -198,9 +198,9 @@ export default function Home() {
         </section>
 
         {/* AI Recommendations Section */}
-        <section className="py-12 md:py-16 lg:py-24 bg-secondary/50">
+        <section className="py-8 md:py-12 bg-secondary/50">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-8 md:mb-12">
+            <div className="text-center mb-8">
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">আপনার জন্য প্রস্তাবিত</h2>
               <p className="text-muted-foreground mt-2">আপনার ব্রাউজিং ইতিহাসের উপর ভিত্তি করে ব্যক্তিগতকৃত পছন্দ।</p>
             </div>

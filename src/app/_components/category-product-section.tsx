@@ -17,7 +17,7 @@ export function CategoryProductSection({ category, products }: CategoryProductSe
   const categoryImage = placeholderImages.placeholderImages.find(p => p.id === category.coverImageId);
 
   return (
-    <section className="py-12 md:py-16 lg:py-24 bg-secondary/50">
+    <section className="py-8 md:py-12 bg-secondary/50">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column: Category Promo */}
