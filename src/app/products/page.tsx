@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { ProductCard } from '@/app/_components/product-card';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -122,8 +123,11 @@ function Filters({
 }
 
 export default function ProductsPage() {
+  const searchParams = useSearchParams();
+  const initialCategory = searchParams.get('category') || 'all';
+
   const [searchTerm, setSearchTerm] = useState('');
-  const [category, setCategory] = useState('all');
+  const [category, setCategory] = useState(initialCategory);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 15]);
   const [selectedCerts, setSelectedCerts] = useState<Certification[]>([]);
   const [isSheetOpen, setSheetOpen] = useState(false);

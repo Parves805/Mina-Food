@@ -2,6 +2,7 @@ export type Category = {
   id: string;
   name: string;
   imageId: string;
+  coverImageId?: string;
 };
 
 export type Certification = 'USDA Organic' | 'Non-GMO Project Verified' | 'Fair Trade Certified';

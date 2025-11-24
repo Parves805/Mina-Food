@@ -155,7 +155,7 @@ function MobileCategoriesSheet() {
             {categories.map((category) => {
               const image = placeholderImages.placeholderImages.find(p => p.id === category.imageId);
               return (
-                <Link key={category.id} href={`/products?category=${category.id}`} onClick={closeSheet}>
+                <Link key={category.id} href={`/category/${category.id}`} onClick={closeSheet}>
                   <Card className="group overflow-hidden rounded-lg border-transparent transition-all duration-300 shadow-sm hover:shadow-md">
                     <div className="relative aspect-square w-full overflow-hidden">
                       {image && (

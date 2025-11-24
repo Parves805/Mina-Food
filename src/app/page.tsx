@@ -86,7 +86,7 @@ export default function Home() {
               {categories.map((category) => {
                 const image = placeholderImages.placeholderImages.find(p => p.id === category.imageId);
                 return (
-                  <Link key={category.id} href={`/products?category=${category.id}`}>
+                  <Link key={category.id} href={`/category/${category.id}`}>
                     <Card className="group overflow-hidden rounded-xl border-transparent transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1">
                       <div className="relative aspect-square w-full overflow-hidden">
                         {image && (

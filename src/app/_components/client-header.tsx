@@ -23,7 +23,7 @@ const navLinks = [
 ];
 
 const categoryLinks = categories.map(category => ({
-    href: `/products?category=${category.id}`,
+    href: `/category/${category.id}`,
     label: category.name,
 }));
 
