@@ -245,7 +245,7 @@ export function ClientHeader() {
           </div>
         </div>
       </div>
-      <div className="hidden md:block border-t">
+      <div className="hidden md:block">
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-center space-x-4 lg:space-x-6">
             {categoryLinks.map((link) => (
