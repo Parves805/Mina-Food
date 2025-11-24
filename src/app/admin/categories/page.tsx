@@ -24,7 +24,7 @@ import { MoreHorizontal, PlusCircle } from 'lucide-react';
 import { categories } from '@/lib/data';
 import placeholderImages from '@/lib/placeholder-images.json';
 import { useState } from 'react';
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from '@/components/ui/sheet';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import type { Category } from '@/lib/types';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -120,22 +120,22 @@ function CategoryForm({ category, onSubmit, onCancel }: CategoryFormProps) {
 
 
 export default function AdminCategoriesPage() {
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
 
   const handleAddCategory = () => {
     setSelectedCategory(null);
-    setIsSheetOpen(true);
+    setIsDialogOpen(true);
   };
 
   const handleEditCategory = (category: Category) => {
     setSelectedCategory(category);
-    setIsSheetOpen(true);
+    setIsDialogOpen(true);
   };
 
   const handleFormSubmit = (values: any) => {
     console.log('Form submitted', values);
-    setIsSheetOpen(false);
+    setIsDialogOpen(false);
   };
 
   return (
@@ -208,20 +208,20 @@ export default function AdminCategoriesPage() {
         </CardContent>
       </Card>
       
-      <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-        <SheetContent className="sm:max-w-md w-[90vw] overflow-y-auto">
-          <SheetHeader>
-            <SheetTitle>{selectedCategory ? 'Edit Category' : 'Add New Category'}</SheetTitle>
-          </SheetHeader>
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>{selectedCategory ? 'Edit Category' : 'Add New Category'}</DialogTitle>
+          </DialogHeader>
           <div className="mt-6">
             <CategoryForm
               category={selectedCategory}
               onSubmit={handleFormSubmit}
-              onCancel={() => setIsSheetOpen(false)}
+              onCancel={() => setIsDialogOpen(false)}
             />
           </div>
-        </SheetContent>
-      </Sheet>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
