@@ -82,32 +82,44 @@ export default function Home() {
               <h2 className="text-3xl lg:text-4xl font-bold font-headline">আমাদের ক্যাটাগরি</h2>
               <p className="text-muted-foreground mt-2">আপনার প্রয়োজনীয় পণ্যগুলো খুঁজে নিন।</p>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
-              {categories.map((category) => {
-                const image = placeholderImages.placeholderImages.find(p => p.id === category.imageId);
-                return (
-                  <Link key={category.id} href={`/category/${category.id}`}>
-                    <Card className="group overflow-hidden rounded-xl border-transparent transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1">
-                      <div className="relative aspect-square w-full overflow-hidden">
-                        {image && (
-                          <Image
-                            src={image.imageUrl}
-                            alt={category.name}
-                            data-ai-hint={image.imageHint}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                        )}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                        <div className="relative z-10 flex items-end justify-center h-full text-center p-2 text-white">
-                          <h2 className="text-lg font-semibold tracking-tight">{category.name}</h2>
-                        </div>
+             <Carousel
+              opts={{ align: 'start', loop: true }}
+              plugins={[Autoplay({ delay: 5000, stopOnInteraction: false })]}
+              className="w-full"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {categories.map((category) => {
+                  const image = placeholderImages.placeholderImages.find(p => p.id === category.imageId);
+                  return (
+                    <CarouselItem key={category.id} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/5">
+                      <div className="p-1">
+                        <Link href={`/category/${category.id}`}>
+                          <Card className="group overflow-hidden rounded-xl border-transparent transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-1">
+                            <div className="relative aspect-square w-full overflow-hidden">
+                              {image && (
+                                <Image
+                                  src={image.imageUrl}
+                                  alt={category.name}
+                                  data-ai-hint={image.imageHint}
+                                  fill
+                                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                              )}
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                              <div className="relative z-10 flex items-end justify-center h-full text-center p-2 text-white">
+                                <h2 className="text-lg font-semibold tracking-tight">{category.name}</h2>
+                              </div>
+                            </div>
+                          </Card>
+                        </Link>
                       </div>
-                    </Card>
-                  </Link>
-                );
-              })}
-            </div>
+                    </CarouselItem>
+                  );
+                })}
+              </CarouselContent>
+              <CarouselPrevious className="hidden sm:flex" />
+              <CarouselNext className="hidden sm:flex" />
+            </Carousel>
           </div>
         </section>
 
